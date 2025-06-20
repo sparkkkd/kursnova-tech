@@ -2,7 +2,7 @@ import clsx from 'clsx'
 import { type FC } from 'react'
 import { motion } from 'framer-motion'
 
-import { Container } from '../../../../components/Container/Container'
+// import { Container } from '../../../../components/Container/Container'
 
 import styles from './FeturesSection.module.sass'
 import { ExplodeWithHeader } from './components/ExplodeWithHeader/ExplodeWithHeader'

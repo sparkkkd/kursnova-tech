@@ -4,7 +4,7 @@ import { motion } from 'framer-motion'
 
 import styles from './SwitchMode.module.sass'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import { switchMode } from '../../store/slices/UISlice'
+import { switchMode as switchModeAction } from '../../store/slices/uiSlice'
 
 interface SwitchModeProps {
 	className?: string
@@ -36,7 +36,7 @@ export const SwitchMode: FC<SwitchModeProps> = ({ className }) => {
 	}, [])
 
 	const handleChangeMode = (mode: 'parents' | 'students') => {
-		dispatch(switchMode(mode))
+		dispatch(switchModeAction(mode))
 
 		const ref = mode === 'parents' ? parentRef : studentRef
 		const containerRect = containerRef.current?.getBoundingClientRect()
