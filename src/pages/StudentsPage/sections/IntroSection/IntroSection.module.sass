@@ -1,0 +1,121 @@
+.intro
+	position: relative
+	height: calc( 100vh - 100px )
+	display: flex
+	flex-direction: column
+	align-items: center
+	justify-content: center
+
+.title
+	margin: auto
+	position: relative
+	text-align: center
+	font-size: 100px
+	div
+		&:nth-child(1)
+			margin-left: 120px
+		&:nth-child(2)
+			margin-left: 0px
+		&:nth-child(3)
+			margin-left: 80px
+		&:nth-child(4)
+			margin-left: 160px
+
+.tag
+	padding: 8px 24px 12px 24px
+	position: absolute
+	right: -35px
+	bottom: -90px
+	transform: rotateZ(6deg)
+	background-color: #aff26d
+	border: 8px solid #fff
+	border-radius: 50px
+	color: #3e601c
+	font-size: 60px
+	font-weight: bold
+
+.video
+	position: absolute
+	top: 35%
+	left: 50%
+	max-width: 100%
+	max-height: 900px
+	transform: translate(-50%, -50%)
+	object-fit: contain
+	pointer-events: none
+
+.scroll
+	margin-top: auto
+	margin-bottom: 24px
+
+// Media
+@media screen and ( max-width: 1100px )
+	.intro
+		margin-top: 60px
+
+	.title
+		font-size: 87px
+
+	.tag
+		font-size: 35px
+		right: 0px
+		bottom: -61px
+
+	.video
+		height: 400px
+
+@media screen and ( max-width: 825px )
+	.intro
+		margin-top: 40px
+
+	.title
+		font-size: 65px
+
+	.tag
+		padding: 5px 20px
+		right: 4px
+		bottom: -40px
+		font-size: 25px
+		border: 6px solid #fff
+
+@media screen and ( max-width: 630px )
+	.title
+		font-size: 50px
+
+	.tag
+		right: -5px
+		bottom: -35px
+		font-size: 19px
+
+@media screen and ( max-width: 530px )
+	.title
+		div
+			&:nth-child(1)
+				margin-left: 20px
+			&:nth-child(2)
+				margin-left: 0px
+			&:nth-child(3)
+				margin-left: -20px
+			&:nth-child(4)
+				margin-left: 80px
+
+	.video
+		top: 85px
+
+@media screen and ( max-width: 425px )
+	.title
+		font-size: 40px
+		div
+			&:nth-child(1)
+				margin-left: 20px
+			&:nth-child(2)
+				margin-left: 0px
+			&:nth-child(3)
+				margin-left: -20px
+			&:nth-child(4)
+				margin-left: 20px
+
+	.tag
+		font-size: 14px
+		right: -7px
+		bottom: -30px
