@@ -23,7 +23,7 @@ export const IntroSection: FC<IntroSectionProps> = ({ className }) => {
 				<div className={styles.tag}>С kursnova</div>
 			</h1>
 			<video className={styles.video} autoPlay muted preload='auto'>
-				<source src='/bombs.webm' />
+				<source src='./bombs.webm' />
 			</video>
 			<ScrollDown className={styles.scroll} />
 		</section>

@@ -1,5 +1,9 @@
 import { type FC } from 'react'
+import clsx from 'clsx'
+
 import { motion } from 'framer-motion'
+
+import { FeaturesButton } from '../FeaturesButton/FeaturesButton'
 
 import HeartSvg from '../../../../../../assets/features/heart.svg?react'
 import PizzaSvg from '../../../../../../assets/features/pizza.svg?react'
@@ -7,7 +11,6 @@ import HandsSvg from '../../../../../../assets/features/hands.svg?react'
 import PhoneSvg from '../../../../../../assets/features/phone.svg?react'
 
 import styles from './ExplodeWithHeader.module.sass'
-import clsx from 'clsx'
 
 interface ExplodeWithHeaderProps {
 	className?: string
@@ -18,27 +21,25 @@ export const ExplodeWithHeader: FC<ExplodeWithHeaderProps> = ({
 }) => {
 	return (
 		<div className={clsx(styles.wrapper, className)}>
-			<video
+			<motion.video
 				className={styles.explode}
-				src='/explode.mp4'
+				src='./explode.mp4'
 				autoPlay
 				muted
 				preload='auto'
 				playsInline
-			></video>
-			<motion.h3
-				className={styles.title}
 				initial={{
-					opacity: 0,
+					opacity: 1,
 				}}
 				animate={{
-					opacity: 1,
+					opacity: 0,
 					transition: {
 						delay: 0.5,
 						duration: 1,
 					},
 				}}
-			>
+			></motion.video>
+			<h3 className={styles.title}>
 				<div>
 					Учись в любимом
 					<HeartSvg />
@@ -54,8 +55,8 @@ export const ExplodeWithHeader: FC<ExplodeWithHeaderProps> = ({
 					<PhoneSvg />
 					смартфон
 				</div>
-			</motion.h3>
-			<button className={styles.button}>Попробовать за 0 ₽</button>
+			</h3>
+			<FeaturesButton className={styles.tryButton} />
 		</div>
 	)
 }

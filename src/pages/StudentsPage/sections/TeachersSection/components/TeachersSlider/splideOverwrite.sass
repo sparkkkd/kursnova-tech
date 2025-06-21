@@ -1,0 +1,18 @@
+.splide__slide
+	&:nth-child(even)
+		transform: rotateZ(2deg)
+	&:nth-child(odd)
+		transform: rotateZ(-2deg)
+
+.splide__list
+	display: flex
+	align-items: center
+	overflow: visible !important
+
+// Media
+@media screen and ( max-width: 815px )
+	.splide__slide
+		&:nth-child(even)
+			transform: rotateZ(0)
+		&:nth-child(odd)
+			transform: rotateZ(0)

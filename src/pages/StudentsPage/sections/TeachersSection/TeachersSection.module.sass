@@ -1,0 +1,19 @@
+@use '../../../../utils/sass-mixins' as mixins
+
+.teachers
+	margin-top: mixins.rem(100)
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+
+.title
+	margin-bottom: mixins.rem(15)
+	@include mixins.fluid-text(72, 40)
+	font-weight: bold
+	text-align: center
+
+.subtitle
+	@include mixins.fluid-text(20, 16)
+	width: mixins.rem(400)
+	text-align: center

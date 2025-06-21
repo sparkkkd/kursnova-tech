@@ -1,0 +1,106 @@
+@use '../../../../../../utils/sass-mixins' as mixins
+
+.card
+	position: relative
+	width: 327px
+	height: 500px
+	display: flex
+	flex-direction: column
+	border-radius: mixins.rem(24)
+
+.img
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	background-repeat: no-repeat
+	background-size: cover
+	border-radius: mixins.rem(24)
+	z-index: -1
+
+.wrapper
+	margin-top: auto
+	margin-bottom: mixins.rem(20)
+	margin-left: mixins.rem(15)
+	margin-right: mixins.rem(15)
+
+.name
+	margin-bottom: mixins.rem(5)
+	@include mixins.fluid-text(24, 16)
+	font-weight: bold
+
+.tags
+	display: flex
+	gap: mixins.rem(5)
+
+.scoreWrapper
+	display: flex
+	justify-content: space-between
+	align-items: center
+	gap: mixins.rem(10)
+
+.score
+	width: 50%
+	min-height: mixins.rem(100)
+	padding: mixins.rem(15) mixins.rem(10)
+	display: flex
+	flex-direction: column
+	background-color: rgba(20, 20, 26, 0.5)
+	border-radius: mixins.rem(24)
+	backdrop-filter: blur(24px)
+
+.scoreCount
+	margin-bottom: mixins.rem(5)
+	@include mixins.fluid-text(24, 16)
+
+.scoreText
+	@include mixins.fluid-text(14, 10)
+
+.mobileInfo
+	width: 330px
+	margin: 0 auto
+	padding: 15px 20px
+	display: flex
+	flex-direction: column
+	gap: mixins.rem(12)
+	background-color: #303038
+	border-radius: 20px
+
+.mobileName
+	font-size: 24px
+
+.mobileTags
+	display: flex
+	gap: mixins.rem(5)
+
+.mobileDescription
+	font-size: 16px
+
+// Media
+@media screen and ( max-width: 1395px )
+	.card
+		width: 300px
+		height: 450px
+
+@media screen and ( max-width: 1395px )
+	.card
+		width: 250px
+		height: 400px
+
+@media screen and ( max-width: 815px )
+.card
+	margin: 0 auto
+	width: 330px
+	height: 500px
+
+@media screen and ( max-width: 480px )
+	.mobileInfo
+		width: 270px
+
+	.mobileDescription
+		font-size: 14px
+
+	.card
+		width: 270px
+		height: 400px

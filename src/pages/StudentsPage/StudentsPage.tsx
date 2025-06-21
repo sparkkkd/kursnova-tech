@@ -5,6 +5,7 @@ import { FeturesSection } from './sections/FeturesSection/FeturesSection'
 import { HowSection } from './sections/HowSection/HowSection'
 
 import styles from './StudentsPage.module.sass'
+import { TeachersSection } from './sections/TeachersSection/TeachersSection'
 
 interface StudentsPageProps {
 	className?: string
@@ -16,6 +17,7 @@ export const StudentsPage: FC<StudentsPageProps> = ({}) => {
 			<IntroSection />
 			<FeturesSection />
 			<HowSection />
+			<TeachersSection />
 		</main>
 	)
 }

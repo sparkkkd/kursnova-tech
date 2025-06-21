@@ -15,7 +15,7 @@ export const Header: FC<HeaderProps> = ({ className }) => {
 		<Container className={styles.wrapper}>
 			<header className={clsx(styles.header, className)}>
 				<button className={styles.logo}>
-					<img src='/logo.svg' alt='logo' />
+					<img src='./logo.svg' alt='logo' />
 				</button>
 				<SwitchMode className={styles.desktopMode} />
 				<div className={styles.actions}>

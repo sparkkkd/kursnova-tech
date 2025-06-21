@@ -11,7 +11,7 @@ export const ScrollDown: FC<ScrollDownProps> = ({ className }) => {
 	return (
 		<div className={clsx(styles.wrapper, className)}>
 			<button className={styles.button}>
-				<img src='/scroll.svg' alt='scroll-down' />
+				<img src='./scroll.svg' alt='scroll-down' />
 				Скролль вниз
 			</button>
 		</div>
