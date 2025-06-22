@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 
 import { Container } from '../../../../../../components/Container/Container'
 import { FeaturesDescription } from '../FeaturesDescription/FeaturesDescription'
@@ -22,27 +23,85 @@ export const FeaturesTask: FC<FeaturesTaskProps> = ({ className }) => {
 		<Container className={styles.container}>
 			<div className={clsx(styles.wrapper, className)}>
 				<div className={styles.left}>
-					<div className={styles.title}>Решай</div>
-					<div className={styles.text}>
-						<div>зада</div>
-						<div>
+					<motion.div
+						className={styles.title}
+						initial={{ opacity: 0, y: -100 }}
+						whileInView={{
+							opacity: 1,
+							y: 0,
+							transition: {
+								duration: 0.3,
+							},
+						}}
+						viewport={{ once: true, amount: 0.3 }}
+					>
+						Решай
+					</motion.div>
+					<motion.div className={styles.text}>
+						<motion.div
+							initial={{ opacity: 0, x: -100 }}
+							whileInView={{
+								opacity: 1,
+								x: 0,
+								transition: {
+									duration: 0.3,
+									delay: 0.2,
+								},
+							}}
+							viewport={{ once: true, amount: 0.3 }}
+						>
+							зада
+						</motion.div>
+						<motion.div
+							initial={{ opacity: 0, y: 100 }}
+							whileInView={{
+								opacity: 1,
+								y: 0,
+								transition: {
+									duration: 0.3,
+									delay: 0.3,
+								},
+							}}
+							viewport={{ once: true, amount: 0.3 }}
+						>
 							ния
 							<Star className={styles.star} />
-						</div>
+						</motion.div>
 						<TaskTag className={styles.taskTag} />
-					</div>
+					</motion.div>
 				</div>
-				<div className={styles.center}>
+				<motion.div
+					className={styles.center}
+					initial={{ opacity: 0, scale: 0 }}
+					whileInView={{
+						opacity: 1,
+						scale: 1,
+						transition: {
+							duration: 0.5,
+							delay: 0.4,
+							type: 'spring',
+						},
+					}}
+					viewport={{ once: true, amount: 0.3 }}
+				>
 					<img className={styles.img} src={TaskImg} alt='' />
-				</div>
+				</motion.div>
 				<div className={styles.right}>
-					{TASK_DESCRIPTIONS.map((props, index) => (
-						<FeaturesDescription key={index} {...props} />
-					))}
-					<FeaturesButton />
+					{TASK_DESCRIPTIONS.map((props, index) => {
+						const baseDelay = 0.1
+						return (
+							<FeaturesDescription
+								key={index}
+								{...props}
+								delayIcon={baseDelay + index * 0.1}
+								delayTitle={baseDelay + index * 0.2}
+								delayText={baseDelay + index * 0.3}
+							/>
+						)
+					})}
 				</div>
 			</div>
-			<FeaturesButton className={styles.tryButton} />
+			<FeaturesButton delay={0.4} className={styles.tryButton} />
 		</Container>
 	)
 }

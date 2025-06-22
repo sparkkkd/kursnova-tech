@@ -1,0 +1,161 @@
+.wrapper
+	position: absolute
+	height: 500px
+	inset: 0
+	pointer-events: none
+
+.icon
+	position: absolute
+	width: 150px
+	height: 150px
+	display: flex
+	justify-content: center
+	align-items: center
+	svg
+		width: 100%
+		height: 100%
+
+	&.pos0_0
+		top: 41%
+		left: -5%
+
+	&.pos0_1
+		top: 90%
+		left: 3%
+
+	&.pos0_2
+		left: auto
+		bottom: auto
+		top: 41%
+		right: -5%
+
+	&.pos0_3
+		bottom: -17%
+		right: 0
+
+// Media
+// @media screen and ( max-width: 1264px )
+// 	.icon
+// 		&.pos0_0
+// 			top: 34%
+// 			left: 18%
+
+// 		&.pos0_1
+// 			top: 62%
+// 			left: 25%
+
+// 		&.pos0_2
+// 			top: 34%
+// 			right: 20%
+
+// 		&.pos0_3
+// 			bottom: 25%
+// 			right: 25%
+
+@media screen and ( max-width: 800px )
+	.icon
+		width: 70px
+		height: 70px
+
+		&.pos0_0
+			top: 34%
+			left: 18%
+
+		&.pos0_1
+			top: 62%
+			left: 25%
+
+		&.pos0_2
+			top: 34%
+			right: 20%
+
+		&.pos0_3
+			bottom: 25%
+			right: 25%
+
+@media screen and ( max-width: 700px )
+	.icon
+		width: 100px
+		height: 100px
+
+		&.pos0_0
+			top: 40%
+			left: 24%
+
+		&.pos0_1
+			top: 80%
+			left: 28%
+
+		&.pos0_2
+			top: 43%
+			right: 25%
+
+		&.pos0_3
+			bottom: 0%
+			right: 25%
+
+@media screen and ( max-width: 552px )
+	.icon
+		width: 100px
+		height: 100px
+
+		&.pos0_0
+			top: 50%
+			left: 8%
+
+		&.pos0_1
+			top: auto
+			bottom: -6%
+			left: 13%
+
+		&.pos0_2
+			top: 51%
+			right: 10%
+
+		&.pos0_3
+			bottom: -6%
+			right: 14%
+
+@media screen and ( max-width: 485px )
+	.icon
+		width: 100px
+		height: 100px
+
+		&.pos0_0
+			top: 37%
+			left: 8%
+
+		&.pos0_1
+			top: auto
+			bottom: -6%
+			left: 13%
+
+		&.pos0_2
+			top: 36%
+			right: 10%
+
+		&.pos0_3
+			bottom: -6%
+			right: 14%
+
+@media screen and ( max-width: 451px )
+	.icon
+		width: 100px
+		height: 100px
+
+		&.pos0_0
+			top: 44%
+			left: 8%
+
+		&.pos0_1
+			top: auto
+			bottom: -6%
+			left: 13%
+
+		&.pos0_2
+			top: 44%
+			right: 10%
+
+		&.pos0_3
+			bottom: -6%
+			right: 14%

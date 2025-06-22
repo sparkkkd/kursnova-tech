@@ -1,11 +1,4 @@
-
 @use '../../../../../../utils/sass-mixins' as mixins
-
-.container
-	display: flex
-	flex-direction: column
-	justify-content: center
-	align-items: center
 
 .wrapper
 	display: flex
@@ -67,8 +60,11 @@
 	gap: mixins.rem(40)
 
 .tryButton
+	display: block
 	margin-top: mixins.rem(24)
 	margin-bottom: mixins.rem(24)
+	margin-left: auto
+	margin-right: auto
 
 @media screen and ( max-width: 600px )
 	.wrapper

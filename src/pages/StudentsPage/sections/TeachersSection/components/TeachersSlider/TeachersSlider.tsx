@@ -22,7 +22,6 @@ export const TeachersSlider: FC<TeachersSliderProps> = ({ className }) => {
 	const { width } = useWindowSize()
 
 	const options = {
-		// type: 'loop',
 		perPage: 4,
 		gap: 0,
 		arrows: false,
@@ -39,7 +38,19 @@ export const TeachersSlider: FC<TeachersSliderProps> = ({ className }) => {
 	}
 
 	return (
-		<div className={clsx(styles.wrapper, className)}>
+		<motion.div
+			className={clsx(styles.wrapper, className)}
+			initial={{ opacity: 0, x: -200 }}
+			whileInView={{
+				opacity: 1,
+				x: 0,
+				transition: {
+					duration: 0.3,
+					delay: 0.4,
+				},
+			}}
+			viewport={{ once: true, amount: 0.3 }}
+		>
 			<Splide options={options} hasTrack={false} ref={splideRef}>
 				<div className='splide__track'>
 					<ul className='splide__list'>
@@ -53,20 +64,20 @@ export const TeachersSlider: FC<TeachersSliderProps> = ({ className }) => {
 			</Splide>
 			{width > 815 && (
 				<div className={styles.controls}>
-					<motion.button
+					<button
 						className={styles.prev}
 						onClick={() => splideRef.current.go('<')}
 					>
 						Назад
-					</motion.button>
-					<motion.button
+					</button>
+					<button
 						className={styles.next}
 						onClick={() => splideRef.current.go('>')}
 					>
 						Вперед
-					</motion.button>
+					</button>
 				</div>
 			)}
-		</div>
+		</motion.div>
 	)
 }

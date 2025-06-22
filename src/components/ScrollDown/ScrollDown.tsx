@@ -1,5 +1,6 @@
 import clsx from 'clsx'
 import type { FC } from 'react'
+import { motion } from 'framer-motion'
 
 import styles from './ScrollDown.module.sass'
 
@@ -9,11 +10,22 @@ interface ScrollDownProps {
 
 export const ScrollDown: FC<ScrollDownProps> = ({ className }) => {
 	return (
-		<div className={clsx(styles.wrapper, className)}>
+		<motion.div
+			initial={{ opacity: 0, y: 100 }}
+			animate={{
+				opacity: 1,
+				y: 0,
+				transition: {
+					duration: 0.3,
+					delay: 0.5,
+				},
+			}}
+			className={clsx(styles.wrapper, className)}
+		>
 			<button className={styles.button}>
 				<img src='./scroll.svg' alt='scroll-down' />
 				Скролль вниз
 			</button>
-		</div>
+		</motion.div>
 	)
 }

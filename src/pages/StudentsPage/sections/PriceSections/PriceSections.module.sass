@@ -1,0 +1,107 @@
+@use '../../../../utils/sass-mixins' as mixins
+
+.section
+	position: relative
+	margin-top: mixins.rem(100)
+	overflow: visible
+
+.wrapper
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: center
+
+.title
+	margin-bottom: mixins.rem(60)
+	@include mixins.fluid-text(48, 32 )
+
+.content
+	display: flex
+	align-items: start
+	gap: mixins.rem(120)
+
+.cards
+	display: flex
+	flex-direction: column
+	gap: mixins.rem(15)
+
+.button
+	margin-top: mixins.rem(100)
+
+.tag
+	position: absolute
+	left: 0
+	bottom: 0
+	z-index: 1
+
+.arrow
+	display: none
+	position: absolute
+	left: 22%
+	bottom: -10%
+	z-index: -1
+
+.mobileTag
+	display: none
+
+// Media
+@media screen and ( max-width: 1550px )
+	.arrow
+		display: block
+
+@media screen and ( max-width: 1355px )
+	.button
+		margin-top: 200px
+
+	.tag
+		width: 250px
+		height: 240px
+
+	.arrow
+		left: 17%
+		bottom: -8%
+		height: 250px
+
+@media screen and ( max-width: 1200px )
+	.content
+		gap: mixins.rem(60)
+
+	.tag
+		width: 200px
+		height: 190px
+
+	.arrow
+		left: 15%
+
+@media screen and ( max-width: 1070px )
+	.button
+		margin-top: mixins.rem(150)
+
+@media screen and ( max-width: 990px )
+	.arrow
+		height: 190px
+
+@media screen and ( max-width: 650px )
+	.section
+		overflow: visible
+
+	.content
+		flex-direction: column
+		justify-content: center
+		align-items: center
+
+	.cards
+		width: 100%
+
+	.button
+		margin-top: mixins.rem(20)
+
+	.tag
+		display: none
+
+	.arrow
+		display: none
+
+	.mobileTag
+		margin-top: mixins.rem(50)
+		display: block

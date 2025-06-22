@@ -1,11 +1,14 @@
 import type { FC } from 'react'
 
 import { IntroSection } from './sections/IntroSection/IntroSection'
-import { FeturesSection } from './sections/FeturesSection/FeturesSection'
+import { FeaturesSection } from './sections/FeaturesSection/FeaturesSection'
 import { HowSection } from './sections/HowSection/HowSection'
+import { TeachersSection } from './sections/TeachersSection/TeachersSection'
+import { SupportSection } from './sections/SupportSection/SupportSection'
+import { PriceSections } from './sections/PriceSections/PriceSections'
+import { FaqSection } from './sections/FaqSecton/FaqSection'
 
 import styles from './StudentsPage.module.sass'
-import { TeachersSection } from './sections/TeachersSection/TeachersSection'
 
 interface StudentsPageProps {
 	className?: string
@@ -15,9 +18,12 @@ export const StudentsPage: FC<StudentsPageProps> = ({}) => {
 	return (
 		<main className={styles.main}>
 			<IntroSection />
-			<FeturesSection />
+			<FeaturesSection />
 			<HowSection />
 			<TeachersSection />
+			<SupportSection />
+			<PriceSections />
+			<FaqSection />
 		</main>
 	)
 }

@@ -1,5 +1,6 @@
 import type { FC } from 'react'
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 
 import how1 from '../../../../assets/how/how-1.svg'
 import how2 from '../../../../assets/how/how-2.svg'
@@ -44,20 +45,64 @@ export const HowSection: FC<HowSectionsProps> = ({ className }) => {
 		<section className={clsx(className, styles.how)}>
 			<Container>
 				<div className={styles.wrapper}>
-					<h3 className={styles.title}>Как все устроено</h3>
+					<motion.h3
+						className={styles.title}
+						initial={{ opacity: 0, x: -100 }}
+						whileInView={{ opacity: 1, x: 0, transition: { duration: 0.3 } }}
+						viewport={{ once: true, amount: 0.3 }}
+					>
+						Как все устроено
+					</motion.h3>
 					<div className={styles.cards}>
-						{cardsContent.map((card, index) => (
-							<HowCard
-								key={index}
-								className={styles.card}
-								img={card.img}
-								text={card.text}
-								soon={card.soon}
-							/>
-						))}
-						<img className={styles.img} src={weHelp} alt='Мы поможем!' />
+						{cardsContent.map((card, index) => {
+							const baseDelay = 0.1
+
+							return (
+								<HowCard
+									key={index}
+									className={styles.card}
+									img={card.img}
+									text={card.text}
+									soon={card.soon}
+									delayCard={baseDelay + index * 0.1}
+									delayImg={baseDelay + index * 0.1}
+									delayText={baseDelay + index * 0.1}
+								/>
+							)
+						})}
+						<motion.img
+							className={styles.img}
+							src={weHelp}
+							alt='Мы поможем!'
+							initial={{ opacity: 0, x: -100 }}
+							whileInView={{
+								opacity: 1,
+								x: 0,
+								transition: {
+									duration: 0.4,
+									delay: 0.5,
+								},
+							}}
+							viewport={{ once: true, amount: 0.3 }}
+						/>
 					</div>
-					<button className={styles.button}>Попробовать за 0 ₽</button>
+					<motion.button
+						className={styles.button}
+						initial={{
+							opacity: 0,
+							y: 100,
+						}}
+						whileInView={{
+							opacity: 1,
+							y: 0,
+							transition: {
+								duration: 0.3,
+								delay: 0.7,
+							},
+						}}
+					>
+						Попробовать за 0 ₽
+					</motion.button>
 				</div>
 			</Container>
 		</section>
