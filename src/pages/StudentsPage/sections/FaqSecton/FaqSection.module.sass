@@ -1,0 +1,41 @@
+@use '../../../../utils/sass-mixins' as mixins
+
+.section
+	margin-top: mixins.rem(100)
+
+.wrapper
+	position: relative
+	display: flex
+	justify-content: space-between
+
+.title
+	position: absolute
+	left: 0
+	height: max-content
+	@include mixins.fluid-text(48, 32)
+
+.list
+	width: 50%
+	margin-left: auto
+
+.mobileTitle
+	margin-bottom: mixins.rem(24)
+	display: none
+	@include mixins.fluid-text(48, 32)
+
+// Media
+@media screen and ( max-width: 960px )
+	.title
+		display: none
+
+	.mobileTitle
+		display: block
+
+	.wrapper
+		flex-direction: column
+		justify-content: center
+		align-items: center
+
+	.list
+		margin: 0
+		width: 100%
