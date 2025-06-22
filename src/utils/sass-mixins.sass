@@ -32,20 +32,6 @@
 	#{$maxWidth}rem
   )
 
-@mixin fluid-height($maxHeight: 100, $minHeight: 40)
-	$maxViewportWidth: 1400
-	$minViewportWidth: 360
-
-	$minVw: math.div($minViewportWidth, 16) + rem
-	$maxVw: math.div($maxViewportWidth, 16) + rem
-
-	$minH: math.div($minHeight, 16) + rem
-	$maxH: math.div($maxHeight, 16) + rem
-
-	$slope: math.div(($maxH - $minH), ($maxVw - $minVw))
-
-	height: clamp($minH, $minH + ($slope * 100vw), $maxH)
-
 @function rem($pixel)
 	@if math.is-unitless($pixel)
 		@return math.div($pixel, 16) + rem
