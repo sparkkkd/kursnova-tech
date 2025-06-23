@@ -1,3 +1,4 @@
+import { Footer } from './modules/Footer/Footer'
 import { Header } from './modules/Header/Header'
 import { StudentsPage } from './pages/StudentsPage/StudentsPage'
 // import styles from './App.module.sass'
@@ -7,6 +8,7 @@ function App() {
 		<main>
 			<Header />
 			<StudentsPage />
+			<Footer />
 		</main>
 	)
 }

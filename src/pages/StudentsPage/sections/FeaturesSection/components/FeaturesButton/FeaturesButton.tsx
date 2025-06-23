@@ -1,6 +1,8 @@
 import clsx from 'clsx'
 import type { FC } from 'react'
 import { motion } from 'framer-motion'
+import { useAppDispatch } from '../../../../../../store/hooks'
+import { openModal } from '../../../../../../store/slices/uiSlice'
 
 import styles from './FeaturesButton.module.sass'
 
@@ -15,8 +17,11 @@ export const FeaturesButton: FC<FeaturesButtonProps> = ({
 	text,
 	delay,
 }) => {
+	const dispatch = useAppDispatch()
+
 	return (
 		<motion.button
+			onClick={() => dispatch(openModal())}
 			initial={{ opacity: 0, y: 100 }}
 			whileInView={{
 				opacity: 1,

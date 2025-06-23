@@ -31,7 +31,7 @@ export const ExplodeWithHeader: FC<ExplodeWithHeaderProps> = ({
 				initial={{
 					opacity: 1,
 				}}
-				animate={{
+				whileInView={{
 					opacity: 0,
 					transition: {
 						delay: 0.5,
