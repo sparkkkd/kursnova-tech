@@ -4,12 +4,14 @@ interface IInitialState {
 	mode: 'parents' | 'students'
 	isModalOpen: boolean
 	isModalSuccess: boolean
+	isSidebarOpen: boolean
 }
 
 const initialState: IInitialState = {
 	mode: 'parents',
 	isModalOpen: false,
 	isModalSuccess: false,
+	isSidebarOpen: false,
 }
 
 export const uiSlice = createSlice({
@@ -30,9 +32,21 @@ export const uiSlice = createSlice({
 		setModalSuccess: (state) => {
 			state.isModalSuccess = true
 		},
+		openSidebar: (state) => {
+			state.isSidebarOpen = true
+		},
+		closeSidebar: (state) => {
+			state.isSidebarOpen = false
+		},
 	},
 })
 
 export default uiSlice.reducer
-export const { switchMode, closeModal, openModal, setModalSuccess } =
-	uiSlice.actions
+export const {
+	switchMode,
+	closeModal,
+	openModal,
+	setModalSuccess,
+	closeSidebar,
+	openSidebar,
+} = uiSlice.actions

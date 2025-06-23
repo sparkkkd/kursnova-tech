@@ -1,4 +1,5 @@
 import type { FC } from 'react'
+import { useAppSelector } from '../../store/hooks'
 
 import { IntroSection } from './sections/IntroSection/IntroSection'
 import { FeaturesSection } from './sections/FeaturesSection/FeaturesSection'
@@ -8,29 +9,25 @@ import { SupportSection } from './sections/SupportSection/SupportSection'
 import { PriceSections } from './sections/PriceSections/PriceSections'
 import { FaqSection } from './sections/FaqSecton/FaqSection'
 
-import styles from './StudentsPage.module.sass'
-import { useAppSelector } from '../../store/hooks'
 import { Modal } from '../../modules/Modal/Modal'
 import { TryForm } from '../../modules/TryForm/TryForm'
 import { SuccessModal } from '../../modules/SuccessModal/SuccessModal'
+
+import styles from './StudentsPage.module.sass'
 
 interface StudentsPageProps {
 	className?: string
 }
 
 export const StudentsPage: FC<StudentsPageProps> = ({}) => {
-	const { isModalOpen, isModalSuccess } = useAppSelector(
-		(state) => state.uiReducer
-	)
+	const { isModalSuccess } = useAppSelector((state) => state.uiReducer)
 
 	return (
 		<main className={styles.main}>
-			{isModalOpen && (
-				<Modal>
-					{!isModalSuccess && <TryForm />}
-					{isModalSuccess && <SuccessModal />}
-				</Modal>
-			)}
+			<Modal>
+				{!isModalSuccess && <TryForm />}
+				{isModalSuccess && <SuccessModal />}
+			</Modal>
 
 			<IntroSection />
 			<FeaturesSection />
