@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import { useEffect, useRef, useState, type FC } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
@@ -19,6 +19,25 @@ interface FeaturesTaskProps {
 }
 
 export const FeaturesTask: FC<FeaturesTaskProps> = ({ className }) => {
+	const targetRef = useRef<HTMLDivElement>(null)
+	const [targetWidth, setTargetWidth] = useState<number | null>(null)
+
+	useEffect(() => {
+		const updateWidth = () => {
+			if (targetRef.current) {
+				setTargetWidth(targetRef.current.offsetWidth)
+			}
+		}
+
+		const resizeObserver = new ResizeObserver(updateWidth)
+		if (targetRef.current) {
+			resizeObserver.observe(targetRef.current)
+			updateWidth()
+		}
+
+		return () => resizeObserver.disconnect()
+	}, [])
+
 	return (
 		<Container className={styles.container}>
 			<div className={clsx(styles.wrapper, className)}>
@@ -71,6 +90,7 @@ export const FeaturesTask: FC<FeaturesTaskProps> = ({ className }) => {
 					</motion.div>
 				</div>
 				<motion.div
+					ref={targetRef}
 					className={styles.center}
 					initial={{ opacity: 0, scale: 0 }}
 					whileInView={{
@@ -101,7 +121,11 @@ export const FeaturesTask: FC<FeaturesTaskProps> = ({ className }) => {
 					})}
 				</div>
 			</div>
-			<FeaturesButton delay={0.4} className={styles.tryButton} />
+			<FeaturesButton
+				width={targetWidth}
+				delay={0.4}
+				className={styles.tryButton}
+			/>
 		</Container>
 	)
 }

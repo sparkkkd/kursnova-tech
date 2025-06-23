@@ -1,4 +1,4 @@
-import { useEffect, type FC } from 'react'
+import { useEffect, useState, type FC } from 'react'
 import ReactDOM from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import clsx from 'clsx'
@@ -15,19 +15,24 @@ export const Modal: FC<ModalProps> = ({ className, children }) => {
 	const dispatch = useAppDispatch()
 	const { isModalOpen } = useAppSelector((state) => state.uiReducer)
 
+	const [isMounted, setIsMounted] = useState(false)
+
 	useEffect(() => {
 		if (isModalOpen) {
+			setIsMounted(true)
 			document.body.style.overflow = 'hidden'
 		} else {
 			document.body.style.overflow = ''
 		}
-
-		return () => {
-			document.body.style.overflow = ''
-		}
 	}, [isModalOpen])
 
-	if (!isModalOpen) return null
+	const handleAnimationComplete = () => {
+		if (!isModalOpen) {
+			setIsMounted(false)
+		}
+	}
+
+	if (!isMounted && !isModalOpen) return null
 
 	return ReactDOM.createPortal(
 		<AnimatePresence>
@@ -46,6 +51,7 @@ export const Modal: FC<ModalProps> = ({ className, children }) => {
 						initial={{ opacity: 0, y: 50 }}
 						animate={{ opacity: 1, y: 0 }}
 						exit={{ opacity: 0, y: -50 }}
+						onAnimationComplete={handleAnimationComplete}
 					>
 						{children}
 					</motion.div>

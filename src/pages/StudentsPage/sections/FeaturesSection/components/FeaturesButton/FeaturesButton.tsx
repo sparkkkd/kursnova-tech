@@ -10,12 +10,14 @@ interface FeaturesButtonProps {
 	className?: string
 	text?: string
 	delay?: number
+	width?: number | null
 }
 
 export const FeaturesButton: FC<FeaturesButtonProps> = ({
 	className,
 	text,
 	delay,
+	width,
 }) => {
 	const dispatch = useAppDispatch()
 
@@ -33,6 +35,7 @@ export const FeaturesButton: FC<FeaturesButtonProps> = ({
 			}}
 			viewport={{ once: true, amount: 0.3 }}
 			className={clsx(styles.button, className)}
+			style={{ width: width ? width : '' }}
 		>
 			{text ? text : 'Попробовать за 0 ₽'}
 		</motion.button>

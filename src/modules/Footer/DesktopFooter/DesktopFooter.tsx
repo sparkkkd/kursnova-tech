@@ -2,6 +2,10 @@ import { useEffect, useRef, useState, type FC } from 'react'
 import clsx from 'clsx'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
+import { FooterCard } from '../FooterCard/FooterCard'
+import { FooterContacts } from '../FooterContacts/FooterContacts'
+import { FooterLicense } from '../FooterLicense/FooterLicense'
+
 import Eurica from '../../../assets/footer/eurica.svg'
 import Horse from '../../../assets/footer/horse.png'
 import Circle from '../../../assets/footer/circle.svg'
@@ -11,9 +15,6 @@ import GreenBall from '../../../assets/footer/green-ball.png'
 import Star from '../../../assets/footer/star.png'
 
 import styles from './DesktopFooter.module.sass'
-import { FooterCard } from '../FooterCard/FooterCard'
-import { FooterContacts } from '../FooterContacts/FooterContacts'
-import { FooterLicense } from '../FooterLicense/FooterLicense'
 
 interface FooterProps {
 	className?: string
@@ -76,7 +77,7 @@ export const DesktopFooter: FC<FooterProps> = ({ className }) => {
 						<FooterCard className={styles.card} />
 						<FooterContacts className={styles.contacts} />
 					</div>
-					<FooterLicense className={styles.license} />
+					<FooterLicense isMobile={false} className={styles.license} />
 				</motion.div>
 			</div>
 		</footer>

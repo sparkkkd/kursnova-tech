@@ -2,7 +2,8 @@
 
 .button
 	bottom: 24px
-	padding: 1em 3em
+	width: 25rem
+	padding: 24px 0px
 	border-radius: mixins.rem(64)
 	backdrop-filter: blur(48px)
 	background: rgba(255, 255, 255, 0.1)
@@ -11,6 +12,10 @@
 	z-index: 2
 
 // Media
+@media screen and ( max-width: 1215px )
+	.button
+		border-radius: 32px
+
 @media screen and ( max-width: 535px )
 	.button
 		width: 80%

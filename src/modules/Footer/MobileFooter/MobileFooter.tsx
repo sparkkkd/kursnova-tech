@@ -1,7 +1,11 @@
 import type { FC } from 'react'
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
 
 import { Container } from '../../../components/Container/Container'
+import { FooterCard } from '../FooterCard/FooterCard'
+import { FooterContacts } from '../FooterContacts/FooterContacts'
+import { FooterLicense } from '../FooterLicense/FooterLicense'
 
 import Bot from '../../../assets/footer/bot.svg'
 import GreenBall from '../../../assets/footer/green-ball.png'
@@ -10,9 +14,6 @@ import Horse from '../../../assets/footer/horse.png'
 import CardBackground from '../../../assets/footer/card-bg-mobile.png'
 
 import styles from './MobileFooter.module.sass'
-import { FooterCard } from '../FooterCard/FooterCard'
-import { FooterContacts } from '../FooterContacts/FooterContacts'
-import { FooterLicense } from '../FooterLicense/FooterLicense'
 
 interface MobileFooterProps {
 	className?: string
@@ -24,18 +25,106 @@ export const MobileFooter: FC<MobileFooterProps> = ({ className }) => {
 			<Container>
 				<div className={styles.wrapper}>
 					<h3 className={styles.title}>
-						Учиться <br /> по-новому <br /> с kursnova
-						<img className={styles.bot} src={Bot} alt='Bot' />
-						<img className={styles.greenBall} src={GreenBall} alt='GreenBall' />
-						<img className={styles.eurica} src={Eurica} alt='Eurica' />
-						<img className={styles.horse} src={Horse} alt='Horse' />
+						<motion.div
+							initial={{ opacity: 0, y: 100 }}
+							whileInView={{
+								opacity: 1,
+								y: 0,
+								transition: { duration: 0.3, delay: 0.1 },
+							}}
+							viewport={{ once: true, amount: 0.1 }}
+						>
+							Учиться
+						</motion.div>
+						<motion.div
+							initial={{ opacity: 0, y: 100 }}
+							whileInView={{
+								opacity: 1,
+								y: 0,
+								transition: { duration: 0.3, delay: 0.2 },
+							}}
+							viewport={{ once: true, amount: 0.1 }}
+						>
+							по-новому
+						</motion.div>
+						<motion.div
+							initial={{ opacity: 0, y: 100 }}
+							whileInView={{
+								opacity: 1,
+								y: 0,
+								transition: { duration: 0.3, delay: 0.3 },
+							}}
+							viewport={{ once: true, amount: 0.1 }}
+						>
+							с kursnova
+						</motion.div>
+						<motion.img
+							initial={{ opacity: 0, y: 100 }}
+							whileInView={{
+								opacity: 1,
+								y: 0,
+								transition: { duration: 0.3, delay: 0.4 },
+							}}
+							viewport={{ once: true, amount: 0.1 }}
+							className={styles.bot}
+							src={Bot}
+							alt='Bot'
+						/>
+						<motion.img
+							initial={{ opacity: 0, y: 100 }}
+							whileInView={{
+								opacity: 1,
+								y: 0,
+								transition: { duration: 0.3, delay: 0.5 },
+							}}
+							viewport={{ once: true, amount: 0.1 }}
+							className={styles.greenBall}
+							src={GreenBall}
+							alt='GreenBall'
+						/>
+						<motion.img
+							initial={{ opacity: 0, y: 100 }}
+							whileInView={{
+								opacity: 1,
+								y: 0,
+								transition: { duration: 0.3, delay: 0.6 },
+							}}
+							viewport={{ once: true, amount: 0.1 }}
+							className={styles.eurica}
+							src={Eurica}
+							alt='Eurica'
+						/>
+						<motion.img
+							initial={{ opacity: 0, y: 100 }}
+							whileInView={{
+								opacity: 1,
+								y: 0,
+								transition: { duration: 0.3, delay: 0.7 },
+							}}
+							viewport={{ once: true, amount: 0.1 }}
+							className={styles.horse}
+							src={Horse}
+							alt='Horse'
+						/>
 					</h3>
-					<FooterCard
-						backgroundImage={CardBackground}
-						className={styles.card}
-					/>
-					<FooterContacts className={styles.contacts} />
-					<FooterLicense className={styles.license} />
+					<motion.div
+						initial={{ opacity: 0, y: 100 }}
+						whileInView={{ opacity: 1, y: 0 }}
+					>
+						<FooterCard
+							backgroundImage={CardBackground}
+							className={styles.card}
+						/>
+					</motion.div>
+
+					<motion.div
+						initial={{ opacity: 0, y: 100 }}
+						whileInView={{ opacity: 1, y: 0 }}
+					>
+						<FooterContacts className={styles.contacts} />
+					</motion.div>
+
+					<FooterLicense isMobile className={styles.license} />
 				</div>
 			</Container>
 		</footer>
