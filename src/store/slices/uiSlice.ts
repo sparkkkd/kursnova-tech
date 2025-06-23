@@ -23,6 +23,7 @@ export const uiSlice = createSlice({
 		},
 		openModal: (state) => {
 			state.isModalSuccess = false
+			state.isSidebarOpen = false
 			state.isModalOpen = true
 		},
 		closeModal: (state) => {

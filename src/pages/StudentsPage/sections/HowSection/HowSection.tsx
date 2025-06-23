@@ -1,12 +1,14 @@
 import type { FC } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
+import { useAppDispatch } from '../../../../store/hooks'
+import { openModal } from '../../../../store/slices/uiSlice'
 
 import how1 from '../../../../assets/how/how-1.svg'
 import how2 from '../../../../assets/how/how-2.svg'
 import how3 from '../../../../assets/how/how-3.svg'
 import how4 from '../../../../assets/how/how-4.svg'
-import weHelp from '../../../../assets/how/we-help.svg'
+import weHelp from '../../../../assets/how/we-help.png'
 
 import { HowCard } from './components/HowCard/HowCard'
 import { Container } from '../../../../components/Container/Container'
@@ -41,6 +43,8 @@ const cardsContent = [
 ]
 
 export const HowSection: FC<HowSectionsProps> = ({ className }) => {
+	const dispatch = useAppDispatch()
+
 	return (
 		<section className={clsx(className, styles.how)}>
 			<Container>
@@ -100,6 +104,7 @@ export const HowSection: FC<HowSectionsProps> = ({ className }) => {
 								delay: 0.7,
 							},
 						}}
+						onClick={() => dispatch(openModal())}
 					>
 						Попробовать за 0 ₽
 					</motion.button>

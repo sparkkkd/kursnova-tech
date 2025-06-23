@@ -2,7 +2,7 @@ import { useEffect, useState, type FC } from 'react'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import { closeSidebar } from '../../store/slices/uiSlice'
+import { closeSidebar, openModal } from '../../store/slices/uiSlice'
 
 import { SwitchModeSide } from './SwitchModeSide/SwitchModeSide'
 
@@ -91,7 +91,10 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 							<div className={styles.profit}>
 								<img className={styles.img} src={ProfitImg} alt='Выгодно' />
 
-								<button className={styles.button}>
+								<button
+									className={styles.button}
+									onClick={() => dispatch(openModal())}
+								>
 									Попробовать kursnova за 0 ₽
 								</button>
 

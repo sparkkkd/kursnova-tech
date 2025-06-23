@@ -33,7 +33,7 @@ export const SwitchMode: FC<SwitchModeProps> = ({ className }) => {
 				width: rect.width,
 			})
 		}
-	}, [])
+	}, [mode])
 
 	const handleChangeMode = (mode: 'parents' | 'students') => {
 		dispatch(switchModeAction(mode))
