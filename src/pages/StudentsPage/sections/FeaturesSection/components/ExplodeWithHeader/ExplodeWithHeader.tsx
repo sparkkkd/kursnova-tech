@@ -31,7 +31,7 @@ export const ExplodeWithHeader: FC<ExplodeWithHeaderProps> = ({
 				setIsVisible(entry.isIntersecting)
 			},
 			{
-				threshold: 0.5,
+				threshold: 0.1,
 			}
 		)
 
@@ -55,8 +55,6 @@ export const ExplodeWithHeader: FC<ExplodeWithHeaderProps> = ({
 			}
 		}
 	}, [isVisible])
-
-	console.log(ExplodeVideo)
 
 	return (
 		<div className={clsx(styles.wrapper, className)} ref={containerRef}>
