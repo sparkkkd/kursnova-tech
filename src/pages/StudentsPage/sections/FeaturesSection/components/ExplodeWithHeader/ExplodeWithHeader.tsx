@@ -1,14 +1,11 @@
 import { useEffect, useRef, useState, type FC } from 'react'
 import clsx from 'clsx'
-
 import { motion } from 'framer-motion'
 
-import { FeaturesButton } from '../FeaturesButton/FeaturesButton'
-
-import HeartSvg from '../../../../../../assets/features/heart.svg?react'
-import PizzaSvg from '../../../../../../assets/features/pizza.svg?react'
-import HandsSvg from '../../../../../../assets/features/hands.svg?react'
-import PhoneSvg from '../../../../../../assets/features/phone.svg?react'
+import HeartSvg from '../../../../../../assets/icons/heart.svg?react'
+import PizzaSvg from '../../../../../../assets/icons/pizza.svg?react'
+import HandsSvg from '../../../../../../assets/icons/hands.svg?react'
+import PhoneSvg from '../../../../../../assets/icons/phone.svg?react'
 
 import ExplodeVideo from '../../../../../../assets/explode.mp4'
 
@@ -60,11 +57,12 @@ export const ExplodeWithHeader: FC<ExplodeWithHeaderProps> = ({
 		<div className={clsx(styles.wrapper, className)} ref={containerRef}>
 			<motion.video
 				ref={videoRef}
-				className={styles.explode}
 				src={ExplodeVideo}
+				className={styles.explode}
 				muted
 				preload='auto'
 				playsInline
+				autoPlay
 				initial={{
 					opacity: 1,
 				}}
@@ -94,7 +92,6 @@ export const ExplodeWithHeader: FC<ExplodeWithHeaderProps> = ({
 					смартфон
 				</div>
 			</h3>
-			<FeaturesButton className={styles.tryButton} />
 		</div>
 	)
 }

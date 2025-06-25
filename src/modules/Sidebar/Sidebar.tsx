@@ -6,7 +6,7 @@ import { closeSidebar, openModal } from '../../store/slices/uiSlice'
 
 import { SwitchModeSide } from './SwitchModeSide/SwitchModeSide'
 
-import { PARENT_SIDEBAR_LINKS } from './constants'
+import { PARENT_SIDEBAR_LINKS, STUDENTS_SIDEBAR_LINKS } from './constants'
 
 import ProfitImg from '../../assets/sidebar/bagel.svg'
 import CloseIcon from '../../assets/close.svg?react'
@@ -19,7 +19,7 @@ interface SidebarProps {
 
 export const Sidebar: FC<SidebarProps> = ({ className }) => {
 	const dispatch = useAppDispatch()
-	const { isSidebarOpen } = useAppSelector((state) => state.uiReducer)
+	const { isSidebarOpen, mode } = useAppSelector((state) => state.uiReducer)
 
 	const [isMounted, setIsMounted] = useState(false)
 
@@ -81,11 +81,19 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 							</div>
 
 							<ul className={styles.list}>
-								{PARENT_SIDEBAR_LINKS.map((link, index) => (
-									<li key={index} className={styles.item}>
-										<a href={link.path}>{link.title}</a>
-									</li>
-								))}
+								{mode === 'parents' &&
+									PARENT_SIDEBAR_LINKS.map((link, index) => (
+										<li key={index} className={styles.item}>
+											<a href={link.path}>{link.title}</a>
+										</li>
+									))}
+
+								{mode === 'students' &&
+									STUDENTS_SIDEBAR_LINKS.map((link, index) => (
+										<li key={index} className={styles.item}>
+											<a href={link.path}>{link.title}</a>
+										</li>
+									))}
 							</ul>
 
 							<div className={styles.profit}>

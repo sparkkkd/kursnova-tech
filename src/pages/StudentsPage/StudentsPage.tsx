@@ -23,7 +23,7 @@ export const StudentsPage: FC<StudentsPageProps> = ({}) => {
 	const { isModalSuccess } = useAppSelector((state) => state.uiReducer)
 
 	return (
-		<main className={styles.main}>
+		<div className={styles.content}>
 			<Modal>
 				{!isModalSuccess && <TryForm />}
 				{isModalSuccess && <SuccessModal />}
@@ -36,6 +36,6 @@ export const StudentsPage: FC<StudentsPageProps> = ({}) => {
 			<SupportSection />
 			<PriceSections />
 			<FaqSection />
-		</main>
+		</div>
 	)
 }

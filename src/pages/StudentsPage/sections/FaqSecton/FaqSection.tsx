@@ -1,6 +1,6 @@
-import { useRef, useState, type FC } from 'react'
+import { useState, type FC } from 'react'
 import clsx from 'clsx'
-import { useScroll, useTransform, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 import { Container } from '../../../../components/Container/Container'
 import { FaqItem } from './components/FaqItem/FaqItem'
@@ -15,20 +15,11 @@ interface FaqSectionProps {
 export const FaqSection: FC<FaqSectionProps> = ({ className }) => {
 	const [openIndex, setOpenIndex] = useState<number | null>(null)
 
-	const sectionRef = useRef<HTMLDivElement>(null)
-	const { scrollYProgress } = useScroll({
-		target: sectionRef,
-		offset: ['start end', 'end end'],
-	})
-	const y = useTransform(scrollYProgress, [0, 1.5], ['0%', '80%'])
-
 	return (
 		<section className={clsx(styles.section, className)}>
 			<Container>
-				<div className={styles.wrapper} ref={sectionRef}>
-					<motion.h3 style={{ top: y }} className={styles.title}>
-						Частые вопросы
-					</motion.h3>
+				<div className={styles.wrapper}>
+					<motion.h3 className={styles.title}>Частые вопросы</motion.h3>
 
 					<motion.h3
 						className={styles.mobileTitle}

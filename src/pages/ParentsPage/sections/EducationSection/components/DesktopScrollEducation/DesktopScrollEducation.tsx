@@ -1,0 +1,180 @@
+import { type FC } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
+
+import { Container } from '../../../../../../components/Container/Container'
+
+import SharkImg from '../../../../../../assets/parents/education/education-shark.png'
+import PlayIcon from '../../../../../../assets/icons/play-icon.svg'
+
+import styles from './DesktopScrollEducation.module.sass'
+import { PROGRESS_SIDE, STAGES_LABEL, VIDEO_SIDE } from '../../constants'
+import clsx from 'clsx'
+
+interface DesktopScrollEducationProps {
+	className?: string
+	activeStage: number
+}
+
+export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
+	className,
+	activeStage,
+}) => {
+	return (
+		<Container className={clsx(styles.content, className)}>
+			<div className={styles.left}>
+				{STAGES_LABEL.map(({ id, title, text }, i) => {
+					return (
+						<motion.div layout className={styles.stage} key={id}>
+							<motion.div
+								className={styles.stageIndicator}
+								initial={{
+									backgroundColor: '#25252b',
+								}}
+								animate={{
+									backgroundColor: activeStage === i ? '#aff26d' : '#25252b',
+								}}
+							/>
+							<motion.div layout className={styles.stageContent}>
+								<motion.h5
+									className={styles.stageTitle}
+									initial={{ color: '#25252b' }}
+									animate={{
+										color: activeStage === i ? '#fff' : '#25252b',
+									}}
+								>
+									{title}
+								</motion.h5>
+								{activeStage === i && (
+									<motion.div
+										className={styles.stageText}
+										initial={{ opacity: 0 }}
+										animate={{ opacity: 1 }}
+										exit={{ opacity: 0 }}
+									>
+										{text}
+									</motion.div>
+								)}
+							</motion.div>
+						</motion.div>
+					)
+				})}
+			</div>
+
+			<div className={styles.center}>
+				<AnimatePresence mode='wait'>
+					{activeStage === 0 && (
+						<motion.video
+							className={styles.video}
+							src='https://s3.timeweb.cloud/4151e8d2-4-6.digital/TaskExtra.mp4'
+							key={activeStage}
+							initial={{ opacity: 0, y: 50 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: -50 }}
+							transition={{ duration: 0.3 }}
+							preload='auto'
+							autoPlay
+							muted
+						></motion.video>
+					)}
+
+					{activeStage === 1 && (
+						<motion.video
+							className={clsx(styles.video)}
+							src='https://s3.timeweb.cloud/4151e8d2-4-6.digital/TaskExtra.mp4'
+							key={activeStage}
+							initial={{ opacity: 0, y: 50 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: -50 }}
+							transition={{ duration: 0.3 }}
+							preload='auto'
+							autoPlay
+							muted
+						></motion.video>
+					)}
+
+					{activeStage === 2 && (
+						<motion.video
+							className={styles.video}
+							src='https://s3.timeweb.cloud/4151e8d2-4-6.digital/TaskExtra.mp4'
+							key={activeStage}
+							initial={{ opacity: 0, y: 50 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: -50 }}
+							transition={{ duration: 0.3 }}
+							preload='auto'
+							autoPlay
+							muted
+						></motion.video>
+					)}
+				</AnimatePresence>
+			</div>
+
+			<div className={styles.right}>
+				<AnimatePresence mode='wait'>
+					{activeStage === 0 && (
+						<motion.div
+							key={activeStage}
+							initial={{ opacity: 0, y: 50 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: -50 }}
+							transition={{ duration: 0.3 }}
+							className={styles.videoWrapper}
+						>
+							{VIDEO_SIDE.map(({ id, icon, title, text }) => {
+								return (
+									<motion.div className={styles.videoCard} key={id}>
+										<img className={styles.videoIcon} src={icon} alt='' />
+										<div className={styles.videoTitle}>{title}</div>
+										<div className={styles.videoText}>{text}</div>
+									</motion.div>
+								)
+							})}
+
+							<button className={styles.videoButton}>
+								<img src={PlayIcon} alt='' />
+								<div>Смотреть пример</div>
+							</button>
+						</motion.div>
+					)}
+
+					{activeStage === 1 && (
+						<div className={styles.sharkWrapper}>
+							<motion.img
+								key={activeStage}
+								src={SharkImg}
+								className={styles.shark}
+								alt=''
+								initial={{ opacity: 0, y: 50 }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: -50 }}
+								transition={{
+									duration: 0.3,
+									ease: 'easeInOut',
+								}}
+							/>
+						</div>
+					)}
+
+					{activeStage === 2 && (
+						<motion.div
+							className={styles.progressWrapper}
+							key={activeStage}
+							initial={{ opacity: 0, y: 50 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: -50 }}
+							transition={{ duration: 0.3 }}
+						>
+							{PROGRESS_SIDE.map(({ id, icon, title }) => (
+								<div className={styles.progressCard} key={id}>
+									<img className={styles.progressIcon} src={icon} alt='' />
+
+									<div className={styles.progressTitle}>{title}</div>
+								</div>
+							))}
+						</motion.div>
+					)}
+				</AnimatePresence>
+			</div>
+		</Container>
+	)
+}

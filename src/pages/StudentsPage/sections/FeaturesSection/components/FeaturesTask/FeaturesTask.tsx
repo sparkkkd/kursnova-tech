@@ -1,16 +1,14 @@
-import { useEffect, useRef, useState, type FC } from 'react'
+import { type FC } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
 import { Container } from '../../../../../../components/Container/Container'
 import { FeaturesDescription } from '../FeaturesDescription/FeaturesDescription'
-import { FeaturesButton } from '../FeaturesButton/FeaturesButton'
 
-import Star from '../../../../../../assets/features/star.svg?react'
 import TaskTag from '../../../../../../assets/features/task-tag.svg?react'
-import TaskImg from '../../../../../../assets/features/task-img.png'
-import BackPackIcon from '../../../../../../assets/features/backpack.svg?react'
-import DumbbelIcon from '../../../../../../assets/features/dumbbel.svg?react'
+import Star from '../../../../../../assets/icons/star.svg?react'
+import BackPackIcon from '../../../../../../assets/icons/backpack.svg?react'
+import DumbbelIcon from '../../../../../../assets/icons/dumbbel.svg?react'
 
 import styles from './FeaturesTask.module.sass'
 
@@ -19,25 +17,6 @@ interface FeaturesTaskProps {
 }
 
 export const FeaturesTask: FC<FeaturesTaskProps> = ({ className }) => {
-	const targetRef = useRef<HTMLDivElement>(null)
-	const [targetWidth, setTargetWidth] = useState<number | null>(null)
-
-	useEffect(() => {
-		const updateWidth = () => {
-			if (targetRef.current) {
-				setTargetWidth(targetRef.current.offsetWidth)
-			}
-		}
-
-		const resizeObserver = new ResizeObserver(updateWidth)
-		if (targetRef.current) {
-			resizeObserver.observe(targetRef.current)
-			updateWidth()
-		}
-
-		return () => resizeObserver.disconnect()
-	}, [])
-
 	return (
 		<Container className={styles.container}>
 			<div className={clsx(styles.wrapper, className)}>
@@ -90,7 +69,6 @@ export const FeaturesTask: FC<FeaturesTaskProps> = ({ className }) => {
 					</motion.div>
 				</div>
 				<motion.div
-					ref={targetRef}
 					className={styles.center}
 					initial={{ opacity: 0, scale: 0 }}
 					whileInView={{
@@ -104,7 +82,13 @@ export const FeaturesTask: FC<FeaturesTaskProps> = ({ className }) => {
 					}}
 					viewport={{ once: true, amount: 0.3 }}
 				>
-					<img className={styles.img} src={TaskImg} alt='' />
+					<video
+						src='https://s3.timeweb.cloud/4151e8d2-4-6.digital/TaskExtra.mp4'
+						className={styles.img}
+						autoPlay
+						muted
+						preload='auto'
+					></video>
 				</motion.div>
 				<div className={styles.right}>
 					{TASK_DESCRIPTIONS.map((props, index) => {
@@ -121,11 +105,6 @@ export const FeaturesTask: FC<FeaturesTaskProps> = ({ className }) => {
 					})}
 				</div>
 			</div>
-			<FeaturesButton
-				width={targetWidth}
-				delay={0.4}
-				className={styles.tryButton}
-			/>
 		</Container>
 	)
 }

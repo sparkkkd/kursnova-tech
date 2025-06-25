@@ -58,7 +58,7 @@ export const SupportContent: FC<SupportContentProps> = ({
 			translateY: useTransform(
 				scrollYProgress,
 				[i * step, (i + 0.3) * step],
-				[300, baseYOffset],
+				[200, baseYOffset],
 				{ ease: easeInOut }
 			),
 		}
@@ -67,7 +67,6 @@ export const SupportContent: FC<SupportContentProps> = ({
 	const iconTransforms = BUTTONS.map((_, i) =>
 		Array.from({ length: 4 }).map(() => {
 			if (i === BUTTONS.length - 1) {
-				// Последняя кнопка: иконки появляются с i*step и исчезают при скролле вверх
 				return {
 					opacity: useTransform(
 						scrollYProgress,
@@ -95,7 +94,7 @@ export const SupportContent: FC<SupportContentProps> = ({
 				translateY: useTransform(
 					scrollYProgress,
 					[i * step, (i + 0.15) * step, endStep],
-					[30, 0, -30],
+					[-20, 0, -30],
 					{ ease: easeInOut }
 				),
 			}

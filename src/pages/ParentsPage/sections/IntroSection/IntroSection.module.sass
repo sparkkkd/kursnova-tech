@@ -1,0 +1,98 @@
+@use '../../../../utils/sass-mixins' as mixins
+
+.intro
+	max-width: 100vw
+	width: 100vw
+	height: 100vh
+	position: relative
+	display: flex
+	align-items: center
+	overflow: hidden
+
+.wrapper
+	z-index: 2
+
+.img
+	position: absolute
+	right: 0
+	top: 0
+	height: 100%
+	object-fit: cover
+
+.mobileImg
+	display: none
+
+.title
+	font-size: clamp(2.5rem, 1.8333rem + 2.963vw, 4.5rem)
+	line-height: 1.1
+	font-weight: 600
+
+.button
+	padding: mixins.rem(24)
+	position: absolute
+	left: 50%
+	bottom: mixins.rem(5)
+	transform: translateX(-50%)
+	border-radius: mixins.rem(64)
+	width: clamp(22.5rem, 31.0227rem + -13.6364vw, 18.75rem)
+	font-size: 20px
+	font-weight: 500
+	backdrop-filter: blur(48px)
+	background: rgba(255, 255, 255, 0.1)
+
+.mobileButton
+	display: none
+
+// Media
+@media screen and ( max-width: 1480px )
+	.img
+		right: mixins.rem(-300)
+
+@media screen and ( max-width: 1000px )
+	.intro
+		padding-top: mixins.rem(200)
+		height: auto
+		flex-direction: column
+
+	.wrapper
+		display: flex
+		flex-direction: column
+		align-items: center
+
+	.title
+		text-align: center
+
+	.img
+		display: none
+
+	.button
+		display: none
+
+	.mobileButton
+		padding: mixins.rem(16)
+		margin-top: mixins.rem(24)
+		position: static
+		display: block
+		transform: translate(0)
+
+	.mobileImg
+		margin-left: mixins.rem(50)
+		display: block
+		width: 110%
+		object-fit: cover
+
+@media screen and ( max-width: 650px )
+	.wrapper
+		align-items: start
+
+	.title
+		text-align: left
+		letter-spacing: mixins.rem(2)
+
+	.mobileButton
+		padding: mixins.rem(16) mixins.rem(27)
+		width: max-content
+
+	.mobileImg
+		margin-left: mixins.rem(25)
+		margin-top: mixins.rem(50)

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, type FC } from 'react'
+import { type FC } from 'react'
 import {
 	FeaturesDescription,
 	type FeaturesDescriptionProps,
@@ -7,13 +7,12 @@ import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
 import { Container } from '../../../../../../components/Container/Container'
-import { FeaturesButton } from '../FeaturesButton/FeaturesButton'
 
 import PhoneIcon from '../../../../../../assets/features/video-phone.svg?react'
 import VideoTag from '../../../../../../assets/features/video-tag.svg?react'
 import VideoPlayIcon from '../../../../../../assets/features/video-play.svg?react'
-import EyeIcon from '../../../../../../assets/features/eyes.svg?react'
-import TimerIcon from '../../../../../../assets/features/timer.svg?react'
+import EyeIcon from '../../../../../../assets/icons/eyes.svg?react'
+import TimerIcon from '../../../../../../assets/icons/timer.svg?react'
 import reelsVideo from '../../../../../../assets/features/reels.mp4'
 
 import styles from './FeaturesVideo.module.sass'
@@ -23,25 +22,6 @@ interface FeaturesVideoProps {
 }
 
 export const FeaturesVideo: FC<FeaturesVideoProps> = ({ className }) => {
-	const targetRef = useRef<HTMLDivElement>(null)
-	const [targetWidth, setTargetWidth] = useState<number | null>(null)
-
-	useEffect(() => {
-		const updateWidth = () => {
-			if (targetRef.current) {
-				setTargetWidth(targetRef.current.offsetWidth)
-			}
-		}
-
-		const resizeObserver = new ResizeObserver(updateWidth)
-		if (targetRef.current) {
-			resizeObserver.observe(targetRef.current)
-			updateWidth()
-		}
-
-		return () => resizeObserver.disconnect()
-	}, [])
-
 	return (
 		<Container className={styles.container}>
 			<div className={clsx(styles.wrapper, className)}>
@@ -111,7 +91,6 @@ export const FeaturesVideo: FC<FeaturesVideoProps> = ({ className }) => {
 					</div>
 				</div>
 				<motion.div
-					ref={targetRef}
 					className={styles.center}
 					initial={{ opacity: 0, scale: 0 }}
 					whileInView={{
@@ -125,7 +104,13 @@ export const FeaturesVideo: FC<FeaturesVideoProps> = ({ className }) => {
 					}}
 					viewport={{ once: true, amount: 0.3 }}
 				>
-					<video className={styles.video} src={reelsVideo}></video>
+					<video
+						className={styles.video}
+						src={reelsVideo}
+						autoPlay
+						muted
+						preload='auto'
+					></video>
 				</motion.div>
 				<div className={styles.right}>
 					{FEATURES_DESCRIPTIONS.map((props, index) => {
@@ -142,11 +127,6 @@ export const FeaturesVideo: FC<FeaturesVideoProps> = ({ className }) => {
 					})}
 				</div>
 			</div>
-			<FeaturesButton
-				width={targetWidth}
-				delay={0.3}
-				className={styles.tryButton}
-			/>
 		</Container>
 	)
 }

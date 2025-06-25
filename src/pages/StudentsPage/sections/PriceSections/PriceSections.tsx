@@ -9,9 +9,10 @@ import { FeaturesButton } from '../FeaturesSection/components/FeaturesButton/Fea
 
 import { CARDS, PRICE_DESCRIPTIONS } from './constants'
 
-import PriceTag from '../../../../assets/price/price-tag.svg?react'
+import PriceTag from '../../../../assets/price/price-tag.png'
+import MobilePriceTag from '../../../../assets/price/mobile-price-tag.png'
+
 import Arrow from '../../../../assets/price/arrow.svg?react'
-import MobilePriceTag from '../../../../assets/price/mobile-price-tag.svg?react'
 
 import styles from './PriceSections.module.sass'
 
@@ -59,11 +60,11 @@ export const PriceSections: FC<PriceSectionsProps> = ({ className }) => {
 						<PriceDescriptionList descriptions={PRICE_DESCRIPTIONS} />
 					</div>
 
-					<MobilePriceTag className={styles.mobileTag} />
+					<img className={styles.mobileTag} src={MobilePriceTag} alt='' />
 
 					<FeaturesButton className={styles.button} />
 
-					<PriceTag className={styles.tag} />
+					<img className={styles.tag} src={PriceTag} alt='' />
 					<Arrow className={styles.arrow} />
 				</div>
 			</Container>
