@@ -1,20 +1,45 @@
 @use '../../../../utils/sass-mixins' as mixins
 
 .section
+	// margin-top: mixins.rem(144)
 	position: relative
-	height: 300vh
+
+.inner
+	height: 250vh
+	position: relative
 
 .sticky
-	// padding-top: mixins.rem(100)
 	position: sticky
 	top: 0
 	height: 100vh
+	overflow: hidden
+
+.caption
+	margin-bottom: 12px
+	font-size: 20px
+	line-height: 1.4
+	font-weight: 400
+
+.title
+	padding: 0px 20px
+	margin: 0 auto
+	max-width: 700px
+	font-size: clamp(2rem, 1.6667rem + 1.4815vw, 3rem)
+	font-weight: 500
+	text-align: center
+	letter-spacing: 1px
+
+.content
+	height: 100%
 	display: flex
+	flex-direction: column
 	justify-content: center
 	align-items: center
+	position: relative
+	perspective: 1000px
 
-// Media
-
-@media screen and ( max-width: 485px )
-	.sticky
-		padding-top: mixins.rem(150)
+.imagesWrapper
+	position: absolute
+	top: 30%
+	width: clamp(22.5rem, 13.3333rem + 40.7407vw, 50rem)
+	height: 600px

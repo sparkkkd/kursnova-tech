@@ -9,31 +9,17 @@
 	justify-content: space-between
 
 .title
-	position: absolute
-	left: 0
-	height: max-content
-	@include mixins.fluid-text(48, 32)
+	width: 100%
+	text-align: center
+	font-size: clamp(2rem, 1.6667rem + 1.4815vw, 3rem)
 
 .list
-	width: 50%
-	margin-left: auto
 	li:nth-child(1)
 		button
 			padding-top: 0px
 
-.mobileTitle
-	margin-bottom: mixins.rem(24)
-	display: none
-	@include mixins.fluid-text(48, 32)
-
 // Media
 @media screen and ( max-width: 960px )
-	.title
-		display: none
-
-	.mobileTitle
-		display: block
-
 	.wrapper
 		flex-direction: column
 		justify-content: center
@@ -45,3 +31,7 @@
 		li:nth-child(1)
 			button
 				padding-top: 32px
+
+@media screen and ( max-width: 600px )
+	.title
+		text-align: left

@@ -40,25 +40,23 @@ export const PriceSections: FC<PriceSectionsProps> = ({ className }) => {
 						Что по ценам?
 					</motion.h3>
 
-					<div className={styles.content}>
+					<motion.div
+						initial={{ opacity: 0, y: 100 }}
+						whileInView={{
+							opacity: 1,
+							y: 0,
+							transition: { duration: 0.3, delay: 0.1 },
+						}}
+						viewport={{ once: true, amount: 0.3 }}
+						className={styles.content}
+					>
 						<div className={styles.cards}>
-							{CARDS.map((card, index) => {
-								const delay = 0.1
-								return (
-									<PriceCard
-										key={index}
-										{...card}
-										delayCard={delay + index * 0.1}
-										delayType={delay + index * 0.1 + 0.1}
-										delayPrice={delay + index * 0.1 + 0.2}
-										delayDescription={delay + index * 0.1 + 0.3}
-										delayProfit={delay + index * 0.1 + 0.4}
-									/>
-								)
-							})}
+							{CARDS.map((card, index) => (
+								<PriceCard key={index} {...card} />
+							))}
 						</div>
 						<PriceDescriptionList descriptions={PRICE_DESCRIPTIONS} />
-					</div>
+					</motion.div>
 
 					<img className={styles.mobileTag} src={MobilePriceTag} alt='' />
 

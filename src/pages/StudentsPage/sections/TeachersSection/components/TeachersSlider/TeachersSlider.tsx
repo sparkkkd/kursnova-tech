@@ -1,6 +1,6 @@
 import { useRef, type FC } from 'react'
 import clsx from 'clsx'
-import { motion } from 'framer-motion'
+import { motion, MotionValue } from 'framer-motion'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
 import '@splidejs/splide/dist/css/themes/splide-default.min.css'
 
@@ -14,9 +14,10 @@ import { useWindowSize } from 'usehooks-ts'
 
 interface TeachersSliderProps {
 	className?: string
+	y?: MotionValue<string>
 }
 
-export const TeachersSlider: FC<TeachersSliderProps> = ({ className }) => {
+export const TeachersSlider: FC<TeachersSliderProps> = ({ className, y }) => {
 	const splideRef = useRef<any>(null)
 
 	const { width } = useWindowSize()
@@ -40,15 +41,7 @@ export const TeachersSlider: FC<TeachersSliderProps> = ({ className }) => {
 	return (
 		<motion.div
 			className={clsx(styles.wrapper, className)}
-			initial={{ opacity: 0, x: -200 }}
-			whileInView={{
-				opacity: 1,
-				x: 0,
-				transition: {
-					duration: 0.3,
-					delay: 0.4,
-				},
-			}}
+			style={{ y }}
 			viewport={{ once: true, amount: 0.3 }}
 		>
 			<Splide options={options} hasTrack={false} ref={splideRef}>

@@ -12,7 +12,6 @@ interface FaqItemProps {
 	answer: string
 	isOpen: boolean
 	onToggle: () => void
-	delay?: number
 }
 
 export const FaqItem: FC<FaqItemProps> = ({
@@ -21,15 +20,9 @@ export const FaqItem: FC<FaqItemProps> = ({
 	question,
 	isOpen,
 	onToggle,
-	delay,
 }) => {
 	return (
-		<motion.li
-			className={clsx(styles.item, className)}
-			initial={{ opacity: 0, y: 100 }}
-			whileInView={{ opacity: 1, y: 0, transition: { duration: 0.3, delay } }}
-			viewport={{ once: true, amount: 0.1 }}
-		>
+		<li className={clsx(styles.item, className)}>
 			<button className={styles.question} onClick={onToggle}>
 				<span>{question}</span>
 				<FaqIcon className={styles.icon} isOpen={isOpen} />
@@ -48,6 +41,6 @@ export const FaqItem: FC<FaqItemProps> = ({
 					</motion.div>
 				)}
 			</AnimatePresence>
-		</motion.li>
+		</li>
 	)
 }

@@ -50,6 +50,8 @@ export const SwitchMode: FC<SwitchModeProps> = ({ className }) => {
 				width: rect.width,
 			})
 		}
+
+		window.scrollTo({ top: 0 })
 	}
 
 	return (

@@ -60,7 +60,7 @@ export const DesktopFooter: FC<FooterProps> = ({ className }) => {
 					<div className={styles.title}>
 						<h2>
 							<span>Учиться</span>
-							<span>по - новому</span>
+							<span>по-новому</span>
 							<span>с</span>
 							<span>kursnova</span>
 						</h2>

@@ -13,6 +13,7 @@ import { DesktopScrollEducation } from './components/DesktopScrollEducation/Desk
 
 import styles from './EducationSection.module.sass'
 import { MobileScrollEducation } from './components/MobileScrollEducation/MobileScrollEducation'
+import { Container } from '../../../../components/Container/Container'
 
 interface EducationSectionProps {
 	className?: string
@@ -45,8 +46,9 @@ export const EducationSection: FC<EducationSectionProps> = ({ className }) => {
 
 	return (
 		<section className={clsx(styles.section, className)}>
-			<h3 className={styles.title}>Как проходит обучение?</h3>
-
+			<Container>
+				<h3 className={styles.title}>Как проходит обучение?</h3>
+			</Container>
 			<div className={styles.inner} ref={ref}>
 				<div className={styles.sticky}>
 					<DesktopScrollEducation
