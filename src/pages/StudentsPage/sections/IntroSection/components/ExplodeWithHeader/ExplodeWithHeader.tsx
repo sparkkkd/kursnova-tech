@@ -1,13 +1,15 @@
-import { useEffect, useRef, useState, type FC } from 'react'
+import { useRef, type FC } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
+import { useAppDispatch } from '../../../../../../store/hooks'
+import { toggleIsIntroAnimationComplete } from '../../../../../../store/slices/uiSlice'
 
 import HeartSvg from '../../../../../../assets/icons/heart.svg?react'
 import PizzaSvg from '../../../../../../assets/icons/pizza.svg?react'
 import HandsSvg from '../../../../../../assets/icons/hands.svg?react'
 import PhoneSvg from '../../../../../../assets/icons/phone.svg?react'
 
-import ExplodeVideo from '../../../../../../assets/explode.mp4'
+import ExplodeVideo from '../../../../../../assets/explode.webm'
 
 import styles from './ExplodeWithHeader.module.sass'
 
@@ -18,40 +20,10 @@ interface ExplodeWithHeaderProps {
 export const ExplodeWithHeader: FC<ExplodeWithHeaderProps> = ({
 	className,
 }) => {
+	const dispatch = useAppDispatch()
+
 	const videoRef = useRef<HTMLVideoElement>(null)
 	const containerRef = useRef<HTMLDivElement>(null)
-	const [isVisible, setIsVisible] = useState(false)
-
-	useEffect(() => {
-		const observer = new IntersectionObserver(
-			([entry]) => {
-				setIsVisible(entry.isIntersecting)
-			},
-			{
-				threshold: 0.1,
-			}
-		)
-
-		if (containerRef.current) {
-			observer.observe(containerRef.current)
-		}
-
-		return () => {
-			if (containerRef.current) {
-				observer.unobserve(containerRef.current)
-			}
-		}
-	}, [])
-
-	useEffect(() => {
-		if (videoRef.current) {
-			if (isVisible) {
-				videoRef.current.play().catch(() => {})
-			} else {
-				videoRef.current.pause()
-			}
-		}
-	}, [isVisible])
 
 	return (
 		<div className={clsx(styles.wrapper, className)} ref={containerRef}>
@@ -66,16 +38,21 @@ export const ExplodeWithHeader: FC<ExplodeWithHeaderProps> = ({
 				initial={{
 					opacity: 1,
 				}}
-				whileInView={{
+				animate={{
 					opacity: 0,
 					transition: {
-						delay: 0.5,
-						duration: 1,
+						delay: 1,
+						duration: 0.3,
 					},
 				}}
-				viewport={{ once: true, amount: 0.5 }}
 			></motion.video>
-			<h3 className={styles.title}>
+			<motion.h3
+				className={styles.title}
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ delay: 1.5, duration: 1 }}
+				onAnimationComplete={() => dispatch(toggleIsIntroAnimationComplete())}
+			>
 				<div>
 					Учись в любимом
 					<HeartSvg />
@@ -91,7 +68,7 @@ export const ExplodeWithHeader: FC<ExplodeWithHeaderProps> = ({
 					<PhoneSvg />
 					смартфон
 				</div>
-			</h3>
+			</motion.h3>
 		</div>
 	)
 }

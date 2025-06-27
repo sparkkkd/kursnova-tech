@@ -11,10 +11,11 @@ interface ScrollDownProps {
 export const ScrollDown: FC<ScrollDownProps> = ({ className }) => {
 	return (
 		<motion.div
-			initial={{ opacity: 0, y: 100 }}
+			initial={{ opacity: 0, y: 100, x: '-50%' }}
 			animate={{
 				opacity: 1,
 				y: 0,
+				x: '-50%',
 				transition: {
 					duration: 0.3,
 					delay: 0.5,

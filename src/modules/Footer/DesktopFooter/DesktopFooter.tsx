@@ -50,7 +50,7 @@ export const DesktopFooter: FC<FooterProps> = ({ className }) => {
 	const x = useTransform(scrollYProgress, [0, 1], ['0px', `-${maxShift}px`])
 
 	return (
-		<footer ref={footerRef} className={clsx(styles.footer, className)}>
+		<div ref={footerRef} className={clsx(styles.footer, className)}>
 			<div className={styles.sticky}>
 				<motion.div
 					style={{ x }}
@@ -79,6 +79,6 @@ export const DesktopFooter: FC<FooterProps> = ({ className }) => {
 					<FooterLicense isMobile={false} className={styles.license} />
 				</motion.div>
 			</div>
-		</footer>
+		</div>
 	)
 }

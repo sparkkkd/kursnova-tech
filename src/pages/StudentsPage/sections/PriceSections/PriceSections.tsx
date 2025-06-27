@@ -5,13 +5,11 @@ import { motion } from 'framer-motion'
 import { PriceCard } from './components/PriceCard/PriceCard'
 import { Container } from '../../../../components/Container/Container'
 import { PriceDescriptionList } from './components/PriceDescriptionList/PriceDescriptionList'
-import { FeaturesButton } from '../FeaturesSection/components/FeaturesButton/FeaturesButton'
 
 import { CARDS, PRICE_DESCRIPTIONS } from './constants'
 
 import PriceTag from '../../../../assets/price/price-tag.png'
 import MobilePriceTag from '../../../../assets/price/mobile-price-tag.png'
-
 import Arrow from '../../../../assets/price/arrow.svg?react'
 
 import styles from './PriceSections.module.sass'
@@ -59,8 +57,6 @@ export const PriceSections: FC<PriceSectionsProps> = ({ className }) => {
 					</motion.div>
 
 					<img className={styles.mobileTag} src={MobilePriceTag} alt='' />
-
-					<FeaturesButton className={styles.button} />
 
 					<img className={styles.tag} src={PriceTag} alt='' />
 					<Arrow className={styles.arrow} />

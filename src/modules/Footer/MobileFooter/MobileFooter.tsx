@@ -21,7 +21,7 @@ interface MobileFooterProps {
 
 export const MobileFooter: FC<MobileFooterProps> = ({ className }) => {
 	return (
-		<footer className={clsx(styles.footer, className)}>
+		<div className={clsx(styles.footer, className)}>
 			<Container>
 				<div className={styles.wrapper}>
 					<h3 className={styles.title}>
@@ -127,6 +127,6 @@ export const MobileFooter: FC<MobileFooterProps> = ({ className }) => {
 					<FooterLicense isMobile className={styles.license} />
 				</div>
 			</Container>
-		</footer>
+		</div>
 	)
 }

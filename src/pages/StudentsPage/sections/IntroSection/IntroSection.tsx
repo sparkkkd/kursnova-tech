@@ -1,9 +1,9 @@
 import clsx from 'clsx'
-import { useWindowSize } from 'usehooks-ts'
-import { type FC } from 'react'
-import { motion } from 'framer-motion'
+import { useEffect, useState, type FC } from 'react'
+import { AnimatePresence, motion } from 'framer-motion'
 
-import { ScrollDown } from '../../../../components/ScrollDown/ScrollDown'
+import { TitleWithBombs } from './components/TitleWithBombs/TitleWithBombs'
+import { ExplodeWithHeader } from './components/ExplodeWithHeader/ExplodeWithHeader'
 
 import styles from './IntroSection.module.sass'
 
@@ -12,26 +12,53 @@ interface IntroSectionProps {
 }
 
 export const IntroSection: FC<IntroSectionProps> = ({ className }) => {
-	const { width } = useWindowSize()
+	const [isScrolled, setIsScrolled] = useState<boolean>(false)
+
+	useEffect(() => {
+		const handleScroll = () => {
+			if (!isScrolled && window.scrollY > 50) {
+				setIsScrolled(true)
+			}
+		}
+
+		window.addEventListener('scroll', handleScroll)
+
+		return () => window.removeEventListener('scroll', handleScroll)
+	}, [isScrolled])
 
 	return (
-		<section className={clsx(styles.intro, className)}>
-			<motion.h1
-				initial={{ opacity: 0, y: 100 }}
-				whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
-				viewport={{ once: true, amount: 0.3 }}
-				className={styles.title}
-			>
-				<div>{width > 530 ? 'Домашки' : 'Домашки и'}</div>
-				<div>{width > 530 ? 'и контрольные' : 'контрольные'}</div>
-				<div>больше</div>
-				<div>не проблема</div>
-				<div className={styles.tag}>С kursnova</div>
-			</motion.h1>
-			<video className={styles.video} autoPlay muted preload='auto'>
-				<source src='./bombs.webm' />
-			</video>
-			<ScrollDown className={styles.scroll} />
-		</section>
+		<motion.section
+			className={clsx(styles.intro, className)}
+			id='intro-id'
+			initial={{ background: '#14141A' }}
+			animate={{ background: isScrolled ? '#5735ff' : '#14141A' }}
+			transition={{ delay: 0.1, duration: 0.3 }}
+		>
+			<div className={styles.stickyWrapper}>
+				<div className={styles.sticky}>
+					<AnimatePresence>
+						{!isScrolled && (
+							<motion.div
+								className={clsx(styles.screen, styles.screen_1)}
+								initial={{ opacity: 0 }}
+								animate={{ opacity: 1 }}
+								exit={{ opacity: 0 }}
+								transition={{ duration: 0.2 }}
+							>
+								<TitleWithBombs />
+							</motion.div>
+						)}
+					</AnimatePresence>
+
+					<AnimatePresence>
+						{isScrolled && (
+							<div className={clsx(styles.screen, styles.screen_2)}>
+								<ExplodeWithHeader />
+							</div>
+						)}
+					</AnimatePresence>
+				</div>
+			</div>
+		</motion.section>
 	)
 }

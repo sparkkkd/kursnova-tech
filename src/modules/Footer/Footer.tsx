@@ -7,9 +7,9 @@ import { MobileFooter } from './MobileFooter/MobileFooter'
 
 export const Footer: FC = () => {
 	return (
-		<>
+		<footer id='footer-id'>
 			<DesktopFooter className={styles.desktop} />
 			<MobileFooter className={styles.mobile} />
-		</>
+		</footer>
 	)
 }

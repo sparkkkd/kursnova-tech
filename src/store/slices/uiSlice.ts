@@ -5,13 +5,15 @@ interface IInitialState {
 	isModalOpen: boolean
 	isModalSuccess: boolean
 	isSidebarOpen: boolean
+	isIntroAnimationComplete: boolean
 }
 
 const initialState: IInitialState = {
-	mode: 'parents',
+	mode: 'students',
 	isModalOpen: false,
 	isModalSuccess: false,
 	isSidebarOpen: false,
+	isIntroAnimationComplete: false,
 }
 
 export const uiSlice = createSlice({
@@ -39,6 +41,9 @@ export const uiSlice = createSlice({
 		closeSidebar: (state) => {
 			state.isSidebarOpen = false
 		},
+		toggleIsIntroAnimationComplete: (state) => {
+			state.isIntroAnimationComplete = !state.isIntroAnimationComplete
+		},
 	},
 })
 
@@ -50,4 +55,5 @@ export const {
 	setModalSuccess,
 	closeSidebar,
 	openSidebar,
+	toggleIsIntroAnimationComplete,
 } = uiSlice.actions

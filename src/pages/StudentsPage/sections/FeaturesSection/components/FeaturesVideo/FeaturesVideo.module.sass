@@ -7,6 +7,7 @@
 	align-items: center
 
 .wrapper
+	padding: mixins.rem(100) 0px
 	display: flex
 	justify-content: space-between
 	align-items: center
@@ -77,10 +78,6 @@
 	flex-direction: column
 	gap: mixins.rem(40)
 
-.tryButton
-	margin-top: mixins.rem(24)
-	margin-bottom: mixins.rem(24)
-
 // Media
 @media screen and ( max-width: 1300px )
 	.button
@@ -137,9 +134,6 @@
 
 	.right
 		display: none
-
-	.tryButton
-		margin-top: 0px
 
 @media screen and ( max-width: 420px )
 	.title
