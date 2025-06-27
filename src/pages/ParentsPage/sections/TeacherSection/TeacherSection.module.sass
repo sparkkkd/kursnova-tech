@@ -11,34 +11,31 @@
 	text-align: center
 
 .titleWrapper
-	display: flex
+	display: none
 	flex-direction: column
 	align-items: center
 
 .title
 	margin-bottom: mixins.rem(16)
 	font-weight: 600
-	font-size: 40px
+	font-size: clamp(2rem, 1.6044rem + 1.7582vw, 2.5rem)
 	text-align: center
 
 .subtitle
-	font-size: 20px
+	font-size: clamp(1rem, 0.8022rem + 0.8791vw, 1.25rem)
 	text-align: center
 	max-width: mixins.rem(510)
 
 // Media
-@media screen and ( max-width: 813px )
+@media screen and ( max-width: 815px )
 	.section
 		margin-top: mixins.rem(120)
 
-	.button
+	.titleWrapper
 		display: flex
-		margin-top: mixins.rem(80)
-		margin-left: auto
-		margin-right: auto
-		position: static
-		transform: none
-		left: auto
+
+	.slider
+		margin-top: 25px
 
 @media screen and ( max-width: 650px )
 	.titleWrapper
@@ -51,6 +48,3 @@
 		max-width: mixins.rem(340)
 		text-align: left
 		line-height: 1.5
-
-	.button
-		display: block

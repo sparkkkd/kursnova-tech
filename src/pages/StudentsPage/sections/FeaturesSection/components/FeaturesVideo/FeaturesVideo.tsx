@@ -109,6 +109,7 @@ export const FeaturesVideo: FC<FeaturesVideoProps> = ({ className }) => {
 						src={reelsVideo}
 						autoPlay
 						muted
+						playsInline
 						preload='auto'
 					></video>
 				</motion.div>

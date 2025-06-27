@@ -21,7 +21,7 @@ export const TeacherSection: FC<TeacherSectionProps> = ({ className }) => {
 					методологами
 				</span>
 			</Container>
-			<TeachersSlider />
+			<TeachersSlider className={styles.slider} />
 		</section>
 	)
 }

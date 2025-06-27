@@ -12,7 +12,7 @@
 .wrapper
 	z-index: 2
 
-.img
+.video
 	position: absolute
 	right: 0
 	top: 0
@@ -45,7 +45,7 @@
 
 // Media
 @media screen and ( max-width: 1480px )
-	.img
+	.video
 		right: mixins.rem(-300)
 
 @media screen and ( max-width: 1000px )
@@ -62,7 +62,7 @@
 	.title
 		text-align: center
 
-	.img
+	.video
 		display: none
 
 	.button
@@ -75,11 +75,19 @@
 		display: block
 		transform: translate(0)
 
+	.imageWrapper
+		width: 100%
+		overflow: hidden
+
 	.mobileImg
-		margin-left: mixins.rem(50)
+		margin-left: mixins.rem(-20)
 		display: block
 		width: 110%
 		object-fit: cover
+
+@media screen and ( max-width: 680px )
+	.mobileImg
+		margin-left: mixins.rem(-10)
 
 @media screen and ( max-width: 650px )
 	.wrapper
@@ -93,6 +101,7 @@
 		padding: mixins.rem(16) mixins.rem(27)
 		width: max-content
 
+@media screen and ( max-width: 370px )
 	.mobileImg
-		margin-left: mixins.rem(25)
-		margin-top: mixins.rem(50)
+		width: 100%
+		margin-left: 0px

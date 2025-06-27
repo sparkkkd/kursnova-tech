@@ -1,12 +1,13 @@
 import type { FC } from 'react'
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
+import { useWindowSize } from 'usehooks-ts'
 
 import { Container } from '../../../../components/Container/Container'
 import { DesktopCards } from './components/DesktopCards/DesktopCards'
+import { SwipeCardStacks } from './components/SwipeCardStacks/SwipeCardStacks'
 
 import styles from './CardSection.module.sass'
-import { useWindowSize } from 'usehooks-ts'
-import { SwipeCardStacks } from './components/SwipeCardStacks/SwipeCardStacks'
 
 interface CardSectionProps {
 	className?: string
@@ -19,7 +20,13 @@ export const CardSection: FC<CardSectionProps> = ({ className }) => {
 		<section className={clsx(styles.section, className)}>
 			<Container>
 				<div className={styles.wrapper}>
-					<div className={styles.title}>
+					<motion.div
+						initial={{ opacity: 0, y: 100 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.5 }}
+						viewport={{ once: true, amount: 0.3 }}
+						className={styles.title}
+					>
 						{width > 650 && <h3>Для начала — знакомо ли вам что-нибудь?</h3>}
 						{width <= 650 && (
 							<h3>
@@ -35,7 +42,7 @@ export const CardSection: FC<CardSectionProps> = ({ className }) => {
 							Кликайте на карточку, если было — уверены, вы точно не одиноки
 							в своих проблемах
 						</div>
-					</div>
+					</motion.div>
 
 					<div className={styles.desktop}>
 						<DesktopCards />

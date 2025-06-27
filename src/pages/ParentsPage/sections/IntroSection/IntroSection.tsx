@@ -1,10 +1,11 @@
 import type { FC } from 'react'
 import clsx from 'clsx'
+import { motion } from 'framer-motion'
+
+import { Container } from '../../../../components/Container/Container'
 
 import IntroImg from '../../../../assets/parents/intro/intro-img.png'
 import IntroVideo from '../../../../assets/parents/intro/parents-intro-video.webm'
-
-import { Container } from '../../../../components/Container/Container'
 
 import styles from './IntroSection.module.sass'
 
@@ -16,21 +17,29 @@ export const IntroSection: FC<IntroSectionProps> = ({ className }) => {
 	return (
 		<section className={clsx(styles.intro, className)}>
 			<Container className={styles.wrapper}>
-				<h1 className={styles.title}>
+				<motion.h2
+					className={styles.title}
+					initial={{ opacity: 0, y: 100 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true, amount: 0.1 }}
+					transition={{ duration: 0.4, ease: 'easeInOut' }}
+				>
 					<div>Берём заботу</div>
 					<div>о домашках</div>
 					<div>на себя</div>
-				</h1>
+				</motion.h2>
 				<button className={clsx(styles.button, styles.mobileButton)}>
 					Попробовать за 0 ₽
 				</button>
 			</Container>
 
-			<img className={styles.mobileImg} src={IntroImg} alt='' />
-
-			<video className={styles.img} autoPlay muted preload='auto'>
+			<video className={styles.video} autoPlay muted preload='auto' playsInline>
 				<source src={IntroVideo} />
 			</video>
+
+			<div className={styles.imageWrapper}>
+				<img className={styles.mobileImg} src={IntroImg} alt='' />
+			</div>
 		</section>
 	)
 }

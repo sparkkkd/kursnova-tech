@@ -9,11 +9,15 @@
 	justify-content: space-between
 
 .title
-	width: 100%
+	position: absolute
+	left: 0
+	top: 0
 	text-align: center
 	font-size: clamp(2rem, 1.6667rem + 1.4815vw, 3rem)
 
 .list
+	width: 50%
+	margin-left: auto
 	li:nth-child(1)
 		button
 			padding-top: 0px
@@ -24,6 +28,9 @@
 		flex-direction: column
 		justify-content: center
 		align-items: center
+
+	.title
+		position: sticky
 
 	.list
 		margin: 0

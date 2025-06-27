@@ -2,13 +2,13 @@ import { useRef, type FC } from 'react'
 import clsx from 'clsx'
 import { useScroll, motion, useTransform } from 'framer-motion'
 
+import { AnimatedText } from '../../../../modules/AnimatedText/AnimatedText'
+import { Container } from '../../../../components/Container/Container'
+
 import CoffeeImg from '../../../../assets/parents/intro-text/coffe-img.png'
 import Marshmallow_1 from '../../../../assets/parents/intro-text/marshmallow-1.png'
 import Marshmallow_2 from '../../../../assets/parents/intro-text/marshmallow-2.png'
 import Marshmallow_3 from '../../../../assets/parents/intro-text/marshmallow-3.png'
-
-import { AnimatedText } from '../../../../modules/AnimatedText/AnimatedText'
-import { Container } from '../../../../components/Container/Container'
 
 import styles from './IntroTextSection.module.sass'
 
@@ -36,22 +36,22 @@ export const IntroTextSection: FC<IntroTextSectionProps> = ({ className }) => {
 	const subtitleY = useTransform(scrollYProgress, [0.3, 0.6], ['50%', '0%'])
 	const subTitleOpacity = useTransform(scrollYProgress, [0.3, 0.6], [0, 1])
 
-	const imageY = useTransform(scrollYProgress, [0.6, 0.8], ['20%', '-18%'])
-	const imageOpacity = useTransform(scrollYProgress, [0.6, 0.8], [0, 1])
+	const imageY = useTransform(scrollYProgress, [0.4, 0.8], ['10%', '-18%'])
+	const imageOpacity = useTransform(scrollYProgress, [0.4, 0.8], [0, 1])
 
 	const marshmallow_1Y = useTransform(
 		scrollYProgress,
-		[0.6, 1],
+		[0.4, 1],
 		['80%', '-100%']
 	)
 	const marshmallow_2Y = useTransform(
 		scrollYProgress,
-		[0.6, 1],
+		[0.4, 1],
 		['20%', '-100%']
 	)
 	const marshmallow_3Y = useTransform(
 		scrollYProgress,
-		[0.6, 1],
+		[0.4, 1],
 		['50%', '-50%']
 	)
 

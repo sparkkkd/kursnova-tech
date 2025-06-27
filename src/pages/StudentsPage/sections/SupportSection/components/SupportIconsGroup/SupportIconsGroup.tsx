@@ -6,7 +6,6 @@ import clsx from 'clsx'
 
 interface SupportIconsGroupProps {
 	className?: string
-	// keyId: string
 	activeStage: number
 	images: string[]
 }

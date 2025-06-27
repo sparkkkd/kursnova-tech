@@ -35,6 +35,10 @@ export const SwitchModeSide: FC<SwitchModeProps> = ({ className }) => {
 		}
 	}, [])
 
+	useEffect(() => {
+		window.scrollTo({ top: 0 })
+	}, [mode])
+
 	const handleChangeMode = (mode: 'parents' | 'students') => {
 		dispatch(switchModeAction(mode))
 

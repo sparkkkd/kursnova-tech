@@ -23,7 +23,6 @@ export const FaqIcon: FC<FaqIconProps> = ({ isOpen, className }) => {
 				initial={{ rotate: 0, opacity: 1 }}
 				animate={{
 					rotate: isOpen ? 0 : 90,
-					// opacity: isOpen ? 0 : 1,
 				}}
 				transition={{ duration: 0.3 }}
 			></motion.span>

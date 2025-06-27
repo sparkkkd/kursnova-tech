@@ -54,6 +54,7 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 								src={EDUCATION_VIDEOS[activeStage]}
 								autoPlay
 								muted
+								playsInline
 								preload='auto'
 								key={activeStage}
 								initial={{ opacity: 0, x: '100%' }}
@@ -69,6 +70,7 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 									src={EDUCATION_VIDEOS[activeStage]}
 									autoPlay
 									muted
+									playsInline
 									preload='auto'
 									key={activeStage}
 									initial={{ opacity: 0, x: '100%' }}
@@ -84,6 +86,7 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 								src={EDUCATION_VIDEOS[activeStage]}
 								autoPlay
 								muted
+								playsInline
 								preload='auto'
 								key={activeStage}
 								initial={{ opacity: 0, x: '100%' }}

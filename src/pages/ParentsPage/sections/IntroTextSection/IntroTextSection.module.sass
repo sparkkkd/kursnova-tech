@@ -7,8 +7,7 @@
 .section
 	position: sticky
 	top: 0
-	height: 100vh
-	overflow: hidden
+	height: auto
 
 .container
 	display: flex
@@ -71,5 +70,21 @@
 		width: 60px
 
 @media screen and ( max-width: 550px )
+	.coffeeImg
+		width: 300px
+
+	.marshmallow_1, .marshmallow_2
+		width: 80px
+
+	.marshmallow_3
+		width: 45px
+
 	.button
 		width: 90% !important
+
+@media screen and ( max-width: 385px )
+	.marshmallow_1, .marshmallow_2
+		width: 65px
+
+	.marshmallow_2
+		right: -5%

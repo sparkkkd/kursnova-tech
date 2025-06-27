@@ -72,6 +72,7 @@ export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 							exit={{ opacity: 0, y: -50 }}
 							transition={{ duration: 0.3 }}
 							preload='auto'
+							playsInline
 							autoPlay
 							muted
 						></motion.video>
@@ -87,6 +88,7 @@ export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 							exit={{ opacity: 0, y: -50 }}
 							transition={{ duration: 0.3 }}
 							preload='auto'
+							playsInline
 							autoPlay
 							muted
 						></motion.video>
@@ -102,6 +104,7 @@ export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 							exit={{ opacity: 0, y: -50 }}
 							transition={{ duration: 0.3 }}
 							preload='auto'
+							playsInline
 							autoPlay
 							muted
 						></motion.video>

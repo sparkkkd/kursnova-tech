@@ -87,6 +87,7 @@ export const FeaturesTask: FC<FeaturesTaskProps> = ({ className }) => {
 						className={styles.img}
 						autoPlay
 						muted
+						playsInline
 						preload='auto'
 					></video>
 				</motion.div>
