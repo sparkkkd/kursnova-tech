@@ -9,21 +9,22 @@ import { PriceSections } from './sections/PriceSections/PriceSections'
 import { FaqSection } from './sections/FaqSecton/FaqSection'
 
 import styles from './StudentsPage.module.sass'
+
 import { useAppSelector } from '../../store/hooks'
 import { IntroAfterAnimation } from './sections/IntroAfterAnimation/IntroAfterAnimation'
+import { useWindowSize } from 'usehooks-ts'
 
 interface StudentsPageProps {
 	className?: string
 }
 
 export const StudentsPage: FC<StudentsPageProps> = ({}) => {
-	const { isIntroAnimationComplete } = useAppSelector(
-		(state) => state.uiReducer
-	)
+	const { isCanAddSection } = useAppSelector((state) => state.uiReducer)
+	const { width } = useWindowSize()
 
 	return (
 		<div className={styles.content}>
-			{isIntroAnimationComplete && <IntroAfterAnimation />}
+			{isCanAddSection && width > 815 && <IntroAfterAnimation />}
 
 			<IntroSection />
 			<FeaturesSection />

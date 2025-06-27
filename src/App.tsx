@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from './store/hooks'
-import { openModal } from './store/slices/uiSlice'
-import { ReactLenis } from 'lenis/react'
+import { openModal, setIsCanAddSection } from './store/slices/uiSlice'
+import { ReactLenis, useLenis } from 'lenis/react'
 
 import { Header } from './modules/Header/Header'
 import { Footer } from './modules/Footer/Footer'
@@ -12,10 +12,18 @@ import { TryButton } from './modules/TryButton/TryButton'
 import { Modal } from './modules/Modal/Modal'
 import { TryForm } from './modules/TryForm/TryForm'
 import { SuccessModal } from './modules/SuccessModal/SuccessModal'
+import { useEffect } from 'react'
 
 function App() {
 	const { mode, isModalSuccess } = useAppSelector((state) => state.uiReducer)
 	const dispatch = useAppDispatch()
+
+	const lenis = useLenis()
+
+	useEffect(() => {
+		if (lenis) lenis?.scrollTo(0, { duration: 0, immediate: true })
+		dispatch(setIsCanAddSection(false))
+	}, [mode])
 
 	return (
 		<>

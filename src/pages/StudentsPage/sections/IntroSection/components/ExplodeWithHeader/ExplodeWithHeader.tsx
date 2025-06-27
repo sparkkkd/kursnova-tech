@@ -1,8 +1,6 @@
 import { useRef, type FC } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
-import { useAppDispatch } from '../../../../../../store/hooks'
-import { toggleIsIntroAnimationComplete } from '../../../../../../store/slices/uiSlice'
 
 import HeartSvg from '../../../../../../assets/icons/heart.svg?react'
 import PizzaSvg from '../../../../../../assets/icons/pizza.svg?react'
@@ -15,13 +13,13 @@ import styles from './ExplodeWithHeader.module.sass'
 
 interface ExplodeWithHeaderProps {
 	className?: string
+	handleAnimationEnd: () => void
 }
 
 export const ExplodeWithHeader: FC<ExplodeWithHeaderProps> = ({
 	className,
+	handleAnimationEnd,
 }) => {
-	const dispatch = useAppDispatch()
-
 	const videoRef = useRef<HTMLVideoElement>(null)
 	const containerRef = useRef<HTMLDivElement>(null)
 
@@ -45,13 +43,15 @@ export const ExplodeWithHeader: FC<ExplodeWithHeaderProps> = ({
 						duration: 0.3,
 					},
 				}}
+				onAnimationComplete={() => {
+					handleAnimationEnd()
+				}}
 			></motion.video>
 			<motion.h3
 				className={styles.title}
 				initial={{ opacity: 0 }}
 				animate={{ opacity: 1 }}
-				transition={{ delay: 1.5, duration: 1 }}
-				onAnimationComplete={() => dispatch(toggleIsIntroAnimationComplete())}
+				transition={{ delay: 0.1, duration: 1 }}
 			>
 				<div>
 					Учись в любимом

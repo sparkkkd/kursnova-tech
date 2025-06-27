@@ -6,6 +6,7 @@ interface IInitialState {
 	isModalSuccess: boolean
 	isSidebarOpen: boolean
 	isIntroAnimationComplete: boolean
+	isCanAddSection: boolean
 }
 
 const initialState: IInitialState = {
@@ -14,6 +15,7 @@ const initialState: IInitialState = {
 	isModalSuccess: false,
 	isSidebarOpen: false,
 	isIntroAnimationComplete: false,
+	isCanAddSection: false,
 }
 
 export const uiSlice = createSlice({
@@ -44,6 +46,9 @@ export const uiSlice = createSlice({
 		toggleIsIntroAnimationComplete: (state) => {
 			state.isIntroAnimationComplete = !state.isIntroAnimationComplete
 		},
+		setIsCanAddSection: (state, action: PayloadAction<boolean>) => {
+			state.isCanAddSection = action.payload
+		},
 	},
 })
 
@@ -56,4 +61,5 @@ export const {
 	closeSidebar,
 	openSidebar,
 	toggleIsIntroAnimationComplete,
+	setIsCanAddSection,
 } = uiSlice.actions

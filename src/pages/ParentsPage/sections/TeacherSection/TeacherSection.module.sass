@@ -3,12 +3,8 @@
 .section
 	position: relative
 
-.button
-	position: absolute
-	left: 50%
-	transform: translateX(-50%)
-	bottom: 0
-	text-align: center
+.mobile
+	display: none
 
 .titleWrapper
 	display: none
@@ -36,6 +32,12 @@
 
 	.slider
 		margin-top: 25px
+
+	.mobile
+		display: block
+
+	.desktop
+		display: none !important
 
 @media screen and ( max-width: 650px )
 	.titleWrapper

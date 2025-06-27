@@ -1,9 +1,8 @@
+import clsx from 'clsx'
 import { useEffect, useRef, useState, type FC } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import styles from './TryButton.module.sass'
-import clsx from 'clsx'
-import { useAppSelector } from '../../store/hooks'
 
 interface TryButtonProps {
 	className?: string
@@ -11,9 +10,6 @@ interface TryButtonProps {
 }
 
 export const TryButton: FC<TryButtonProps> = ({ className, onClick }) => {
-	const { isIntroAnimationComplete } = useAppSelector(
-		(state) => state.uiReducer
-	)
 	const [isFooterVisible, setIsFooterVisible] = useState(false)
 
 	const footerRef = useRef<HTMLElement | null>(null)
@@ -42,7 +38,7 @@ export const TryButton: FC<TryButtonProps> = ({ className, onClick }) => {
 		}
 	}, [])
 
-	const isVisible = !isFooterVisible && isIntroAnimationComplete
+	const isVisible = !isFooterVisible
 
 	return (
 		<AnimatePresence>
