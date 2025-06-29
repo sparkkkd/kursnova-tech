@@ -2,13 +2,14 @@ import type { FC } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
-import weHelp from '../../../../assets/how/we-help.png'
-
 import { HowCard } from './components/HowCard/HowCard'
 import { Container } from '../../../../components/Container/Container'
 
-import styles from './HowSection.module.sass'
+import weHelp from '../../../../assets/students/how/we-help.png'
+
 import { CARDS_CONTENT } from './constants'
+
+import styles from './HowSection.module.sass'
 
 interface HowSectionsProps {
 	className?: string

@@ -5,8 +5,8 @@ import clsx from 'clsx'
 
 import { ScrollDown } from '../../../../../../components/ScrollDown/ScrollDown'
 
-import BombImage_1 from '../../../../../../assets/intro/bomb-1.png'
-import BombImage_2 from '../../../../../../assets/intro/bomb-2.png'
+import BombImage_1 from '../../../../../../assets/students/intro/bomb-1.png'
+import BombImage_2 from '../../../../../../assets/students/intro/bomb-2.png'
 
 import styles from './TitleWithBombs.module.sass'
 

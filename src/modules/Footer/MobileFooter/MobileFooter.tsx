@@ -7,11 +7,11 @@ import { FooterCard } from '../FooterCard/FooterCard'
 import { FooterContacts } from '../FooterContacts/FooterContacts'
 import { FooterLicense } from '../FooterLicense/FooterLicense'
 
-import Bot from '../../../assets/footer/bot.svg'
-import GreenBall from '../../../assets/footer/green-ball.png'
-import Eurica from '../../../assets/footer/eurica.svg'
-import Horse from '../../../assets/footer/horse.png'
-import CardBackground from '../../../assets/footer/card-bg-mobile.png'
+import Bot from '../../../assets/common/footer/bot.png'
+import GreenBall from '../../../assets/common/footer/green-ball.png'
+import Eurica from '../../../assets/common/footer/eurica.png'
+import Horse from '../../../assets/common/footer/horse.png'
+import CardBackground from '../../../assets/common/footer/card-bg-mobile.png'
 
 import styles from './MobileFooter.module.sass'
 

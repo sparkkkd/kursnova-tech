@@ -5,7 +5,7 @@ import clsx from 'clsx'
 import { Container } from '../../../../../../components/Container/Container'
 
 import SharkImg from '../../../../../../assets/parents/education/education-shark.png'
-import PlayIcon from '../../../../../../assets/icons/play-icon.svg'
+import PlayIcon from '../../../../../../assets/common/icons/play-icon.svg'
 
 import {
 	EDUCATION_VIDEOS,

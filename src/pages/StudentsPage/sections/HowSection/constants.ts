@@ -1,7 +1,7 @@
-import how1 from '../../../../assets/how/how-1.svg'
-import how2 from '../../../../assets/how/how-2.svg'
-import how3 from '../../../../assets/how/how-3.svg'
-import how4 from '../../../../assets/how/how-4.svg'
+import how1 from '../../../../assets/students/how/how-1.svg'
+import how2 from '../../../../assets/students/how/how-2.svg'
+import how3 from '../../../../assets/students/how/how-3.svg'
+import how4 from '../../../../assets/students/how/how-4.svg'
 
 export const CARDS_CONTENT = [
 	{

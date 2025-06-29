@@ -2,10 +2,10 @@ import { useRef, type FC } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
-import HeartSvg from '../../../../../../assets/icons/heart.svg?react'
-import PizzaSvg from '../../../../../../assets/icons/pizza.svg?react'
-import HandsSvg from '../../../../../../assets/icons/hands.svg?react'
-import PhoneSvg from '../../../../../../assets/icons/phone.svg?react'
+import HeartSvg from '../../../../../../assets/common/icons/heart.svg?react'
+import PizzaSvg from '../../../../../../assets/common/icons/pizza.svg?react'
+import HandsSvg from '../../../../../../assets/common/icons/hands.svg?react'
+import PhoneSvg from '../../../../../../assets/common/icons/phone.svg?react'
 
 import ExplodeVideo from '../../../../../../assets/explode.webm'
 

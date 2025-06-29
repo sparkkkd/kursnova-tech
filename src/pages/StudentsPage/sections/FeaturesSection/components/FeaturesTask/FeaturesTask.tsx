@@ -5,10 +5,11 @@ import { motion } from 'framer-motion'
 import { Container } from '../../../../../../components/Container/Container'
 import { FeaturesDescription } from '../FeaturesDescription/FeaturesDescription'
 
-import TaskTag from '../../../../../../assets/features/task-tag.svg'
-import Star from '../../../../../../assets/icons/star.svg?react'
-import BackPackIcon from '../../../../../../assets/icons/backpack.svg?react'
-import DumbbelIcon from '../../../../../../assets/icons/dumbbel.svg?react'
+import TaskTag from '../../../../../../assets/students/features/task-tag.svg'
+
+import Star from '../../../../../../assets/common/icons/star.svg?react'
+import BackPackIcon from '../../../../../../assets/common/icons/backpack.svg?react'
+import DumbbelIcon from '../../../../../../assets/common/icons/dumbbel.svg?react'
 
 import styles from './FeaturesTask.module.sass'
 

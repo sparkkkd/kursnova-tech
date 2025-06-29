@@ -1,11 +1,11 @@
 import clsx from 'clsx'
 import { type FC } from 'react'
+import { useWindowSize } from 'usehooks-ts'
 
 import { DesktopIntro } from './components/DesktopIntro/DesktopIntro'
+import { TitleWithBombs } from './components/TitleWithBombs/TitleWithBombs'
 
 import styles from './IntroSection.module.sass'
-import { TitleWithBombs } from './components/TitleWithBombs/TitleWithBombs'
-import { useWindowSize } from 'usehooks-ts'
 
 interface IntroSectionProps {
 	className?: string

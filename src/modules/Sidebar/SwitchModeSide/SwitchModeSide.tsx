@@ -1,10 +1,14 @@
-import { useEffect, useRef, useState, type FC } from 'react'
 import clsx from 'clsx'
+import { useEffect, useRef, useState, type FC } from 'react'
 import { motion } from 'framer-motion'
+import { useAppDispatch, useAppSelector } from '../../../store/hooks'
+import {
+	setIsSiderbarOpen,
+	switchMode as switchModeAction,
+} from '../../../store/slices/uiSlice'
+import { useLenis } from 'lenis/react'
 
 import styles from './SwitchModeSide.module.sass'
-import { useAppDispatch, useAppSelector } from '../../../store/hooks'
-import { switchMode as switchModeAction } from '../../../store/slices/uiSlice'
 
 interface SwitchModeProps {
 	className?: string
@@ -19,6 +23,8 @@ export const SwitchModeSide: FC<SwitchModeProps> = ({ className }) => {
 	const containerRef = useRef<HTMLDivElement>(null)
 
 	const [position, setPosition] = useState({ x: 0, width: 0 })
+
+	const lenis = useLenis()
 
 	useEffect(() => {
 		const ref = mode === 'parents' ? parentRef : studentRef
@@ -35,12 +41,9 @@ export const SwitchModeSide: FC<SwitchModeProps> = ({ className }) => {
 		}
 	}, [])
 
-	// useEffect(() => {
-	// 	window.scrollTo({ top: 0 })
-	// }, [mode])
-
 	const handleChangeMode = (mode: 'parents' | 'students') => {
 		dispatch(switchModeAction(mode))
+		dispatch(setIsSiderbarOpen(false))
 
 		const ref = mode === 'parents' ? parentRef : studentRef
 		const containerRect = containerRef.current?.getBoundingClientRect()
@@ -54,6 +57,8 @@ export const SwitchModeSide: FC<SwitchModeProps> = ({ className }) => {
 				width: rect.width,
 			})
 		}
+
+		lenis?.scrollTo(0, { duration: 0, immediate: true })
 	}
 
 	return (

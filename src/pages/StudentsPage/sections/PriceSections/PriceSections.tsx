@@ -1,6 +1,8 @@
 import type { FC } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
+import { useAppDispatch } from '../../../../store/hooks'
+import { setIsModalOpen } from '../../../../store/slices/uiSlice'
 
 import { PriceCard } from './components/PriceCard/PriceCard'
 import { Container } from '../../../../components/Container/Container'
@@ -8,13 +10,11 @@ import { PriceDescriptionList } from './components/PriceDescriptionList/PriceDes
 
 import { CARDS, PRICE_DESCRIPTIONS } from './constants'
 
-import PriceTag from '../../../../assets/price/price-tag.png'
-import MobilePriceTag from '../../../../assets/price/mobile-price-tag.png'
-import Arrow from '../../../../assets/price/arrow.svg?react'
+import PriceTag from '../../../../assets/students/price/price-tag.png'
+import PriceImg_Mobile from '../../../../assets/students/price/mobile-price-img.png'
+import Arrow from '../../../../assets/students/price/arrow.svg?react'
 
 import styles from './PriceSections.module.sass'
-import { useAppDispatch } from '../../../../store/hooks'
-import { setIsModalOpen } from '../../../../store/slices/uiSlice'
 
 interface PriceSectionsProps {
 	className?: string
@@ -63,8 +63,7 @@ export const PriceSections: FC<PriceSectionsProps> = ({ className }) => {
 						/>
 					</motion.div>
 
-					<img className={styles.mobileTag} src={MobilePriceTag} alt='' />
-
+					<img className={styles.mobileTag} src={PriceImg_Mobile} alt='' />
 					<img className={styles.tag} src={PriceTag} alt='' />
 					<Arrow className={styles.arrow} />
 

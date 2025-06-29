@@ -1,7 +1,7 @@
 import { v4 } from 'uuid'
 
-import EyesIcon from '../../../../assets/icons/eyes.svg'
-import MeteoriteIcon from '../../../../assets/icons/meteorite.svg'
+import EyesIcon from '../../../../assets/common/icons/eyes.svg'
+import MeteoriteIcon from '../../../../assets/common/icons/meteorite.svg'
 
 import FireIcon from '../../../../assets/parents/education/fire.png'
 import CoinIcon from '../../../../assets/parents/education/coin.png'

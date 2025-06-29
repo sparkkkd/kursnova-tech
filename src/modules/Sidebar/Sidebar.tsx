@@ -8,7 +8,7 @@ import { SwitchModeSide } from './SwitchModeSide/SwitchModeSide'
 
 import { PARENT_SIDEBAR_LINKS, STUDENTS_SIDEBAR_LINKS } from './constants'
 
-import ProfitImg from '../../assets/sidebar/bagel.svg'
+import ProfitImg from '../../assets/common/sidebar/bagel.svg'
 import CloseIcon from '../../assets/close.svg?react'
 
 import styles from './Sidebar.module.sass'

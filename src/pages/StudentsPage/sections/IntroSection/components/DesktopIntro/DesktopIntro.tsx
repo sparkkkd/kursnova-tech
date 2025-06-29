@@ -1,13 +1,14 @@
 import { useEffect, useLayoutEffect, useRef, useState, type FC } from 'react'
+import clsx from 'clsx'
+import { AnimatePresence, motion } from 'framer-motion'
+import { setIsCanAddSection } from '../../../../../../store/slices/uiSlice'
+import { useAppDispatch } from '../../../../../../store/hooks'
+import { useLenis } from 'lenis/react'
+
+import { ExplodeWithHeader } from '../ExplodeWithHeader/ExplodeWithHeader'
+import { TitleWithBombs } from '../TitleWithBombs/TitleWithBombs'
 
 import styles from './DesktopIntro.module.sass'
-import { ExplodeWithHeader } from '../ExplodeWithHeader/ExplodeWithHeader'
-import { AnimatePresence, motion } from 'framer-motion'
-import { TitleWithBombs } from '../TitleWithBombs/TitleWithBombs'
-import clsx from 'clsx'
-import { setIsCanAddSection } from '../../../../../../store/slices/uiSlice'
-import { useLenis } from 'lenis/react'
-import { useAppDispatch } from '../../../../../../store/hooks'
 
 interface DesktopIntroProps {
 	className?: string

@@ -8,12 +8,14 @@ import { motion } from 'framer-motion'
 
 import { Container } from '../../../../../../components/Container/Container'
 
-import PhoneIcon from '../../../../../../assets/features/video-phone.svg?react'
-import VideoTagImage from '../../../../../../assets/features/video-tag.svg'
-import VideoPlayIcon from '../../../../../../assets/features/video-play.svg?react'
-import EyeIcon from '../../../../../../assets/icons/eyes.svg?react'
-import TimerIcon from '../../../../../../assets/icons/timer.svg?react'
-import reelsVideo from '../../../../../../assets/features/reels.mp4'
+import PhoneIcon from '../../../../../../assets/students/features/video-phone.svg?react'
+import VideoTagImage from '../../../../../../assets/students/features/video-tag.svg'
+import VideoPlayIcon from '../../../../../../assets/students/features/video-play.svg?react'
+
+import reelsVideo from '../../../../../../assets/students/features/reels.mp4'
+
+import EyeIcon from '../../../../../../assets/common/icons/eyes.svg?react'
+import TimerIcon from '../../../../../../assets/common/icons/timer.svg?react'
 
 import styles from './FeaturesVideo.module.sass'
 

@@ -1,13 +1,14 @@
 import type { FC } from 'react'
 import clsx from 'clsx'
+import { useWindowSize } from 'usehooks-ts'
 
-import HeartImg from '../../../../../../assets/icons/heart.svg'
-import PizzaImg from '../../../../../../assets/icons/pizza.svg'
-import PhoneImg from '../../../../../../assets/icons/phone.svg'
+import { Container } from '../../../../../../components/Container/Container'
+
+import HeartImg from '../../../../../../assets/common/icons/heart.svg'
+import PizzaImg from '../../../../../../assets/common/icons/pizza.svg'
+import PhoneImg from '../../../../../../assets/common/icons/phone.svg'
 
 import styles from './FeaturesText.module.sass'
-import { Container } from '../../../../../../components/Container/Container'
-import { useWindowSize } from 'usehooks-ts'
 
 interface FeaturesTextProps {
 	className?: string

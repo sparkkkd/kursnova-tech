@@ -1,7 +1,7 @@
 import type { FC } from 'react'
 import clsx from 'clsx'
 
-import CardBackground from '../../../assets/footer/card-bg.png'
+import CardBackground from '../../../assets/common/footer/card-bg.png'
 
 import styles from './FooterCard.module.sass'
 

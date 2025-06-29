@@ -1,17 +1,17 @@
-import AppHelp_1 from '../../../../assets/support/app-help-1.png'
-import AppHelp_2 from '../../../../assets/support/app-help-2.png'
-import AppHelp_3 from '../../../../assets/support/app-help-3.png'
-import AppHelp_4 from '../../../../assets/support/app-help-4.png'
+import AppHelp_1 from '../../../../assets/students/support/app-help-1.png'
+import AppHelp_2 from '../../../../assets/students/support/app-help-2.png'
+import AppHelp_3 from '../../../../assets/students/support/app-help-3.png'
+import AppHelp_4 from '../../../../assets/students/support/app-help-4.png'
 
-import PsyHelp_1 from '../../../../assets/support/psy-help-1.png'
-import PsyHelp_2 from '../../../../assets/support/psy-help-2.png'
-import PsyHelp_3 from '../../../../assets/support/psy-help-3.png'
-import PsyHelp_4 from '../../../../assets/support/psy-help-4.png'
+import PsyHelp_1 from '../../../../assets/students/support/psy-help-1.png'
+import PsyHelp_2 from '../../../../assets/students/support/psy-help-2.png'
+import PsyHelp_3 from '../../../../assets/students/support/psy-help-3.png'
+import PsyHelp_4 from '../../../../assets/students/support/psy-help-4.png'
 
-import LessonHelp_1 from '../../../../assets/support/lessons-help-1.png'
-import LessonHelp_2 from '../../../../assets/support/lessons-help-2.png'
-import LessonHelp_3 from '../../../../assets/support/lessons-help-3.png'
-import LessonHelp_4 from '../../../../assets/support/lessons-help-4.png'
+import LessonHelp_1 from '../../../../assets/students/support/lessons-help-1.png'
+import LessonHelp_2 from '../../../../assets/students/support/lessons-help-2.png'
+import LessonHelp_3 from '../../../../assets/students/support/lessons-help-3.png'
+import LessonHelp_4 from '../../../../assets/students/support/lessons-help-4.png'
 
 export const SUPPORT_BUTTONS = [
 	'Работа приложения',

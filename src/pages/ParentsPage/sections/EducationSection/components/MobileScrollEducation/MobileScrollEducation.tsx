@@ -2,14 +2,13 @@ import { useState, type FC } from 'react'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 
+import { EducationBottomBar } from '../EducationBottomBar/EducationBottomBar/EducationBottomBar'
+
 import { EDUCATION_VIDEOS, STAGES_LABEL } from '../../constants'
 
 import SharkImg from '../../../../../../assets/parents/education/education-shark-mobile.png'
 
-import poster from '../../../../../../assets/posters/poster.png'
-
 import styles from './MobileScrollEducation.module.sass'
-import { EducationBottomBar } from '../EducationBottomBar/EducationBottomBar/EducationBottomBar'
 
 interface MobileScrollEducationProps {
 	activeStage: number
@@ -60,8 +59,6 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 								playsInline
 								autoPlay
 								muted
-								crossOrigin='anonymous'
-								poster={poster}
 								key={activeStage}
 								initial={{ opacity: 0, x: '100%' }}
 								animate={{ opacity: 1, x: '0%' }}
@@ -79,8 +76,6 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 									playsInline
 									autoPlay
 									muted
-									crossOrigin='anonymous'
-									poster={poster}
 									key={activeStage}
 									initial={{ opacity: 0, x: '100%' }}
 									animate={{ opacity: 1, x: '0%' }}
@@ -101,8 +96,6 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 								playsInline
 								autoPlay
 								muted
-								crossOrigin='anonymous'
-								poster={poster}
 								key={activeStage}
 								initial={{ opacity: 0, x: '100%' }}
 								animate={{ opacity: 1, x: '0%' }}
