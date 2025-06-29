@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import { useState, type FC } from 'react'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -6,7 +6,10 @@ import { EDUCATION_VIDEOS, STAGES_LABEL } from '../../constants'
 
 import SharkImg from '../../../../../../assets/parents/education/education-shark-mobile.png'
 
+import poster from '../../../../../../assets/posters/poster.png'
+
 import styles from './MobileScrollEducation.module.sass'
+import { EducationBottomBar } from '../EducationBottomBar/EducationBottomBar/EducationBottomBar'
 
 interface MobileScrollEducationProps {
 	activeStage: number
@@ -17,6 +20,8 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 	activeStage,
 	classname,
 }) => {
+	const [isOpen, setIsOpen] = useState<boolean>(false)
+
 	return (
 		<div className={clsx(styles.content, classname)}>
 			<div className={styles.top}>
@@ -51,49 +56,61 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 					<AnimatePresence mode='wait'>
 						{activeStage === 0 && (
 							<motion.video
-								src={EDUCATION_VIDEOS[activeStage]}
+								preload='auto'
+								playsInline
 								autoPlay
 								muted
-								playsInline
-								preload='auto'
+								crossOrigin='anonymous'
+								poster={poster}
 								key={activeStage}
 								initial={{ opacity: 0, x: '100%' }}
 								animate={{ opacity: 1, x: '0%' }}
 								exit={{ opacity: 0, x: '-100%' }}
 								transition={{ duration: 0.3 }}
-							/>
+							>
+								<source src={EDUCATION_VIDEOS[activeStage]} type='video/mp4' />
+							</motion.video>
 						)}
 
 						{activeStage === 1 && (
 							<>
 								<motion.video
-									src={EDUCATION_VIDEOS[activeStage]}
+									preload='auto'
+									playsInline
 									autoPlay
 									muted
-									playsInline
-									preload='auto'
+									crossOrigin='anonymous'
+									poster={poster}
 									key={activeStage}
 									initial={{ opacity: 0, x: '100%' }}
 									animate={{ opacity: 1, x: '0%' }}
 									exit={{ opacity: 0, x: '-100%' }}
 									transition={{ duration: 0.3 }}
-								/>
+								>
+									<source
+										src={EDUCATION_VIDEOS[activeStage]}
+										type='video/mp4'
+									/>
+								</motion.video>
 							</>
 						)}
 
 						{activeStage === 2 && (
 							<motion.video
-								src={EDUCATION_VIDEOS[activeStage]}
+								preload='auto'
+								playsInline
 								autoPlay
 								muted
-								playsInline
-								preload='auto'
+								crossOrigin='anonymous'
+								poster={poster}
 								key={activeStage}
 								initial={{ opacity: 0, x: '100%' }}
 								animate={{ opacity: 1, x: '0%' }}
 								exit={{ opacity: 0, x: '-100%' }}
 								transition={{ duration: 0.3 }}
-							/>
+							>
+								<source src={EDUCATION_VIDEOS[activeStage]} type='video/mp4' />
+							</motion.video>
 						)}
 					</AnimatePresence>
 				</motion.div>
@@ -125,7 +142,6 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 							<div className={styles.text}>
 								{STAGES_LABEL[activeStage].text}
 							</div>
-							<button className={styles.button}>Подробнее</button>
 						</motion.div>
 					)}
 					{activeStage === 1 && (
@@ -143,7 +159,6 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 							<div className={styles.text}>
 								{STAGES_LABEL[activeStage].text}
 							</div>
-							<button className={styles.button}>Подробнее</button>
 						</motion.div>
 					)}
 					{activeStage === 2 && (
@@ -159,11 +174,15 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 							<div className={styles.text}>
 								{STAGES_LABEL[activeStage].text}
 							</div>
-							<button className={styles.button}>Подробнее</button>
+							<button onClick={() => setIsOpen(true)} className={styles.button}>
+								Подробнее
+							</button>
 						</motion.div>
 					)}
 				</AnimatePresence>
 			</div>
+
+			<EducationBottomBar isOpen={isOpen} setIsOpen={setIsOpen} />
 		</div>
 	)
 }

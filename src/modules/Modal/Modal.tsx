@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import clsx from 'clsx'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import { closeModal } from '../../store/slices/uiSlice'
+import { setIsModalOpen, setIsModalSuccess } from '../../store/slices/uiSlice'
+import { useWindowSize } from 'usehooks-ts'
 
 import styles from './Modal.module.sass'
 
@@ -12,18 +13,15 @@ interface ModalProps extends React.PropsWithChildren {
 }
 
 export const Modal: FC<ModalProps> = ({ className, children }) => {
+	const [isMounted, setIsMounted] = useState(false)
+
 	const dispatch = useAppDispatch()
 	const { isModalOpen } = useAppSelector((state) => state.uiReducer)
 
-	const [isMounted, setIsMounted] = useState(false)
+	const { width } = useWindowSize()
 
 	useEffect(() => {
-		if (isModalOpen) {
-			setIsMounted(true)
-			document.body.style.overflow = 'hidden'
-		} else {
-			document.body.style.overflow = ''
-		}
+		if (isModalOpen) setIsMounted(true)
 	}, [isModalOpen])
 
 	const handleAnimationComplete = () => {
@@ -39,7 +37,10 @@ export const Modal: FC<ModalProps> = ({ className, children }) => {
 			{isModalOpen && (
 				<motion.div
 					className={clsx(styles.overlay)}
-					onClick={() => dispatch(closeModal())}
+					onClick={() => {
+						dispatch(setIsModalOpen(false))
+						dispatch(setIsModalSuccess(false))
+					}}
 					initial={{ opacity: 0 }}
 					animate={{ opacity: 1 }}
 					exit={{ opacity: 0 }}
@@ -48,9 +49,16 @@ export const Modal: FC<ModalProps> = ({ className, children }) => {
 					<motion.div
 						className={clsx(styles.content, className)}
 						onClick={(e) => e.stopPropagation()}
-						initial={{ opacity: 0, y: 50 }}
-						animate={{ opacity: 1, y: 0 }}
-						exit={{ opacity: 0, y: -50 }}
+						initial={{
+							opacity: 0,
+							y: 100,
+						}}
+						animate={{ opacity: 1, y: 0, x: 0 }}
+						exit={{
+							opacity: 0,
+							y: width > 600 ? -100 : 100,
+						}}
+						transition={{ duration: 0.3 }}
 						onAnimationComplete={handleAnimationComplete}
 					>
 						{children}

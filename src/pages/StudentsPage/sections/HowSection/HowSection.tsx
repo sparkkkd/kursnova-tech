@@ -2,43 +2,17 @@ import type { FC } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
-import how1 from '../../../../assets/how/how-1.svg'
-import how2 from '../../../../assets/how/how-2.svg'
-import how3 from '../../../../assets/how/how-3.svg'
-import how4 from '../../../../assets/how/how-4.svg'
 import weHelp from '../../../../assets/how/we-help.png'
 
 import { HowCard } from './components/HowCard/HowCard'
 import { Container } from '../../../../components/Container/Container'
 
 import styles from './HowSection.module.sass'
+import { CARDS_CONTENT } from './constants'
 
 interface HowSectionsProps {
 	className?: string
 }
-
-const cardsContent = [
-	{
-		img: how1,
-		text: 'Трекай прогресс по предметам',
-		soon: false,
-	},
-	{
-		img: how2,
-		text: 'Получай награду в виде опыта и игровой валюты',
-		soon: false,
-	},
-	{
-		img: how3,
-		text: 'Меняй коины на дни заморозки, стикеры, мерч и другие приятные мелочи',
-		soon: true,
-	},
-	{
-		img: how4,
-		text: 'Занимайся ежедневно, дни заморозки сохранят прогресс',
-		soon: false,
-	},
-]
 
 export const HowSection: FC<HowSectionsProps> = ({ className }) => {
 	return (
@@ -54,7 +28,7 @@ export const HowSection: FC<HowSectionsProps> = ({ className }) => {
 						Как все устроено
 					</motion.h3>
 					<div className={styles.cards}>
-						{cardsContent.map((card, index) => {
+						{CARDS_CONTENT.map((card, index) => {
 							const baseDelay = 0.1
 
 							return (

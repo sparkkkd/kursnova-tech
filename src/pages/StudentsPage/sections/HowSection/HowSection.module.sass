@@ -17,27 +17,17 @@
 .title
 	width: 100%
 	margin-bottom: 75px
-	font-size: 72px
+	font-size: clamp(2rem, 1.1667rem + 3.7037vw, 4.5rem)
 
 .img
 	position: absolute
 	left: 0
 	bottom: -135px
 
-.button
-	margin-top: 115px
-	padding: 24px 80px
-	border-radius: 64px
-	backdrop-filter: blur(48px)
-	background: rgba(255, 255, 255, 0.1)
-	font-size: 20px
-	font-weight: bold
-
 // Media
 @media screen and ( max-width: 1100px )
 	.title
 		margin-bottom: 40px
-		font-size: 60px
 
 	.img
 		width: 270px
@@ -51,10 +41,13 @@
 	.img
 		bottom: -125px
 
+@media screen and ( max-width: 600px )
+	.title
+		font-weight: 500
+
 @media screen and ( max-width: 560px )
 	.title
 		margin-bottom: 25px
-		font-size: 50px
 
 	.img
 		bottom: -190px
@@ -62,11 +55,3 @@
 
 	.button
 		margin-top: 210px
-
-@media screen and ( max-width: 465px )
-	.tile
-		font-size: 36px
-
-@media screen and ( max-width: 340px )
-	.title
-		font-size: 29px

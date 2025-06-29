@@ -2,7 +2,7 @@ import { useEffect, useState, type FC } from 'react'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
-import { closeSidebar, openModal } from '../../store/slices/uiSlice'
+import { setIsSiderbarOpen, setIsModalOpen } from '../../store/slices/uiSlice'
 
 import { SwitchModeSide } from './SwitchModeSide/SwitchModeSide'
 
@@ -24,12 +24,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 	const [isMounted, setIsMounted] = useState(false)
 
 	useEffect(() => {
-		if (isSidebarOpen) {
-			setIsMounted(true)
-			document.body.style.overflow = 'hidden'
-		} else {
-			document.body.style.overflow = ''
-		}
+		if (isSidebarOpen) setIsMounted(true)
 	}, [isSidebarOpen])
 
 	const handleAnimationComplete = () => {
@@ -51,7 +46,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0 }}
 							transition={{ duration: 0.3, ease: 'easeInOut' }}
-							onClick={() => dispatch(closeSidebar())}
+							onClick={() => dispatch(setIsSiderbarOpen(false))}
 						/>
 						<motion.aside
 							className={clsx(styles.sidebar, className)}
@@ -63,7 +58,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 						>
 							<motion.div
 								className={styles.close}
-								onClick={() => dispatch(closeSidebar())}
+								onClick={() => dispatch(setIsSiderbarOpen(false))}
 								initial={{ opacity: 0 }}
 								animate={{ opacity: 1 }}
 								exit={{ opacity: 0 }}
@@ -101,7 +96,10 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 
 								<button
 									className={styles.button}
-									onClick={() => dispatch(openModal())}
+									onClick={() => {
+										dispatch(setIsModalOpen(true))
+										dispatch(setIsSiderbarOpen(false))
+									}}
 								>
 									Попробовать kursnova за 0 ₽
 								</button>

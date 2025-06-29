@@ -87,6 +87,7 @@ export const MobileFooter: FC<MobileFooterProps> = ({ className }) => {
 							whileInView={{
 								opacity: 1,
 								y: 0,
+								rotateZ: -30,
 								transition: { duration: 0.3, delay: 0.6 },
 							}}
 							viewport={{ once: true, amount: 0.1 }}

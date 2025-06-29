@@ -45,8 +45,8 @@ export const SwipeCardStacks: FC<SwipeCardStacksProps> = ({}) => {
 									handleSwipe()
 								}
 							}}
-							initial={{ scale: 0.95 + index * 0.02 }}
-							animate={{ scale: 0.95 + index * 0.02 }}
+							initial={{ scale: 1 }}
+							animate={{ scale: 1 }}
 							exit={
 								isTop
 									? { opacity: 0, scale: 0.5, x: swipeX > 0 ? 200 : -200 }

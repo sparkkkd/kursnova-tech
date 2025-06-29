@@ -5,17 +5,19 @@ interface IInitialState {
 	isModalOpen: boolean
 	isModalSuccess: boolean
 	isSidebarOpen: boolean
-	isIntroAnimationComplete: boolean
 	isCanAddSection: boolean
+	isPresentOpen: boolean
+	isAlreadyPresentOpen: boolean
 }
 
 const initialState: IInitialState = {
-	mode: 'students',
+	mode: 'parents',
 	isModalOpen: false,
 	isModalSuccess: false,
 	isSidebarOpen: false,
-	isIntroAnimationComplete: false,
 	isCanAddSection: false,
+	isPresentOpen: false,
+	isAlreadyPresentOpen: false,
 }
 
 export const uiSlice = createSlice({
@@ -25,29 +27,32 @@ export const uiSlice = createSlice({
 		switchMode: (state, action: PayloadAction<'parents' | 'students'>) => {
 			state.mode = action.payload
 		},
-		openModal: (state) => {
-			state.isModalSuccess = false
-			state.isSidebarOpen = false
-			state.isModalOpen = true
+
+		setIsModalOpen: (state, action: PayloadAction<boolean>) => {
+			state.isModalOpen = action.payload
 		},
-		closeModal: (state) => {
-			state.isModalSuccess = false
-			state.isModalOpen = false
+
+		setIsModalSuccess: (state, action: PayloadAction<boolean>) => {
+			state.isModalSuccess = action.payload
 		},
-		setModalSuccess: (state) => {
-			state.isModalSuccess = true
+
+		setIsSiderbarOpen: (state, action: PayloadAction<boolean>) => {
+			state.isSidebarOpen = action.payload
 		},
-		openSidebar: (state) => {
-			state.isSidebarOpen = true
-		},
-		closeSidebar: (state) => {
-			state.isSidebarOpen = false
-		},
-		toggleIsIntroAnimationComplete: (state) => {
-			state.isIntroAnimationComplete = !state.isIntroAnimationComplete
-		},
+
 		setIsCanAddSection: (state, action: PayloadAction<boolean>) => {
 			state.isCanAddSection = action.payload
+		},
+
+		setIsPresentOpen: (state, action: PayloadAction<boolean>) => {
+			state.isPresentOpen = action.payload
+			state.isAlreadyPresentOpen = true
+		},
+
+		successPresentAction: (state) => {
+			state.isPresentOpen = false
+			state.isModalOpen = true
+			state.isModalSuccess = true
 		},
 	},
 })
@@ -55,11 +60,10 @@ export const uiSlice = createSlice({
 export default uiSlice.reducer
 export const {
 	switchMode,
-	closeModal,
-	openModal,
-	setModalSuccess,
-	closeSidebar,
-	openSidebar,
-	toggleIsIntroAnimationComplete,
+	setIsModalOpen,
+	setIsModalSuccess,
+	setIsSiderbarOpen,
 	setIsCanAddSection,
+	setIsPresentOpen,
+	successPresentAction,
 } = uiSlice.actions

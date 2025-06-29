@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import { Container } from '../../../../../../components/Container/Container'
 import { FeaturesDescription } from '../FeaturesDescription/FeaturesDescription'
 
-import TaskTag from '../../../../../../assets/features/task-tag.svg?react'
+import TaskTag from '../../../../../../assets/features/task-tag.svg'
 import Star from '../../../../../../assets/icons/star.svg?react'
 import BackPackIcon from '../../../../../../assets/icons/backpack.svg?react'
 import DumbbelIcon from '../../../../../../assets/icons/dumbbel.svg?react'
@@ -21,52 +21,65 @@ export const FeaturesTask: FC<FeaturesTaskProps> = ({ className }) => {
 		<Container className={styles.container}>
 			<div className={clsx(styles.wrapper, className)}>
 				<div className={styles.left}>
-					<motion.div
-						className={styles.title}
-						initial={{ opacity: 0, y: -100 }}
-						whileInView={{
-							opacity: 1,
-							y: 0,
-							transition: {
-								duration: 0.3,
-							},
-						}}
-						viewport={{ once: true, amount: 0.3 }}
-					>
-						Решай
-					</motion.div>
-					<motion.div className={styles.text}>
+					<div className={styles.textWrapper}>
 						<motion.div
-							initial={{ opacity: 0, x: -100 }}
-							whileInView={{
-								opacity: 1,
-								x: 0,
-								transition: {
-									duration: 0.3,
-									delay: 0.2,
-								},
-							}}
-							viewport={{ once: true, amount: 0.3 }}
-						>
-							зада
-						</motion.div>
-						<motion.div
-							initial={{ opacity: 0, y: 100 }}
+							className={styles.title}
+							initial={{ opacity: 0, y: -100 }}
 							whileInView={{
 								opacity: 1,
 								y: 0,
 								transition: {
 									duration: 0.3,
-									delay: 0.3,
 								},
 							}}
 							viewport={{ once: true, amount: 0.3 }}
 						>
-							ния
-							<Star className={styles.star} />
+							Решай
 						</motion.div>
-						<TaskTag className={styles.taskTag} />
-					</motion.div>
+						<motion.div className={styles.text}>
+							<motion.div
+								initial={{ opacity: 0, x: -100 }}
+								whileInView={{
+									opacity: 1,
+									x: 0,
+									transition: {
+										duration: 0.3,
+										delay: 0.2,
+									},
+								}}
+								viewport={{ once: true, amount: 0.3 }}
+							>
+								зада
+							</motion.div>
+							<motion.div
+								initial={{ opacity: 0, y: 100 }}
+								whileInView={{
+									opacity: 1,
+									y: 0,
+									transition: {
+										duration: 0.3,
+										delay: 0.3,
+									},
+								}}
+								viewport={{ once: true, amount: 0.3 }}
+							>
+								ния
+								<Star className={styles.star} />
+							</motion.div>
+							<motion.img
+								className={styles.taskTag}
+								src={TaskTag}
+								alt=''
+								initial={{ opacity: 0, scale: 0, rotateZ: -8 }}
+								whileInView={{
+									opacity: 1,
+									scale: 1,
+									transition: { duration: 0.3, delay: 0.4 },
+								}}
+								viewport={{ once: true, amount: 0.3 }}
+							/>
+						</motion.div>
+					</div>
 				</div>
 				<motion.div
 					className={styles.center}
@@ -84,7 +97,7 @@ export const FeaturesTask: FC<FeaturesTaskProps> = ({ className }) => {
 				>
 					<video
 						src='https://s3.timeweb.cloud/4151e8d2-4-6.digital/TaskExtra.mp4'
-						className={styles.img}
+						className={styles.video}
 						autoPlay
 						muted
 						playsInline

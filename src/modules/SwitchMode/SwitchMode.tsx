@@ -52,9 +52,9 @@ export const SwitchMode: FC<SwitchModeProps> = ({ className }) => {
 		}
 	}
 
-	useEffect(() => {
-		window.scrollTo({ top: 0 })
-	}, [mode])
+	// useEffect(() => {
+	// 	window.scrollTo({ top: 0 })
+	// }, [mode])
 
 	return (
 		<div className={clsx(styles.wrapper, className)} ref={containerRef}>

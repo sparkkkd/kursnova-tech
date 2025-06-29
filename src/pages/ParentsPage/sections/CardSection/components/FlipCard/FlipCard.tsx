@@ -1,6 +1,8 @@
 import { useState, type FC } from 'react'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
+import { useAppDispatch, useAppSelector } from '../../../../../../store/hooks'
+import { setIsPresentOpen } from '../../../../../../store/slices/uiSlice'
 
 import type { ICard } from '../../constants'
 
@@ -20,8 +22,13 @@ export const FlipCard: FC<FlipCardProps> = ({
 	rotate,
 	background,
 	color,
+	isPresent,
 }) => {
 	const [flipped, setFlipped] = useState<boolean>(false)
+
+	const { isAlreadyPresentOpen } = useAppSelector((state) => state.uiReducer)
+
+	const dispatch = useAppDispatch()
 
 	return (
 		<div
@@ -30,6 +37,12 @@ export const FlipCard: FC<FlipCardProps> = ({
 				setFlipped((prev) => !prev)
 				e.currentTarget.blur()
 				e.preventDefault()
+
+				if (isPresent && !isAlreadyPresentOpen) {
+					setTimeout(() => {
+						dispatch(setIsPresentOpen(true))
+					}, 400)
+				}
 			}}
 			onPointerDown={(e) => {
 				e.currentTarget.blur()
@@ -87,7 +100,7 @@ export const FlipCard: FC<FlipCardProps> = ({
 					</AnimatePresence>
 					<div className={styles.backWrapper}>
 						<div className={styles.backTitle}>{backTitle}</div>
-						<div className={styles.text}>{backText}</div>
+						<div className={styles.backText}>{backText}</div>
 					</div>
 				</div>
 			</div>

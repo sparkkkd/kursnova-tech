@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import type { FC } from 'react'
 import { useAppDispatch } from '../../store/hooks'
-import { openSidebar } from '../../store/slices/uiSlice'
+import { setIsSiderbarOpen } from '../../store/slices/uiSlice'
 
 import { SwitchMode } from '../SwitchMode/SwitchMode'
 import { Container } from '../../components/Container/Container'
@@ -25,7 +25,7 @@ export const Header: FC<HeaderProps> = ({ className }) => {
 				<SwitchMode className={styles.desktopMode} />
 				<div className={styles.actions}>
 					<button className={styles.signin}>Войти</button>
-					<BurgerButton onClick={() => dispatch(openSidebar())} />
+					<BurgerButton onClick={() => dispatch(setIsSiderbarOpen(true))} />
 				</div>
 			</header>
 			<SwitchMode className={styles.mobileMode} />

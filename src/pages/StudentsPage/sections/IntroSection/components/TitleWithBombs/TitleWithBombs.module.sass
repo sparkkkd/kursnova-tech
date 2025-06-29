@@ -7,6 +7,7 @@
 	flex-direction: column
 	align-items: center
 	justify-content: center
+	overflow: hidden
 
 .titleWrapper
 	position: absolute
@@ -63,14 +64,23 @@
 	left: 50%
 	bottom: 24px
 
+.bomb
+	position: absolute
+	width: clamp(8.75rem, 5.783rem + 13.1868vw, 12.5rem)
+	height: auto
+
+.bomb_1
+	left: -45px
+	bottom: -123px
+
+.bomb_2
+	right: -32px
+	top: -117px
+
 // Media
 @media screen and ( max-width: 1100px )
 	.video
 		height: 700px
-
-@media screen and ( max-width: 842px )
-	.video
-		height: 300px
 
 @media screen and ( max-width: 825px )
 	.tag
@@ -92,3 +102,7 @@
 
 	.video
 		height: 200px
+
+	.bomb_1
+		left: -5px
+		bottom: -79%

@@ -28,9 +28,7 @@ export const IntroSection: FC<IntroSectionProps> = ({ className }) => {
 					<div>о домашках</div>
 					<div>на себя</div>
 				</motion.h2>
-				<button className={clsx(styles.button, styles.mobileButton)}>
-					Попробовать за 0 ₽
-				</button>
+				<button className={styles.button}>Попробовать за 0 ₽</button>
 			</Container>
 
 			<video className={styles.video} autoPlay muted preload='auto' playsInline>

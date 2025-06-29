@@ -53,13 +53,18 @@ export const PriceSections: FC<PriceSectionsProps> = ({ className }) => {
 								<PriceCard key={index} {...card} />
 							))}
 						</div>
-						<PriceDescriptionList descriptions={PRICE_DESCRIPTIONS} />
+						<PriceDescriptionList
+							className={styles.list}
+							descriptions={PRICE_DESCRIPTIONS}
+						/>
 					</motion.div>
 
 					<img className={styles.mobileTag} src={MobilePriceTag} alt='' />
 
 					<img className={styles.tag} src={PriceTag} alt='' />
 					<Arrow className={styles.arrow} />
+
+					<button className={styles.button}>Попробовать за 0 ₽</button>
 				</div>
 			</Container>
 		</section>

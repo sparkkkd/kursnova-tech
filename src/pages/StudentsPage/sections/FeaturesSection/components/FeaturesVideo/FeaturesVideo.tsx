@@ -9,7 +9,7 @@ import { motion } from 'framer-motion'
 import { Container } from '../../../../../../components/Container/Container'
 
 import PhoneIcon from '../../../../../../assets/features/video-phone.svg?react'
-import VideoTag from '../../../../../../assets/features/video-tag.svg?react'
+import VideoTagImage from '../../../../../../assets/features/video-tag.svg'
 import VideoPlayIcon from '../../../../../../assets/features/video-play.svg?react'
 import EyeIcon from '../../../../../../assets/icons/eyes.svg?react'
 import TimerIcon from '../../../../../../assets/icons/timer.svg?react'
@@ -26,68 +26,84 @@ export const FeaturesVideo: FC<FeaturesVideoProps> = ({ className }) => {
 		<Container className={styles.container}>
 			<div className={clsx(styles.wrapper, className)}>
 				<div className={styles.left}>
-					<motion.div
-						initial={{ opacity: 0, y: -100 }}
-						whileInView={{
-							opacity: 1,
-							y: 0,
-							transition: {
-								duration: 0.3,
-							},
-						}}
-						viewport={{ once: true, amount: 0.3 }}
-						className={styles.title}
-					>
-						Смотри
-					</motion.div>
-					<div className={styles.text}>
+					<div className={styles.textWrapper}>
 						<motion.div
-							initial={{ opacity: 0, x: -100 }}
-							whileInView={{
-								opacity: 1,
-								x: 0,
-								transition: {
-									duration: 0.3,
-									delay: 0.2,
-								},
-							}}
-							viewport={{ once: true, amount: 0.3 }}
-						>
-							<div>ви</div>
-							<PhoneIcon className={styles.phoneIcon} />
-						</motion.div>
-						<motion.div
-							initial={{ opacity: 0, y: 100 }}
+							initial={{ opacity: 0, y: -100 }}
 							whileInView={{
 								opacity: 1,
 								y: 0,
 								transition: {
 									duration: 0.3,
-									delay: 0.3,
 								},
 							}}
 							viewport={{ once: true, amount: 0.3 }}
+							className={styles.title}
 						>
-							део
+							Смотри
 						</motion.div>
-						<VideoTag className={styles.videoTag} />
-						<motion.button
-							initial={{ opacity: 0, scale: 0 }}
-							whileInView={{
-								opacity: 1,
-								scale: 1,
-								rotateZ: -8,
-								transition: {
-									duration: 0.3,
-									delay: 0.3,
-								},
-							}}
-							viewport={{ once: true, amount: 0.3 }}
-							className={styles.button}
-						>
-							<VideoPlayIcon className={styles.playIcon} />
-							Смотреть пример
-						</motion.button>
+						<div className={styles.text}>
+							<motion.div
+								initial={{ opacity: 0, x: -100 }}
+								whileInView={{
+									opacity: 1,
+									x: 0,
+									transition: {
+										duration: 0.3,
+										delay: 0.2,
+									},
+								}}
+								viewport={{ once: true, amount: 0.3 }}
+							>
+								<div>ви</div>
+								<PhoneIcon className={styles.phoneIcon} />
+							</motion.div>
+							<motion.div
+								initial={{ opacity: 0, y: 100 }}
+								whileInView={{
+									opacity: 1,
+									y: 0,
+									transition: {
+										duration: 0.3,
+										delay: 0.3,
+									},
+								}}
+								viewport={{ once: true, amount: 0.3 }}
+							>
+								део
+							</motion.div>
+							<motion.img
+								className={styles.videoTag}
+								src={VideoTagImage}
+								alt=''
+								initial={{ opacity: 0, scale: 0 }}
+								whileInView={{
+									opacity: 1,
+									scale: 1,
+									transition: {
+										delay: 0.4,
+										duration: 0.2,
+									},
+								}}
+								viewport={{ once: true, amount: 0.3 }}
+							/>
+							<motion.button
+								initial={{ opacity: 0, scale: 0 }}
+								whileInView={{
+									opacity: 1,
+									scale: 1,
+									rotateZ: -8,
+									transition: {
+										duration: 0.3,
+										delay: 0.3,
+									},
+								}}
+								viewport={{ once: true, amount: 0.3 }}
+								className={styles.button}
+							>
+								<VideoPlayIcon className={styles.playIcon} />
+								Смотреть пример
+							</motion.button>
+						</div>
 					</div>
 				</div>
 				<motion.div

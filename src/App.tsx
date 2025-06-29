@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from './store/hooks'
-import { openModal, setIsCanAddSection } from './store/slices/uiSlice'
+import { setIsModalOpen, setIsCanAddSection } from './store/slices/uiSlice'
 import { ReactLenis, useLenis } from 'lenis/react'
 
 import { Header } from './modules/Header/Header'
@@ -30,7 +30,7 @@ function App() {
 			<ReactLenis root />
 			<Sidebar />
 
-			<TryButton onClick={() => dispatch(openModal())} />
+			<TryButton onClick={() => dispatch(setIsModalOpen(true))} />
 			<Modal>
 				{!isModalSuccess && <TryForm />}
 				{isModalSuccess && <SuccessModal />}

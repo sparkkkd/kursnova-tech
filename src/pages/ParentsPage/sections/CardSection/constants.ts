@@ -24,6 +24,7 @@ export interface ICard {
 	rotate: number
 	background: string
 	color: string
+	isPresent?: boolean
 }
 
 export const CARDS_DATA: ICard[] = [
@@ -50,6 +51,7 @@ export const CARDS_DATA: ICard[] = [
 		rotate: 5,
 		background: 'linear-gradient(26deg, #25252b 0%, #4b4b55 100%)',
 		color: '#fff',
+		isPresent: true,
 	},
 	{
 		frontTitle:

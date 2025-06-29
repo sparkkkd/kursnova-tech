@@ -5,7 +5,7 @@ import { useScroll } from 'framer-motion'
 import { StackedButtonList } from './components/StackedButtonList/StackedButtonList'
 import { SupportIconsGroup } from './components/SupportIconsGroup/SupportIconsGroup'
 
-import { SUPPORT_IMAGES, SUPPORT_STAGES_COUNT } from './contants'
+import { SUPPORT_IMAGES } from './contants'
 
 import styles from './SupportSection.module.sass'
 
@@ -18,17 +18,22 @@ export const SupportSection: FC<SupportSectionProps> = ({ className }) => {
 
 	const { scrollYProgress } = useScroll({
 		target: containerRef,
-		offset: ['start end', 'end start'],
+		offset: ['start start', 'end end'],
 	})
 
 	const [activeStage, setActiveStage] = useState(0)
 
 	useEffect(() => {
 		const unsubscribe = scrollYProgress.on('change', (latest) => {
-			let stage = Math.floor(latest * SUPPORT_STAGES_COUNT)
-			if (stage >= SUPPORT_STAGES_COUNT) stage = SUPPORT_STAGES_COUNT - 1
+			let stage = 0
+
+			if (latest >= 0.66) stage = 2
+			else if (latest >= 0.33) stage = 1
+			else stage = 0
+
 			setActiveStage(stage)
 		})
+
 		return () => unsubscribe()
 	}, [scrollYProgress])
 

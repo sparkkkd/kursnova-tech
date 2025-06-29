@@ -3,6 +3,7 @@ import { useEffect, useRef, useState, type FC } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import styles from './TryButton.module.sass'
+import { useWindowSize } from 'usehooks-ts'
 
 interface TryButtonProps {
 	className?: string
@@ -13,6 +14,8 @@ export const TryButton: FC<TryButtonProps> = ({ className, onClick }) => {
 	const [isFooterVisible, setIsFooterVisible] = useState(false)
 
 	const footerRef = useRef<HTMLElement | null>(null)
+
+	const { width } = useWindowSize()
 
 	useEffect(() => {
 		const footer = document.querySelector('#footer-id') as HTMLElement
@@ -42,7 +45,7 @@ export const TryButton: FC<TryButtonProps> = ({ className, onClick }) => {
 
 	return (
 		<AnimatePresence>
-			{isVisible && (
+			{isVisible && width > 600 && (
 				<motion.button
 					className={clsx(styles.button, className)}
 					onClick={onClick}

@@ -42,6 +42,17 @@
 .mobileTag
 	display: none
 
+.button
+	margin-top: 50px
+	padding: 13px 24px
+	display: none
+	width: 100%
+	font-size: 16px
+	font-weight: 500
+	border-radius: 64px
+	backdrop-filter: blur(48px)
+	background: rgba(255, 255, 255, 0.1)
+
 // Media
 @media screen and ( max-width: 1550px )
 	.arrow
@@ -77,7 +88,6 @@
 @media screen and ( max-width: 650px )
 	.section
 		padding-bottom: 0px
-		overflow: visible
 
 	.content
 		flex-direction: column
@@ -91,8 +101,39 @@
 		display: none
 
 	.arrow
-		display: none
+		left: auto
+		right: 12%
+		bottom: -4%
+		transform: rotateZ(93deg)
 
 	.mobileTag
 		margin-top: mixins.rem(50)
+		display: block
+		width: clamp(13.75rem, 11.125rem + 11.6667vw, 15.5rem)
+		height: auto
+
+@media screen and ( max-width: 600px )
+	.section
+		overflow: hidden
+
+	.title
+		text-align: left
+		width: 100%
+
+	.content
+		width: 100%
+
+	.cards
+		width: 100%
+
+	.list
+		width: 100%
+
+	.arrow
+		height: 160px
+		width: auto
+		right: clamp(0.125rem, -8.6875rem + 39.1667vw, 6rem)
+		bottom: 64px
+
+	.button
 		display: block

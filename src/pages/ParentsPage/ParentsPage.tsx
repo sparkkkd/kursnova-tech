@@ -11,12 +11,14 @@ import styles from './ParentsPage.module.sass'
 import { SupportSection } from '../StudentsPage/sections/SupportSection/SupportSection'
 import { PriceSections } from '../StudentsPage/sections/PriceSections/PriceSections'
 import { FaqSection } from '../StudentsPage/sections/FaqSecton/FaqSection'
+import { PresentSidebar } from '../../modules/PresentSidebar/PresentSidebar'
 
 interface ParentsPageProps {}
 
 export const ParentsPage: FC<ParentsPageProps> = ({}) => {
 	return (
 		<div className={styles.content}>
+			<PresentSidebar />
 			<IntroSection />
 			<IntroTextSection />
 			<CardSection />

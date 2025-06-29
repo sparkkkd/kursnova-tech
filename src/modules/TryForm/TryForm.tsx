@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { tryFormSchema, type tryFormValues } from './tryForm.schema'
 import { useAppDispatch } from '../../store/hooks'
-import { closeModal, setModalSuccess } from '../../store/slices/uiSlice'
+import { setIsModalOpen, setIsModalSuccess } from '../../store/slices/uiSlice'
 
 import CloseIcon from '../../assets/close.svg?react'
 
@@ -36,7 +36,7 @@ export const TryForm: FC<TryFormProps> = ({ className }) => {
 
 	const onSubmit = (data: tryFormValues) => {
 		console.log(data)
-		dispatch(setModalSuccess())
+		dispatch(setIsModalSuccess(true))
 	}
 
 	return (
@@ -44,9 +44,14 @@ export const TryForm: FC<TryFormProps> = ({ className }) => {
 			className={clsx(styles.form, className)}
 			onSubmit={handleSubmit(onSubmit)}
 		>
-			<button onClick={() => dispatch(closeModal())} className={styles.close}>
+			<button
+				onClick={() => dispatch(setIsModalOpen(false))}
+				className={styles.close}
+			>
 				<CloseIcon />
 			</button>
+
+			<div className={styles.line} />
 
 			<div className={styles.title}>Введи данные</div>
 

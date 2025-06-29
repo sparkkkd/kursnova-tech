@@ -6,12 +6,15 @@ import { Container } from '../../../../../../components/Container/Container'
 import { TeachersSlider } from '../TeachersSlider/TeachersSlider'
 
 import styles from './MobileTeachers.module.sass'
+import { useWindowSize } from 'usehooks-ts'
 
 interface MobileTeachersProps {
 	className?: string
 }
 
 export const MobileTeachers: FC<MobileTeachersProps> = ({ className }) => {
+	const { width } = useWindowSize()
+
 	return (
 		<section className={clsx(styles.teachers, className)}>
 			<Container>
@@ -30,7 +33,12 @@ export const MobileTeachers: FC<MobileTeachersProps> = ({ className }) => {
 					}}
 					viewport={{ once: true, amount: 0.3 }}
 				>
-					«Вот бы так в школе объясняли...»
+					{width > 600 && <span>«Вот бы так в школе объясняли...»</span>}
+					{width <= 600 && (
+						<span>
+							«Вот бы <br /> так в школе <br /> объясняли...»
+						</span>
+					)}
 				</motion.h3>
 				<motion.span
 					className={styles.subtitle}

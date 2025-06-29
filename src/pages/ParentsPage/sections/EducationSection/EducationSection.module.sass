@@ -16,6 +16,7 @@
 
 .title
 	font-size: clamp(2rem, 1.6667rem + 1.4815vw, 3rem)
+	font-weight: 600
 
 .mobile
 	display: none !important
@@ -27,3 +28,7 @@
 
 	.mobile
 		display: flex !important
+
+@media screen and ( max-width: 600px )
+	.title
+		font-weight: 500

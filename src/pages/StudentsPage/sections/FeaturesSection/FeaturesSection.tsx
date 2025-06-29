@@ -1,6 +1,7 @@
 import clsx from 'clsx'
 import { type FC } from 'react'
 
+import { FeaturesText } from './components/FeaturesText/FeaturesText'
 import { FeaturesVideo } from './components/FeaturesVideo/FeaturesVideo'
 import { FeaturesTask } from './components/FeaturesTask/FeaturesTask'
 
@@ -13,10 +14,9 @@ interface FeturesSectionProps {
 export const FeaturesSection: FC<FeturesSectionProps> = ({ className }) => {
 	return (
 		<section className={clsx(styles.features, className)}>
-			<div className={styles.wrapper}>
-				<FeaturesVideo />
-				<FeaturesTask />
-			</div>
+			<FeaturesText />
+			<FeaturesVideo />
+			<FeaturesTask />
 		</section>
 	)
 }

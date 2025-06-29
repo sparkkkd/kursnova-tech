@@ -29,19 +29,13 @@
 
 .button
 	padding: mixins.rem(24)
-	position: absolute
-	left: 50%
-	bottom: mixins.rem(5)
-	transform: translateX(-50%)
+	display: none
 	border-radius: mixins.rem(64)
 	width: clamp(22.5rem, 31.0227rem + -13.6364vw, 18.75rem)
 	font-size: 20px
 	font-weight: 500
 	backdrop-filter: blur(48px)
 	background: rgba(255, 255, 255, 0.1)
-
-.mobileButton
-	display: none
 
 // Media
 @media screen and ( max-width: 1480px )
@@ -65,16 +59,6 @@
 	.video
 		display: none
 
-	.button
-		display: none
-
-	.mobileButton
-		padding: mixins.rem(16)
-		margin-top: mixins.rem(24)
-		position: static
-		display: block
-		transform: translate(0)
-
 	.imageWrapper
 		width: 100%
 		overflow: hidden
@@ -89,7 +73,7 @@
 	.mobileImg
 		margin-left: mixins.rem(-10)
 
-@media screen and ( max-width: 650px )
+@media screen and ( max-width: 600px )
 	.wrapper
 		align-items: start
 
@@ -97,8 +81,10 @@
 		text-align: left
 		letter-spacing: mixins.rem(2)
 
-	.mobileButton
+	.button
+		margin-top: mixins.rem(35)
 		padding: mixins.rem(16) mixins.rem(27)
+		display: block
 		width: max-content
 
 @media screen and ( max-width: 370px )

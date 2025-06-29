@@ -1,14 +1,20 @@
 import { type FC } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import clsx from 'clsx'
 
 import { Container } from '../../../../../../components/Container/Container'
 
 import SharkImg from '../../../../../../assets/parents/education/education-shark.png'
 import PlayIcon from '../../../../../../assets/icons/play-icon.svg'
 
+import {
+	EDUCATION_VIDEOS,
+	PROGRESS_SIDE,
+	STAGES_LABEL,
+	VIDEO_SIDE,
+} from '../../constants'
+
 import styles from './DesktopScrollEducation.module.sass'
-import { PROGRESS_SIDE, STAGES_LABEL, VIDEO_SIDE } from '../../constants'
-import clsx from 'clsx'
 
 interface DesktopScrollEducationProps {
 	className?: string
@@ -44,16 +50,20 @@ export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 								>
 									{title}
 								</motion.h5>
-								{activeStage === i && (
-									<motion.div
-										className={styles.stageText}
-										initial={{ opacity: 0 }}
-										animate={{ opacity: 1 }}
-										exit={{ opacity: 0 }}
-									>
-										{text}
-									</motion.div>
-								)}
+								<AnimatePresence mode='wait'>
+									{activeStage === i && (
+										<motion.div
+											className={styles.stageText}
+											initial={{ opacity: 0, height: 0 }}
+											animate={{ opacity: 1, height: 'auto' }}
+											exit={{ opacity: 0, height: 0 }}
+											transition={{ duration: 0.3 }}
+											layout
+										>
+											{text}
+										</motion.div>
+									)}
+								</AnimatePresence>
 							</motion.div>
 						</motion.div>
 					)
@@ -65,7 +75,6 @@ export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 					{activeStage === 0 && (
 						<motion.video
 							className={styles.video}
-							src='https://s3.timeweb.cloud/4151e8d2-4-6.digital/TaskExtra.mp4'
 							key={activeStage}
 							initial={{ opacity: 0, y: 50 }}
 							animate={{ opacity: 1, y: 0 }}
@@ -75,13 +84,14 @@ export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 							playsInline
 							autoPlay
 							muted
-						></motion.video>
+						>
+							<source src={EDUCATION_VIDEOS[activeStage]} type='video/mp4' />
+						</motion.video>
 					)}
 
 					{activeStage === 1 && (
 						<motion.video
 							className={clsx(styles.video)}
-							src='https://s3.timeweb.cloud/4151e8d2-4-6.digital/TaskExtra.mp4'
 							key={activeStage}
 							initial={{ opacity: 0, y: 50 }}
 							animate={{ opacity: 1, y: 0 }}
@@ -91,13 +101,14 @@ export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 							playsInline
 							autoPlay
 							muted
-						></motion.video>
+						>
+							<source src={EDUCATION_VIDEOS[activeStage]} type='video/mp4' />
+						</motion.video>
 					)}
 
 					{activeStage === 2 && (
 						<motion.video
 							className={styles.video}
-							src='https://s3.timeweb.cloud/4151e8d2-4-6.digital/TaskExtra.mp4'
 							key={activeStage}
 							initial={{ opacity: 0, y: 50 }}
 							animate={{ opacity: 1, y: 0 }}
@@ -107,7 +118,9 @@ export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 							playsInline
 							autoPlay
 							muted
-						></motion.video>
+						>
+							<source src={EDUCATION_VIDEOS[activeStage]} type='video/mp4' />
+						</motion.video>
 					)}
 				</AnimatePresence>
 			</div>
