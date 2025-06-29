@@ -13,12 +13,16 @@ import MobilePriceTag from '../../../../assets/price/mobile-price-tag.png'
 import Arrow from '../../../../assets/price/arrow.svg?react'
 
 import styles from './PriceSections.module.sass'
+import { useAppDispatch } from '../../../../store/hooks'
+import { setIsModalOpen } from '../../../../store/slices/uiSlice'
 
 interface PriceSectionsProps {
 	className?: string
 }
 
 export const PriceSections: FC<PriceSectionsProps> = ({ className }) => {
+	const dispatch = useAppDispatch()
+
 	return (
 		<section className={clsx(styles.section, className)}>
 			<Container>
@@ -64,7 +68,12 @@ export const PriceSections: FC<PriceSectionsProps> = ({ className }) => {
 					<img className={styles.tag} src={PriceTag} alt='' />
 					<Arrow className={styles.arrow} />
 
-					<button className={styles.button}>Попробовать за 0 ₽</button>
+					<button
+						className={styles.button}
+						onClick={() => dispatch(setIsModalOpen(true))}
+					>
+						Попробовать за 0 ₽
+					</button>
 				</div>
 			</Container>
 		</section>
