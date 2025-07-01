@@ -59,8 +59,8 @@ export const MobileTeachers: FC<MobileTeachersProps> = ({ className }) => {
 					Наши учителя так сильно любят свои предметы, что заражают этим
 					учеников
 				</motion.span>
+				<TeachersSlider />
 			</Container>
-			<TeachersSlider />
 		</section>
 	)
 }

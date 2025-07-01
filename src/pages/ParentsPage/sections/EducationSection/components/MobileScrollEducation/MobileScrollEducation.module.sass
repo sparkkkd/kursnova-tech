@@ -19,10 +19,34 @@
 	height: 480px
 	border-radius: 14px
 	z-index: 1
-	video
-		width: 100%
-		height: 100%
-		border-radius: 14px
+
+.videoContainer
+	position: absolute
+	left: 0
+	top: 0
+	width: 100%
+	height: 100%
+
+.video
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	object-fit: cover
+	opacity: 0
+	pointer-events: none
+	transition: opacity 0.3s
+	border-radius: 14px
+
+.videoVisible
+	opacity: 1
+	pointer-events: auto
+	position: relative
+
+.videoHidden
+	opacity: 0
+	pointer-events: none
 
 .shark
 	position: absolute

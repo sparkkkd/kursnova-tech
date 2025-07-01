@@ -2,8 +2,9 @@ import { useRef, type FC } from 'react'
 import { useScroll, useTransform } from 'framer-motion'
 import clsx from 'clsx'
 
-import styles from './DesktopTeachers.module.sass'
 import { TeachersSlider } from '../../../../../StudentsPage/sections/TeachersSection/components/TeachersSlider/TeachersSlider'
+
+import styles from './DesktopTeachers.module.sass'
 
 interface DesktopTeachersProps {
 	className?: string

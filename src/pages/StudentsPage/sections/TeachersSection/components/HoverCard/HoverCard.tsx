@@ -1,6 +1,6 @@
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
-import type { FC, JSX } from 'react'
+import type { FC } from 'react'
 import type { ICountHover } from '../../../../../../types/sliderHoverTypes'
 
 import { Tag } from '../../../../../../components/Tag/Tag'
@@ -10,7 +10,7 @@ import styles from './HoverCard.module.sass'
 
 interface HoverCardProps {
 	className?: string
-	name: JSX.Element
+	name: string
 	tags: string[]
 	description: string
 	info: ICountHover[]

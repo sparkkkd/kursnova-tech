@@ -28,7 +28,7 @@
 .name
 	margin-bottom: mixins.rem(5)
 	@include mixins.fluid-text(24, 16)
-	font-weight: bold
+	font-weight: 550
 
 .tags
 	display: flex
@@ -42,8 +42,8 @@
 
 .score
 	width: 50%
-	min-height: mixins.rem(100)
-	padding: mixins.rem(15) mixins.rem(10)
+	min-height: 102px
+	padding: 16px
 	display: flex
 	flex-direction: column
 	background-color: rgba(20, 20, 26, 0.5)
@@ -55,11 +55,12 @@
 	@include mixins.fluid-text(24, 16)
 
 .scoreText
-	@include mixins.fluid-text(14, 10)
+	font-size: 12px
+	color: #99a
 
 .mobileInfo
 	width: 330px
-	min-height: 260px
+	min-height: 212px
 	margin: 0 auto
 	padding: 15px 20px
 	display: flex
@@ -70,6 +71,7 @@
 
 .mobileName
 	font-size: 24px
+	font-weight: 550
 
 .mobileTags
 	display: flex
@@ -77,6 +79,8 @@
 
 .mobileDescription
 	font-size: 16px
+	line-height: 1.5
+	font-weight: 400
 
 // Media
 @media screen and ( max-width: 1400px )
@@ -94,9 +98,13 @@
 	.mobileInfo
 		width: 270px
 
-	.mobileDescription
-		font-size: 14px
-
 	.card
 		width: 270px
-		height: 400px
+		height: 520px
+
+@media screen and ( max-width: 430px )
+	.mobileInfo
+		width: 100%
+
+	.card
+		width: 100%

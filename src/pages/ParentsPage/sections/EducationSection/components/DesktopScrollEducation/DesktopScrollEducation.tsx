@@ -191,6 +191,15 @@ export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 					)}
 				</AnimatePresence>
 			</div>
+
+			{/* Preload */}
+			<div style={{ display: 'none' }}>
+				{EDUCATION_VIDEOS.map((src, i) => (
+					<video key={i} preload='auto' playsInline autoPlay muted loop>
+						<source src={src} type='video/mp4' />
+					</video>
+				))}
+			</div>
 		</Container>
 	)
 }

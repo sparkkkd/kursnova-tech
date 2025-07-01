@@ -1,4 +1,4 @@
-import { useState, type FC } from 'react'
+import { useEffect, useRef, useState, type FC } from 'react'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 
@@ -21,90 +21,72 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 }) => {
 	const [isOpen, setIsOpen] = useState<boolean>(false)
 
+	const videoRefs = useRef<HTMLVideoElement[]>([])
+
+	useEffect(() => {
+		videoRefs.current.forEach((video, index) => {
+			if (video && index !== activeStage) {
+				video.currentTime = 0
+				video.pause()
+			}
+		})
+	}, [activeStage])
+
 	return (
 		<div className={clsx(styles.content, classname)}>
 			<div className={styles.top}>
 				{/* Shark */}
-				<AnimatePresence mode='wait'>
-					{activeStage === 1 && (
-						<motion.img
-							initial={{
-								opacity: 0,
-								x: '100%',
-								y: '50%',
-							}}
-							animate={{
-								opacity: 1,
-								x: '0%',
-								y: '50%',
-							}}
-							exit={{
-								opacity: 0,
-								x: '100%',
-								y: '50%',
-							}}
-							transition={{ duration: 0.3, delay: 0.3 }}
-							className={styles.shark}
-							src={SharkImg}
-							alt=''
-						/>
-					)}
-				</AnimatePresence>
+				<motion.img
+					initial={{
+						opacity: 0,
+						x: '100%',
+						y: '50%',
+					}}
+					animate={{
+						opacity: 1,
+						x: activeStage === 1 ? '0%' : '100%',
+						y: '50%',
+					}}
+					transition={{ duration: 0.3, delay: 0.2 }}
+					className={styles.shark}
+					src={SharkImg}
+					alt=''
+				/>
 
 				<motion.div className={styles.videoWrapper}>
-					<AnimatePresence mode='wait'>
-						{activeStage === 0 && (
-							<motion.video
-								preload='auto'
-								playsInline
-								autoPlay
-								muted
-								key={activeStage}
-								initial={{ opacity: 0, x: '100%' }}
-								animate={{ opacity: 1, x: '0%' }}
-								exit={{ opacity: 0, x: '-100%' }}
-								transition={{ duration: 0.3 }}
-							>
-								<source src={EDUCATION_VIDEOS[activeStage]} type='video/mp4' />
-							</motion.video>
-						)}
-
-						{activeStage === 1 && (
-							<>
-								<motion.video
-									preload='auto'
-									playsInline
-									autoPlay
-									muted
+					<AnimatePresence mode='wait' custom={activeStage}>
+						{EDUCATION_VIDEOS.map((src, index) => {
+							return (
+								<motion.div
+									className={clsx(styles.videoContainer)}
 									key={activeStage}
 									initial={{ opacity: 0, x: '100%' }}
 									animate={{ opacity: 1, x: '0%' }}
 									exit={{ opacity: 0, x: '-100%' }}
 									transition={{ duration: 0.3 }}
 								>
-									<source
-										src={EDUCATION_VIDEOS[activeStage]}
-										type='video/mp4'
-									/>
-								</motion.video>
-							</>
-						)}
-
-						{activeStage === 2 && (
-							<motion.video
-								preload='auto'
-								playsInline
-								autoPlay
-								muted
-								key={activeStage}
-								initial={{ opacity: 0, x: '100%' }}
-								animate={{ opacity: 1, x: '0%' }}
-								exit={{ opacity: 0, x: '-100%' }}
-								transition={{ duration: 0.3 }}
-							>
-								<source src={EDUCATION_VIDEOS[activeStage]} type='video/mp4' />
-							</motion.video>
-						)}
+									<video
+										key={index}
+										className={clsx(
+											styles.video,
+											index === activeStage
+												? styles.videoVisible
+												: styles.videoHidden
+										)}
+										ref={(el) => {
+											if (el) videoRefs.current[index] = el
+										}}
+										preload='auto'
+										playsInline
+										autoPlay
+										muted
+										loop
+									>
+										<source src={src} />
+									</video>
+								</motion.div>
+							)
+						})}
 					</AnimatePresence>
 				</motion.div>
 			</div>

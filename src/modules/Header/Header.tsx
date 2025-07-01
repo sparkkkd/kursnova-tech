@@ -17,18 +17,20 @@ export const Header: FC<HeaderProps> = ({ className }) => {
 	const dispatch = useAppDispatch()
 
 	return (
-		<Container className={styles.wrapper}>
-			<header className={clsx(styles.header, className)}>
-				<button className={styles.logo}>
-					<img src='./logo.svg' alt='logo' />
-				</button>
-				<SwitchMode className={styles.desktopMode} />
-				<div className={styles.actions}>
-					<button className={styles.signin}>Войти</button>
-					<BurgerButton onClick={() => dispatch(setIsSiderbarOpen(true))} />
-				</div>
-			</header>
-			<SwitchMode className={styles.mobileMode} />
-		</Container>
+		<div className={styles.wrapper}>
+			<Container className={styles.container}>
+				<header className={clsx(styles.header, className)}>
+					<button className={styles.logo}>
+						<img src='./logo.svg' alt='logo' />
+					</button>
+					<SwitchMode className={styles.desktopMode} />
+					<div className={styles.actions}>
+						<button className={styles.signin}>Войти</button>
+						<BurgerButton onClick={() => dispatch(setIsSiderbarOpen(true))} />
+					</div>
+				</header>
+				{/* <SwitchMode className={styles.mobileMode} /> */}
+			</Container>
+		</div>
 	)
 }

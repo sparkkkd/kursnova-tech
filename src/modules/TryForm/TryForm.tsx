@@ -53,7 +53,7 @@ export const TryForm: FC<TryFormProps> = ({ className }) => {
 
 			<div className={styles.line} />
 
-			<div className={styles.title}>Введи данные</div>
+			<div className={styles.title}>Введите данные</div>
 
 			<div className={styles.fields}>
 				<div className={styles.field}>
@@ -75,8 +75,8 @@ export const TryForm: FC<TryFormProps> = ({ className }) => {
 						{...register('phone')}
 						placeholder='Телефон'
 					/>
-					{errors.name && (
-						<span className={styles.error}>{errors.name.message}</span>
+					{errors.phone && (
+						<span className={styles.error}>{errors.phone.message}</span>
 					)}
 				</div>
 			</div>
@@ -115,11 +115,13 @@ export const TryForm: FC<TryFormProps> = ({ className }) => {
 					</div>
 					Я ученик
 				</label>
-
-				{errors.role && (
-					<span className={styles.error}>{errors.role.message}</span>
-				)}
 			</div>
+
+			{errors.role && (
+				<span className={clsx(styles.error, styles.errorRole)}>
+					{errors.role.message}
+				</span>
+			)}
 
 			<button className={styles.button} type='submit'>
 				Получить бесплатный доступ

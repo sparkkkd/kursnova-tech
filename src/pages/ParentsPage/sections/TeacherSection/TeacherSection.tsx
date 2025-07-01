@@ -23,8 +23,8 @@ export const TeacherSection: FC<TeacherSectionProps> = ({ className }) => {
 						Поэтому разработали kursnova вместе с опытными учителями и
 						методологами
 					</span>
+					<TeachersSlider className={styles.slider} />
 				</Container>
-				<TeachersSlider className={styles.slider} />
 			</div>
 		</section>
 	)

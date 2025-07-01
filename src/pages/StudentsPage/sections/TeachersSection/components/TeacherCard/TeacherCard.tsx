@@ -1,19 +1,19 @@
 import clsx from 'clsx'
 import type { ICountHover } from '../../../../../../types/sliderHoverTypes'
-import { useState, type FC, type JSX } from 'react'
+import { useState, type FC } from 'react'
 import { useWindowSize } from 'usehooks-ts'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { Tag } from '../../../../../../components/Tag/Tag'
+import { HoverCard } from '../HoverCard/HoverCard'
 
 import styles from './TeacherCard.module.sass'
-import { HoverCard } from '../HoverCard/HoverCard'
 
 interface TeacherCardProps {
 	className?: string
 	img: string
 	tags: string[]
-	name: JSX.Element
+	name: string
 	description: string
 	info: ICountHover[]
 }
@@ -28,6 +28,8 @@ export const TeacherCard: FC<TeacherCardProps> = ({
 }) => {
 	const { width } = useWindowSize()
 	const [isHover, setIsHover] = useState<boolean>(false)
+
+	const [firstName, lastName] = name.split(' ')
 
 	return (
 		<>
@@ -65,7 +67,11 @@ export const TeacherCard: FC<TeacherCardProps> = ({
 					)}
 				</AnimatePresence>
 				<div className={styles.wrapper}>
-					{width > 600 && <div className={styles.name}>{name}</div>}
+					{width > 600 && (
+						<div className={styles.name}>
+							{firstName} <br /> {lastName}
+						</div>
+					)}
 
 					{width > 600 && (
 						<div className={styles.tags}>

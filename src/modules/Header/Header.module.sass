@@ -1,13 +1,18 @@
 @use '../../utils/sass-mixins' as mixins
 
 .wrapper
-	padding-top: 24px !important
-	padding-bottom: 24px !important
 	position: fixed
+
 	left: 0
 	right: 0
 	top: 0
+	background: rgba(20, 20, 26, 0.01)
+	backdrop-filter: blur(40px)
 	z-index: 1000
+
+.container
+	padding-top: 24px !important
+	padding-bottom: 24px !important
 
 .header
 	display: flex

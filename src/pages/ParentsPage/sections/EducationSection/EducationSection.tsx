@@ -1,18 +1,10 @@
 import { useRef, useState, type FC } from 'react'
 import clsx from 'clsx'
-import {
-	useScroll,
-	motion,
-	useTransform,
-	useSpring,
-	useMotionValueEvent,
-} from 'framer-motion'
+import { useScroll, motion, useMotionValueEvent } from 'framer-motion'
 
 import { Container } from '../../../../components/Container/Container'
 import { DesktopScrollEducation } from './components/DesktopScrollEducation/DesktopScrollEducation'
 import { MobileScrollEducation } from './components/MobileScrollEducation/MobileScrollEducation'
-
-import { STAGES_LABEL_LENGTH } from './constants'
 
 import styles from './EducationSection.module.sass'
 
@@ -27,22 +19,16 @@ export const EducationSection: FC<EducationSectionProps> = ({ className }) => {
 		offset: ['start start', 'end end'],
 	})
 
-	const stageProgress = useTransform(
-		scrollYProgress,
-		[0, 1],
-		[0, STAGES_LABEL_LENGTH]
-	)
-
-	const smoothStageProgress = useSpring(stageProgress, {
-		stiffness: 100,
-		damping: 30,
-	})
-
 	const [activeStage, setActiveStage] = useState(0)
 
-	useMotionValueEvent(smoothStageProgress, 'change', (latest) => {
-		const rounded = Math.min(STAGES_LABEL_LENGTH - 1, Math.floor(latest))
-		if (rounded !== activeStage) setActiveStage(rounded)
+	useMotionValueEvent(scrollYProgress, 'change', (latest) => {
+		if (latest < 0.33) {
+			if (activeStage !== 0) setActiveStage(0)
+		} else if (latest < 0.66) {
+			if (activeStage !== 1) setActiveStage(1)
+		} else {
+			if (activeStage !== 2) setActiveStage(2)
+		}
 	})
 
 	return (
