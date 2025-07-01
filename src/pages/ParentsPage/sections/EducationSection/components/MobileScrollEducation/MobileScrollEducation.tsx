@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, type FC } from 'react'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
+import { v4 } from 'uuid'
 
 import { EducationBottomBar } from '../EducationBottomBar/EducationBottomBar/EducationBottomBar'
 
@@ -54,19 +55,19 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 				/>
 
 				<motion.div className={styles.videoWrapper}>
-					<AnimatePresence mode='wait' custom={activeStage}>
+					<AnimatePresence custom={activeStage}>
 						{EDUCATION_VIDEOS.map((src, index) => {
 							return (
 								<motion.div
 									className={clsx(styles.videoContainer)}
-									key={activeStage}
+									key={v4()}
 									initial={{ opacity: 0, x: '100%' }}
 									animate={{ opacity: 1, x: '0%' }}
 									exit={{ opacity: 0, x: '-100%' }}
 									transition={{ duration: 0.3 }}
 								>
 									<video
-										key={index}
+										key={v4()}
 										className={clsx(
 											styles.video,
 											index === activeStage
