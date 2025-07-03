@@ -4,19 +4,19 @@
 	margin-top: mixins.rem(144)
 	position: relative
 
+.title
+	font-size: clamp(2rem, 1.6667rem + 1.4815vw, 3rem)
+	font-weight: 600
+
 .inner
 	height: 250vh
 	position: relative
 
 .sticky
 	position: sticky
-	top: 0
+	top: 0px
 	height: 100vh
 	overflow: hidden
-
-.title
-	font-size: clamp(2rem, 1.6667rem + 1.4815vw, 3rem)
-	font-weight: 600
 
 .mobile
 	display: none !important
@@ -29,6 +29,6 @@
 	.mobile
 		display: flex !important
 
-@media screen and ( max-width: 600px )
-	.title
-		font-weight: 500
+	.sticky
+		height: auto
+		top: 100px

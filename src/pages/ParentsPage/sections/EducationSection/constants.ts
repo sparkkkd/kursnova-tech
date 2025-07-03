@@ -8,6 +8,10 @@ import CoinIcon from '../../../../assets/parents/education/coin.png'
 import EnergyIcon from '../../../../assets/parents/education/energy.png'
 import ElipseIcon from '../../../../assets/parents/education/elipse.png'
 
+import BookImg from '../../../../assets/parents/education/book.svg'
+import PercentageImg from '../../../../assets/parents/education/percentage.svg'
+import WarningImg from '../../../../assets/parents/education/warning.svg'
+
 export const VIDEO_SIDE = [
 	{
 		id: v4(),
@@ -48,6 +52,25 @@ export const PROGRESS_SIDE = [
 	},
 ]
 
+export const PROGRESS_SIDE_MODAL = [
+	{
+		id: v4(),
+		icon: BookImg,
+		title: 'Отображение изучаемых предметов и прогресса по ним',
+	},
+	{
+		id: v4(),
+		icon: PercentageImg,
+		title: 'Детальная статистика поможет оценить качество обучения',
+	},
+	{
+		id: v4(),
+		icon: WarningImg,
+		title:
+			'Подсказки по слабым местам ребёнка, рекомендации по улучшению знаний',
+	},
+]
+
 export const STAGES_LABEL = [
 	{
 		id: v4(),
@@ -67,9 +90,9 @@ export const STAGES_LABEL = [
 ]
 
 export const EDUCATION_VIDEOS = [
-	'https://s3.timeweb.cloud/4151e8d2-4-6.digital/TaskExtra.mp4',
-	'https://s3.timeweb.cloud/4151e8d2-4-6.digital/TaskExtra.mp4',
-	'https://s3.timeweb.cloud/4151e8d2-4-6.digital/TaskExtra.mp4',
+	'https://storage.yandexcloud.net/test-backet-kursnova/TaskExtra.mp4',
+	'https://storage.yandexcloud.net/test-backet-kursnova/TaskExtra.mp4',
+	'https://storage.yandexcloud.net/test-backet-kursnova/TaskExtra.mp4',
 ]
 
 export const STAGES_LABEL_LENGTH = STAGES_LABEL.length

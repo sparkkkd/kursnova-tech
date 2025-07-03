@@ -10,6 +10,7 @@ import { EDUCATION_VIDEOS, STAGES_LABEL } from '../../constants'
 import SharkImg from '../../../../../../assets/parents/education/education-shark-mobile.png'
 
 import styles from './MobileScrollEducation.module.sass'
+import { Container } from '../../../../../../components/Container/Container'
 
 interface MobileScrollEducationProps {
 	activeStage: number
@@ -36,73 +37,17 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 	return (
 		<div className={clsx(styles.content, classname)}>
 			<div className={styles.top}>
-				{/* Shark */}
-				<motion.img
-					initial={{
-						opacity: 0,
-						x: '100%',
-						y: '50%',
-					}}
-					animate={{
-						opacity: 1,
-						x: activeStage === 1 ? '0%' : '100%',
-						y: '50%',
-					}}
-					transition={{ duration: 0.3, delay: 0.2 }}
-					className={styles.shark}
-					src={SharkImg}
-					alt=''
-				/>
-
-				<motion.div className={styles.videoWrapper}>
-					<AnimatePresence custom={activeStage}>
-						{EDUCATION_VIDEOS.map((src, index) => {
-							return (
-								<motion.div
-									className={clsx(styles.videoContainer)}
-									key={v4()}
-									initial={{ opacity: 0, x: '100%' }}
-									animate={{ opacity: 1, x: '0%' }}
-									exit={{ opacity: 0, x: '-100%' }}
-									transition={{ duration: 0.3 }}
-								>
-									<video
-										key={v4()}
-										className={clsx(
-											styles.video,
-											index === activeStage
-												? styles.videoVisible
-												: styles.videoHidden
-										)}
-										ref={(el) => {
-											if (el) videoRefs.current[index] = el
-										}}
-										preload='auto'
-										playsInline
-										autoPlay
-										muted
-										loop
-									>
-										<source src={src} />
-									</video>
-								</motion.div>
-							)
-						})}
-					</AnimatePresence>
-				</motion.div>
-			</div>
-			<div className={styles.bottom}>
-				<div className={styles.progressbarWrapper}>
-					<motion.div
-						className={styles.progressbar}
-						initial={{ width: '33%' }}
-						animate={{
-							width:
-								activeStage === 0 ? '33%' : activeStage === 1 ? '66%' : '100%',
-						}}
-					/>
-					<motion.div className={styles.progressbar_shadow} />
-				</div>
+				<Container>
+					<motion.h3
+						className={styles.sectionTitle}
+						initial={{ opacity: 0, y: 100 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.3 }}
+						viewport={{ once: true, amount: 0.3 }}
+					>
+						Как проходит обучение?
+					</motion.h3>
+				</Container>
 
 				<AnimatePresence mode='wait'>
 					{activeStage === 0 && (
@@ -156,6 +101,61 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 						</motion.div>
 					)}
 				</AnimatePresence>
+			</div>
+			<div className={styles.bottom}>
+				{/* Shark */}
+				<motion.img
+					initial={{
+						opacity: 0,
+						x: '100%',
+						y: '50%',
+					}}
+					animate={{
+						opacity: 1,
+						x: activeStage === 1 ? '0%' : '100%',
+						y: '50%',
+					}}
+					transition={{ duration: 0.3, delay: 0.2 }}
+					className={styles.shark}
+					src={SharkImg}
+					alt=''
+				/>
+				<motion.div className={styles.videoWrapper}>
+					<AnimatePresence custom={activeStage}>
+						{EDUCATION_VIDEOS.map((src, index) => {
+							return (
+								<motion.div
+									className={clsx(styles.videoContainer)}
+									key={v4()}
+									initial={{ opacity: 0, x: '100%' }}
+									animate={{ opacity: 1, x: '0%' }}
+									exit={{ opacity: 0, x: '-100%' }}
+									transition={{ duration: 0.3 }}
+								>
+									<video
+										key={v4()}
+										className={clsx(
+											styles.video,
+											index === activeStage
+												? styles.videoVisible
+												: styles.videoHidden
+										)}
+										ref={(el) => {
+											if (el) videoRefs.current[index] = el
+										}}
+										preload='auto'
+										playsInline
+										autoPlay
+										muted
+										loop
+									>
+										<source src={src} />
+									</video>
+								</motion.div>
+							)
+						})}
+					</AnimatePresence>
+				</motion.div>
 			</div>
 
 			<EducationBottomBar isOpen={isOpen} setIsOpen={setIsOpen} />

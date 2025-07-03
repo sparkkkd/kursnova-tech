@@ -45,6 +45,7 @@ export const TryForm: FC<TryFormProps> = ({ className }) => {
 			onSubmit={handleSubmit(onSubmit)}
 		>
 			<button
+				type='button'
 				onClick={() => dispatch(setIsModalOpen(false))}
 				className={styles.close}
 			>

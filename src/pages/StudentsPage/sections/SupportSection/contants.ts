@@ -1,6 +1,6 @@
 import AppHelp_1 from '../../../../assets/students/support/app-help-1.png'
 import AppHelp_2 from '../../../../assets/students/support/app-help-2.png'
-import AppHelp_3 from '../../../../assets/students/support/app-help-3.png'
+import AppHelp_3 from '../../../../assets/students/support/app-help-3.svg'
 import AppHelp_4 from '../../../../assets/students/support/app-help-4.png'
 
 import PsyHelp_1 from '../../../../assets/students/support/psy-help-1.png'
