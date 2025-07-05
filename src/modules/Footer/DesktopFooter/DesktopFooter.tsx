@@ -75,8 +75,8 @@ export const DesktopFooter: FC<FooterProps> = ({ className }) => {
 					<div className={styles.cards}>
 						<FooterCard className={styles.card} />
 						<FooterContacts className={styles.contacts} />
+						<FooterLicense isMobile={false} className={styles.license} />
 					</div>
-					<FooterLicense isMobile={false} className={styles.license} />
 				</motion.div>
 			</div>
 		</div>

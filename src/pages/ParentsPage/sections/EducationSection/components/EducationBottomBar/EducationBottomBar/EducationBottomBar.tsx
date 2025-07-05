@@ -5,7 +5,7 @@ import clsx from 'clsx'
 
 import CloseIcon from '../../../../../../../assets/close.svg?react'
 
-import { PROGRESS_SIDE_MODAL } from '../../../constants'
+import { PROGRESS_SIDE } from '../../../constants'
 
 import styles from './EducationBottomBar.module.sass'
 
@@ -61,7 +61,7 @@ export const EducationBottomBar: FC<EducationBottomBarProps> = ({
 						<span className={styles.caption}>Как учиться?</span>
 
 						<div className={styles.cardWrapper}>
-							{PROGRESS_SIDE_MODAL.map(({ id, icon, title }) => {
+							{PROGRESS_SIDE.map(({ id, icon, title }) => {
 								return (
 									<div className={styles.card} key={id}>
 										<img className={styles.icon} src={icon} alt='' />

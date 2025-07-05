@@ -1,6 +1,6 @@
-import { useRef, useState, type FC } from 'react'
+import { useEffect, useRef, useState, type FC } from 'react'
 import clsx from 'clsx'
-import { useScroll, useMotionValueEvent } from 'framer-motion'
+import { useScroll, useMotionValueEvent, useInView } from 'framer-motion'
 
 import { DesktopScrollEducation } from './components/DesktopScrollEducation/DesktopScrollEducation'
 import { MobileScrollEducation } from './components/MobileScrollEducation/MobileScrollEducation'
@@ -12,31 +12,56 @@ interface EducationSectionProps {
 }
 
 export const EducationSection: FC<EducationSectionProps> = ({ className }) => {
+	useEffect(() => {
+		const videoUrls = [
+			'https://storage.yandexcloud.net/test-backet-kursnova/TaskExtra.mp4',
+			'https://storage.yandexcloud.net/test-backet-kursnova/TaskExtra.mp4',
+			'https://storage.yandexcloud.net/test-backet-kursnova/TaskExtra.mp4',
+		]
+
+		videoUrls.forEach((url) => {
+			const video = document.createElement('video')
+			video.src = url
+			video.preload = 'auto'
+			video.muted = true
+			video.playsInline = true
+			video.style.display = 'none'
+			document.body.appendChild(video)
+		})
+	}, [])
+
 	const ref = useRef(null)
 	const { scrollYProgress } = useScroll({
 		target: ref,
 		offset: ['start start', 'end end'],
 	})
 
+	const sectionRef = useRef(null)
+	const isInView = useInView(sectionRef, { amount: 0.3, once: false })
+
 	const [activeStage, setActiveStage] = useState(0)
+	const activeStageRef = useRef(0)
 
 	useMotionValueEvent(scrollYProgress, 'change', (latest) => {
-		if (latest < 0.33) {
-			if (activeStage !== 0) setActiveStage(0)
-		} else if (latest < 0.66) {
-			if (activeStage !== 1) setActiveStage(1)
-		} else {
-			if (activeStage !== 2) setActiveStage(2)
+		let newStage = 0
+		if (latest < 0.33) newStage = 0
+		else if (latest < 0.66) newStage = 1
+		else newStage = 2
+
+		if (activeStageRef.current !== newStage) {
+			activeStageRef.current = newStage
+			setActiveStage(newStage)
 		}
 	})
 
 	return (
-		<section className={clsx(styles.section, className)}>
+		<section ref={sectionRef} className={clsx(styles.section, className)}>
 			<div className={styles.inner} ref={ref}>
 				<div className={styles.sticky}>
 					<DesktopScrollEducation
 						className={styles.desktop}
 						activeStage={activeStage}
+						isInView={isInView}
 					/>
 					<MobileScrollEducation
 						classname={styles.mobile}

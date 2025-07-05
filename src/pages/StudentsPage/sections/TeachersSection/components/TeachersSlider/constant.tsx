@@ -1,8 +1,8 @@
-import teacher1 from '../../../../../../assets/teachers/teacher-1.jpg'
-import teacher2 from '../../../../../../assets/teachers/teacher-2.jpg'
-import teacher3 from '../../../../../../assets/teachers/teacher-3.jpg'
-import teacher4 from '../../../../../../assets/teachers/teacher-4.jpg'
-import teacher5 from '../../../../../../assets/teachers/teacher-5.jpg'
+import teacher1 from '../../../../../../assets/students/teachers/teacher-1.jpg'
+import teacher2 from '../../../../../../assets/students/teachers/teacher-2.jpg'
+import teacher3 from '../../../../../../assets/students/teachers/teacher-3.jpg'
+import teacher4 from '../../../../../../assets/students/teachers/teacher-4.jpg'
+import teacher5 from '../../../../../../assets/students/teachers/teacher-5.jpg'
 
 export const TEACHERS = [
 	{

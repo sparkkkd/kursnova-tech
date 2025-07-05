@@ -19,20 +19,24 @@ import styles from './DesktopScrollEducation.module.sass'
 interface DesktopScrollEducationProps {
 	className?: string
 	activeStage: number
+	isInView: boolean
 }
 
 export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 	className,
 	activeStage,
+	isInView,
 }) => {
 	return (
 		<Container className={clsx(styles.wrapper, className)}>
 			<motion.h3
 				className={styles.title}
 				initial={{ opacity: 0, y: 100 }}
-				whileInView={{ opacity: 1, y: 0 }}
+				animate={{
+					opacity: isInView ? 1 : 0,
+					y: isInView ? 0 : 100,
+				}}
 				transition={{ duration: 0.3 }}
-				viewport={{ once: true, amount: 0.3 }}
 			>
 				Как проходит обучение?
 			</motion.h3>
@@ -94,8 +98,12 @@ export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 								playsInline
 								autoPlay
 								muted
+								poster={EDUCATION_VIDEOS[activeStage].poster}
 							>
-								<source src={EDUCATION_VIDEOS[activeStage]} type='video/mp4' />
+								<source
+									src={EDUCATION_VIDEOS[activeStage].src}
+									type='video/mp4'
+								/>
 							</motion.video>
 						)}
 
@@ -111,8 +119,12 @@ export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 								playsInline
 								autoPlay
 								muted
+								poster={EDUCATION_VIDEOS[activeStage].poster}
 							>
-								<source src={EDUCATION_VIDEOS[activeStage]} type='video/mp4' />
+								<source
+									src={EDUCATION_VIDEOS[activeStage].src}
+									type='video/mp4'
+								/>
 							</motion.video>
 						)}
 
@@ -128,8 +140,12 @@ export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 								playsInline
 								autoPlay
 								muted
+								poster={EDUCATION_VIDEOS[activeStage].poster}
 							>
-								<source src={EDUCATION_VIDEOS[activeStage]} type='video/mp4' />
+								<source
+									src={EDUCATION_VIDEOS[activeStage].src}
+									type='video/mp4'
+								/>
 							</motion.video>
 						)}
 					</AnimatePresence>
@@ -200,15 +216,6 @@ export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 							</motion.div>
 						)}
 					</AnimatePresence>
-				</div>
-
-				{/* Preload */}
-				<div style={{ display: 'none' }}>
-					{EDUCATION_VIDEOS.map((src, i) => (
-						<video key={i} preload='auto' playsInline autoPlay muted loop>
-							<source src={src} type='video/mp4' />
-						</video>
-					))}
 				</div>
 			</div>
 		</Container>

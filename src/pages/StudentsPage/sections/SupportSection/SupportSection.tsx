@@ -5,7 +5,7 @@ import { useScroll } from 'framer-motion'
 import { StackedButtonList } from './components/StackedButtonList/StackedButtonList'
 import { SupportIconsGroup } from './components/SupportIconsGroup/SupportIconsGroup'
 
-import { SUPPORT_IMAGES } from './contants'
+import { PRELOAD_IMAGES, SUPPORT_IMAGES } from './contants'
 
 import styles from './SupportSection.module.sass'
 
@@ -36,6 +36,15 @@ export const SupportSection: FC<SupportSectionProps> = ({ className }) => {
 
 		return () => unsubscribe()
 	}, [scrollYProgress])
+
+	useEffect(() => {
+		PRELOAD_IMAGES.forEach((url) => {
+			const image = document.createElement('img')
+			image.src = url
+			image.style.display = 'none'
+			document.body.appendChild(image)
+		})
+	}, [])
 
 	return (
 		<section className={clsx(styles.section, className)}>

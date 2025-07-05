@@ -1,7 +1,7 @@
 import type { FC } from 'react'
+import clsx from 'clsx'
 
 import styles from './Container.module.sass'
-import clsx from 'clsx'
 
 interface ContainerProps extends React.PropsWithChildren {
 	className?: string

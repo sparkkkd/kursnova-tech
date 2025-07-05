@@ -1,5 +1,6 @@
 import clsx from 'clsx'
-import type { FC } from 'react'
+import { useEffect, useState, type FC } from 'react'
+import { motion } from 'framer-motion'
 import { useAppDispatch } from '../../store/hooks'
 import { setIsSiderbarOpen } from '../../store/slices/uiSlice'
 
@@ -16,13 +17,38 @@ interface HeaderProps {
 export const Header: FC<HeaderProps> = ({ className }) => {
 	const dispatch = useAppDispatch()
 
+	const [isVisible, setIsVisible] = useState(true)
+	const [lastScrollY, setLastScrollY] = useState(0)
+
+	useEffect(() => {
+		const handleScroll = () => {
+			const currentScrollY = window.scrollY
+
+			if (currentScrollY > lastScrollY && currentScrollY > 100) {
+				setIsVisible(false)
+			} else {
+				setIsVisible(true)
+			}
+
+			setLastScrollY(currentScrollY)
+		}
+
+		window.addEventListener('scroll', handleScroll)
+
+		return () => window.removeEventListener('scroll', handleScroll)
+	}, [lastScrollY])
+
 	return (
-		<div className={styles.wrapper}>
+		<motion.div
+			className={clsx(styles.wrapper)}
+			animate={{ y: isVisible ? '0%' : '-100%' }}
+			transition={{ duration: 0.3 }}
+		>
 			<Container className={styles.container}>
 				<header className={clsx(styles.header, className)}>
-					<button className={styles.logo}>
+					<a href='/' className={styles.logo}>
 						<img src='./logo.svg' alt='logo' />
-					</button>
+					</a>
 					<SwitchMode className={styles.desktopMode} />
 					<div className={styles.actions}>
 						<button className={styles.signin}>Войти</button>
@@ -31,6 +57,6 @@ export const Header: FC<HeaderProps> = ({ className }) => {
 				</header>
 				{/* <SwitchMode className={styles.mobileMode} /> */}
 			</Container>
-		</div>
+		</motion.div>
 	)
 }

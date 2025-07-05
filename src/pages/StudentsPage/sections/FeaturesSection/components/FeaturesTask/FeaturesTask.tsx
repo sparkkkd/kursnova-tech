@@ -11,6 +11,8 @@ import Star from '../../../../../../assets/common/icons/star.svg?react'
 import BackPackIcon from '../../../../../../assets/common/icons/backpack.svg?react'
 import DumbbelIcon from '../../../../../../assets/common/icons/dumbbel.svg?react'
 
+import Poster from '../../../../../../assets/parents/education/poster-3.png'
+
 import styles from './FeaturesTask.module.sass'
 
 interface FeaturesTaskProps {
@@ -59,10 +61,10 @@ export const FeaturesTask: FC<FeaturesTaskProps> = ({ className }) => {
 									y: 0,
 									transition: {
 										duration: 0.3,
-										delay: 0.3,
+										delay: 0,
 									},
 								}}
-								viewport={{ once: true, amount: 0.3 }}
+								viewport={{ once: true, amount: 0.1 }}
 							>
 								ния
 								<Star className={styles.star} />
@@ -97,12 +99,13 @@ export const FeaturesTask: FC<FeaturesTaskProps> = ({ className }) => {
 					viewport={{ once: true, amount: 0.3 }}
 				>
 					<video
-						src='https://s3.timeweb.cloud/4151e8d2-4-6.digital/TaskExtra.mp4'
+						src='https://storage.yandexcloud.net/test-backet-kursnova/features-task-1.mp4'
 						className={styles.video}
 						autoPlay
 						muted
 						playsInline
 						preload='auto'
+						poster={Poster}
 					></video>
 				</motion.div>
 				<div className={styles.right}>

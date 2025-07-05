@@ -12,10 +12,10 @@ import PhoneIcon from '../../../../../../assets/students/features/video-phone.sv
 import VideoTagImage from '../../../../../../assets/students/features/video-tag.svg'
 import VideoPlayIcon from '../../../../../../assets/students/features/video-play.svg?react'
 
-import reelsVideo from '../../../../../../assets/students/features/reels.mp4'
-
 import EyeIcon from '../../../../../../assets/common/icons/eyes.svg?react'
 import TimerIcon from '../../../../../../assets/common/icons/timer.svg?react'
+
+import Poster from '../../../../../../assets/parents/education/poster-1.png'
 
 import styles from './FeaturesVideo.module.sass'
 
@@ -66,10 +66,10 @@ export const FeaturesVideo: FC<FeaturesVideoProps> = ({ className }) => {
 									y: 0,
 									transition: {
 										duration: 0.3,
-										delay: 0.3,
+										delay: 0.1,
 									},
 								}}
-								viewport={{ once: true, amount: 0.3 }}
+								viewport={{ once: true, amount: 0.2 }}
 							>
 								део
 							</motion.div>
@@ -124,11 +124,12 @@ export const FeaturesVideo: FC<FeaturesVideoProps> = ({ className }) => {
 				>
 					<video
 						className={styles.video}
-						src={reelsVideo}
+						src='https://storage.yandexcloud.net/test-backet-kursnova/features-video-1.mp4'
 						autoPlay
 						muted
 						playsInline
 						preload='auto'
+						poster={Poster}
 					></video>
 				</motion.div>
 				<div className={styles.right}>

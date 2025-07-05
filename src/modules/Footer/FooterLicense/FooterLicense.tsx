@@ -1,4 +1,4 @@
-import type { FC } from 'react'
+import { type FC } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
@@ -16,7 +16,13 @@ export const FooterLicense: FC<FooterLicenseProps> = ({
 	isMobile,
 }) => {
 	return (
-		<ul className={clsx(styles.list, className)}>
+		<motion.div
+			className={clsx(styles.list, className)}
+			initial={!isMobile ? { opacity: 0, y: -100, x: '-50%' } : undefined}
+			whileInView={!isMobile ? { opacity: 1, y: 0, x: '-50%' } : undefined}
+			transition={{ duration: 0.3 }}
+			viewport={{ once: false, amount: 0.5 }}
+		>
 			{LICENSE_ITEMS.map((item, index) => {
 				const delay = 0.1
 				return (
@@ -38,6 +44,6 @@ export const FooterLicense: FC<FooterLicenseProps> = ({
 					</motion.li>
 				)
 			})}
-		</ul>
+		</motion.div>
 	)
 }

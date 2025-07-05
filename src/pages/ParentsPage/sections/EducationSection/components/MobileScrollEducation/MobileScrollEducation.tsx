@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState, type FC } from 'react'
 import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
-import { v4 } from 'uuid'
 
 import { EducationBottomBar } from '../EducationBottomBar/EducationBottomBar/EducationBottomBar'
 
@@ -121,39 +120,75 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 					alt=''
 				/>
 				<motion.div className={styles.videoWrapper}>
-					<AnimatePresence custom={activeStage}>
-						{EDUCATION_VIDEOS.map((src, index) => {
-							return (
-								<motion.div
-									className={clsx(styles.videoContainer)}
-									key={v4()}
-									initial={{ opacity: 0, x: '100%' }}
-									animate={{ opacity: 1, x: '0%' }}
-									exit={{ opacity: 0, x: '-100%' }}
-									transition={{ duration: 0.3 }}
+					<AnimatePresence mode='wait'>
+						{activeStage === 0 && (
+							<motion.div
+								className={clsx(styles.videoContainer)}
+								key={EDUCATION_VIDEOS[activeStage].id}
+								initial={{ opacity: 0, x: '100%' }}
+								animate={{ opacity: 1, x: '0%' }}
+								exit={{ opacity: 0, x: '-100%' }}
+								transition={{ duration: 0.3 }}
+							>
+								<video
+									className={clsx(styles.video)}
+									preload='auto'
+									playsInline
+									autoPlay
+									muted
+									loop
+									poster={EDUCATION_VIDEOS[activeStage].poster}
 								>
-									<video
-										key={v4()}
-										className={clsx(
-											styles.video,
-											index === activeStage
-												? styles.videoVisible
-												: styles.videoHidden
-										)}
-										ref={(el) => {
-											if (el) videoRefs.current[index] = el
-										}}
-										preload='auto'
-										playsInline
-										autoPlay
-										muted
-										loop
-									>
-										<source src={src} />
-									</video>
-								</motion.div>
-							)
-						})}
+									<source src={EDUCATION_VIDEOS[activeStage].src} />
+								</video>
+							</motion.div>
+						)}
+
+						{activeStage === 1 && (
+							<motion.div
+								className={clsx(styles.videoContainer)}
+								key={EDUCATION_VIDEOS[activeStage].id}
+								initial={{ opacity: 0, x: '100%' }}
+								animate={{ opacity: 1, x: '0%' }}
+								exit={{ opacity: 0, x: '-100%' }}
+								transition={{ duration: 0.3 }}
+							>
+								<video
+									className={clsx(styles.video)}
+									preload='auto'
+									playsInline
+									autoPlay
+									muted
+									loop
+									poster={EDUCATION_VIDEOS[activeStage].poster}
+								>
+									<source src={EDUCATION_VIDEOS[activeStage].src} />
+								</video>
+							</motion.div>
+						)}
+
+						{activeStage === 2 && (
+							<motion.div
+								className={clsx(styles.videoContainer)}
+								key={EDUCATION_VIDEOS[activeStage].id}
+								initial={{ opacity: 0, x: '100%' }}
+								animate={{ opacity: 1, x: '0%' }}
+								exit={{ opacity: 0, x: '-100%' }}
+								transition={{ duration: 0.3 }}
+							>
+								<video
+									className={clsx(styles.video)}
+									preload='auto'
+									playsInline
+									autoPlay
+									muted
+									loop
+									poster={EDUCATION_VIDEOS[activeStage].poster}
+								>
+									<source src={EDUCATION_VIDEOS[activeStage].src} />
+								</video>
+							</motion.div>
+						)}
 					</AnimatePresence>
 				</motion.div>
 			</div>

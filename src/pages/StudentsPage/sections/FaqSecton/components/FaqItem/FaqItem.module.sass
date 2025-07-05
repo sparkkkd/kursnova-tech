@@ -10,7 +10,8 @@
 	justify-content: space-between
 	align-items: center
 	padding: mixins.rem(32) 0
-	@include mixins.fluid-text(32, 16)
+	font-size: clamp(1rem, 0.6667rem + 1.4815vw, 2rem)
+	line-height: 1.25
 	text-align: left
 
 .answer
@@ -20,7 +21,8 @@
 .answerInner
 	padding: mixins.rem(16) 0
 	padding-top: 0
-	@include mixins.fluid-text(26, 14)
+	font-size: clamp(0.875rem, 0.75rem + 0.5556vw, 1.25rem)
+	line-height: 1.4
 	color: #99a
 
 .icon
