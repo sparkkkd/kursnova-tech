@@ -71,12 +71,12 @@ export const EDUCATION_VIDEOS = [
 	},
 	{
 		id: v4(),
-		src: 'https://storage.yandexcloud.net/test-backet-kursnova/TaskExtra.mp4',
-		poster: Poster_2,
+		src: 'https://storage.yandexcloud.net/test-backet-kursnova/features-task-1.mp4',
+		poster: Poster_3,
 	},
 	{
 		id: v4(),
-		src: 'https://storage.yandexcloud.net/test-backet-kursnova/features-task-1.mp4',
-		poster: Poster_3,
+		src: 'https://storage.yandexcloud.net/test-backet-kursnova/TaskExtra.mp4',
+		poster: Poster_2,
 	},
 ]

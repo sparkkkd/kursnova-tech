@@ -1,7 +1,13 @@
 import { useEffect, useRef, useState, type FC } from 'react'
 import clsx from 'clsx'
-import { useScroll, useMotionValueEvent, useInView } from 'framer-motion'
+import {
+	useScroll,
+	useMotionValueEvent,
+	useInView,
+	motion,
+} from 'framer-motion'
 
+import { Container } from '../../../../components/Container/Container'
 import { DesktopScrollEducation } from './components/DesktopScrollEducation/DesktopScrollEducation'
 import { MobileScrollEducation } from './components/MobileScrollEducation/MobileScrollEducation'
 
@@ -55,8 +61,23 @@ export const EducationSection: FC<EducationSectionProps> = ({ className }) => {
 	})
 
 	return (
-		<section ref={sectionRef} className={clsx(styles.section, className)}>
+		<section
+			ref={sectionRef}
+			className={clsx(styles.section, className)}
+			id='education'
+		>
 			<div className={styles.inner} ref={ref}>
+				<Container>
+					<motion.h3
+						className={styles.sectionTitle}
+						initial={{ opacity: 0, y: 100 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						transition={{ duration: 0.3 }}
+						viewport={{ once: true, amount: 0.3 }}
+					>
+						Как проходит обучение?
+					</motion.h3>
+				</Container>
 				<div className={styles.sticky}>
 					<DesktopScrollEducation
 						className={styles.desktop}

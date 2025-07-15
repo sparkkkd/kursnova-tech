@@ -17,7 +17,7 @@ export const CardSection: FC<CardSectionProps> = ({ className }) => {
 	const { width } = useWindowSize()
 
 	return (
-		<section className={clsx(styles.section, className)}>
+		<section className={clsx(styles.section, className)} id='bingo'>
 			<Container>
 				<div className={styles.wrapper}>
 					<motion.div
@@ -55,12 +55,12 @@ export const CardSection: FC<CardSectionProps> = ({ className }) => {
 					<div className={styles.desktop}>
 						<DesktopCards />
 					</div>
-
-					<div className={styles.stack}>
-						<SwipeCardStacks />
-					</div>
 				</div>
 			</Container>
+
+			<div className={styles.stack}>
+				<SwipeCardStacks />
+			</div>
 		</section>
 	)
 }

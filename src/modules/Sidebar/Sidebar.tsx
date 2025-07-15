@@ -3,13 +3,14 @@ import clsx from 'clsx'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useAppDispatch, useAppSelector } from '../../store/hooks'
 import { setIsSiderbarOpen, setIsModalOpen } from '../../store/slices/uiSlice'
+import { useLenis } from 'lenis/react'
 
 import { SwitchModeSide } from './SwitchModeSide/SwitchModeSide'
 
 import { PARENT_SIDEBAR_LINKS, STUDENTS_SIDEBAR_LINKS } from './constants'
 
 import ProfitImg from '../../assets/common/sidebar/bagel.svg'
-import CloseIcon from '../../assets/close.svg?react'
+import CloseIcon from '../../assets/common/icons/close-bold.svg?react'
 
 import styles from './Sidebar.module.sass'
 
@@ -23,6 +24,8 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 
 	const [isMounted, setIsMounted] = useState(false)
 
+	const lenis = useLenis()
+
 	useEffect(() => {
 		if (isSidebarOpen) setIsMounted(true)
 	}, [isSidebarOpen])
@@ -30,6 +33,15 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 	const handleAnimationComplete = () => {
 		if (!isSidebarOpen) {
 			setIsMounted(false)
+		}
+	}
+
+	const handleLinkClick = (path: string) => {
+		dispatch(setIsSiderbarOpen(false))
+		dispatch(setIsModalOpen(false))
+
+		if (lenis) {
+			lenis.scrollTo(path, { duration: 0.2 })
 		}
 	}
 
@@ -63,7 +75,7 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 								animate={{ opacity: 1 }}
 								exit={{ opacity: 0 }}
 							>
-								<CloseIcon />
+								<CloseIcon className={styles.closeIcon} />
 							</motion.div>
 
 							<button className={styles.logo}>
@@ -78,15 +90,23 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
 							<ul className={styles.list}>
 								{mode === 'parents' &&
 									PARENT_SIDEBAR_LINKS.map((link, index) => (
-										<li key={index} className={styles.item}>
-											<a href={link.path}>{link.title}</a>
+										<li
+											key={index}
+											className={styles.item}
+											onClick={() => handleLinkClick(link.path)}
+										>
+											{link.title}
 										</li>
 									))}
 
 								{mode === 'students' &&
 									STUDENTS_SIDEBAR_LINKS.map((link, index) => (
-										<li key={index} className={styles.item}>
-											<a href={link.path}>{link.title}</a>
+										<li
+											key={index}
+											className={styles.item}
+											onClick={() => handleLinkClick(link.path)}
+										>
+											{link.title}
 										</li>
 									))}
 							</ul>

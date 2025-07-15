@@ -15,7 +15,7 @@ export const FaqSection: FC<FaqSectionProps> = ({ className }) => {
 	const [openIndex, setOpenIndex] = useState<number | null>(null)
 
 	return (
-		<section className={clsx(styles.section, className)}>
+		<section className={clsx(styles.section, className)} id='faq'>
 			<Container>
 				<div className={styles.wrapper}>
 					<h3 className={styles.title}>Частые вопросы</h3>

@@ -56,7 +56,7 @@ export const IntroTextSection: FC<IntroTextSectionProps> = ({ className }) => {
 	)
 
 	return (
-		<div className={styles.wrapper} ref={sectionRef}>
+		<div className={styles.wrapper} ref={sectionRef} id='about'>
 			<section className={clsx(styles.section, className)}>
 				<Container className={styles.container}>
 					<motion.div className={styles.titleWrapper} style={{ y: titleY }}>

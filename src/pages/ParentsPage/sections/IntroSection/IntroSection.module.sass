@@ -74,20 +74,25 @@
 		margin-left: mixins.rem(-10)
 
 @media screen and ( max-width: 600px )
+	.intro
+		padding-top: 100px
+
 	.wrapper
 		align-items: start
 
 	.title
 		text-align: left
-		letter-spacing: mixins.rem(2)
+		letter-spacing: 0.6px
+		line-height: 1
 
 	.button
-		margin-top: mixins.rem(35)
-		padding: mixins.rem(16) mixins.rem(27)
+		margin-top: 24px
+		padding: 13px 24px
 		display: block
 		width: max-content
+		font-size: 16px
+		font-weight: 500
 
-@media screen and ( max-width: 370px )
 	.mobileImg
-		width: 100%
-		margin-left: 0px
+		width: 115%
+		margin-left: -5%

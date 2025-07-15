@@ -11,7 +11,7 @@ interface TeachersSectionProps {
 
 export const TeachersSection: FC<TeachersSectionProps> = ({ className }) => {
 	return (
-		<section className={clsx(styles.teachers, className)}>
+		<section className={clsx(styles.teachers, className)} id='teachers'>
 			<DesktopTeachers className={styles.desktop} />
 			<MobileTeachers className={styles.mobile} />
 		</section>

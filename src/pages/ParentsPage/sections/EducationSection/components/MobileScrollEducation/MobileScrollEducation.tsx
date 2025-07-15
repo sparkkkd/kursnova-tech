@@ -9,7 +9,6 @@ import { EDUCATION_VIDEOS, STAGES_LABEL } from '../../constants'
 import SharkImg from '../../../../../../assets/parents/education/education-shark-mobile.png'
 
 import styles from './MobileScrollEducation.module.sass'
-import { Container } from '../../../../../../components/Container/Container'
 
 interface MobileScrollEducationProps {
 	activeStage: number
@@ -36,18 +35,6 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 	return (
 		<div className={clsx(styles.content, classname)}>
 			<div className={styles.top}>
-				<Container>
-					<motion.h3
-						className={styles.sectionTitle}
-						initial={{ opacity: 0, y: 100 }}
-						whileInView={{ opacity: 1, y: 0 }}
-						transition={{ duration: 0.3 }}
-						viewport={{ once: true, amount: 0.3 }}
-					>
-						Как проходит обучение?
-					</motion.h3>
-				</Container>
-
 				<AnimatePresence mode='wait'>
 					{activeStage === 0 && (
 						<motion.div
@@ -131,7 +118,7 @@ export const MobileScrollEducation: FC<MobileScrollEducationProps> = ({
 								transition={{ duration: 0.3 }}
 							>
 								<video
-									className={clsx(styles.video)}
+									className={clsx(styles.video, styles.video_0)}
 									preload='auto'
 									playsInline
 									autoPlay

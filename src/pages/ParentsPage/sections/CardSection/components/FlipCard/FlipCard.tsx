@@ -41,7 +41,7 @@ export const FlipCard: FC<FlipCardProps> = ({
 				if (isPresent && !isAlreadyPresentOpen) {
 					setTimeout(() => {
 						dispatch(setIsPresentOpen(true))
-					}, 400)
+					}, 3000)
 				}
 			}}
 			onPointerDown={(e) => {

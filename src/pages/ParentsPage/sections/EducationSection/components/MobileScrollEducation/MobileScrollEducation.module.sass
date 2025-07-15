@@ -32,16 +32,18 @@
 	height: 100%
 
 .video
-	position: absolute
-	top: 0
-	left: 0
 	width: 100%
 	height: 100%
-	object-fit: cover
+	object-fit: contain
 	pointer-events: none
 	transition: opacity 0.3s
 	border-radius: 14px
 	border: 0.72px solid #9999aa71
+
+.video_0
+	width: auto
+	position: absolute
+	left: -12%
 
 .videoVisible
 	opacity: 1
@@ -78,6 +80,8 @@
 .text
 	font-size: 14px
 	color: #99a
+	line-height: 1.5
+	font-weight: 400
 
 .button
 	margin-top: 15px
@@ -86,3 +90,4 @@
 	border-radius: 40px
 	background: rgba(255, 255, 255, 0.3)
 	font-size: 12px
+	font-weight: 500

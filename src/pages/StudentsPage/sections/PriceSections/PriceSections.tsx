@@ -24,7 +24,7 @@ export const PriceSections: FC<PriceSectionsProps> = ({ className }) => {
 	const dispatch = useAppDispatch()
 
 	return (
-		<section className={clsx(styles.section, className)}>
+		<section className={clsx(styles.section, className)} id='price'>
 			<Container>
 				<div className={styles.wrapper}>
 					<motion.h3

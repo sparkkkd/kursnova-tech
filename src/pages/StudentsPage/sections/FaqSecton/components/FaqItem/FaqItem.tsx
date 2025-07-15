@@ -23,7 +23,10 @@ export const FaqItem: FC<FaqItemProps> = ({
 }) => {
 	return (
 		<li className={clsx(styles.item, className)}>
-			<button className={styles.question} onClick={onToggle}>
+			<button
+				className={clsx(styles.question, { [styles.open]: isOpen })}
+				onClick={onToggle}
+			>
 				<span>{question}</span>
 				<FaqIcon className={styles.icon} isOpen={isOpen} />
 			</button>

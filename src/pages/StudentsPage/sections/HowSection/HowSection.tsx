@@ -17,7 +17,7 @@ interface HowSectionsProps {
 
 export const HowSection: FC<HowSectionsProps> = ({ className }) => {
 	return (
-		<section className={clsx(className, styles.how)}>
+		<section className={clsx(className, styles.how)} id='how'>
 			<Container>
 				<div className={styles.wrapper}>
 					<motion.h3
