@@ -22,14 +22,13 @@ export const SwipeCardStacks: FC<SwipeCardStacksProps> = ({}) => {
 			return [...rest, first]
 		})
 		setDragRotate(0)
-		setSwipeX(0)
 	}
 
 	const visibleCards = cards.slice(0, 3)
 
 	return (
 		<div className={styles.stackContainer}>
-			<AnimatePresence>
+			<AnimatePresence mode='popLayout'>
 				{visibleCards.map((card, index) => {
 					const isTop = index === 0
 					const zIndex = 3 - index
@@ -41,37 +40,35 @@ export const SwipeCardStacks: FC<SwipeCardStacksProps> = ({}) => {
 							className={styles.cardWrapper}
 							style={{
 								zIndex,
-								top: `${topOffset}px`,
 								rotateZ: isTop ? dragRotate : 0,
 							}}
 							drag={isTop ? 'x' : false}
 							dragConstraints={{ left: 0, right: 0 }}
 							onDrag={(_, info) => {
 								if (!isTop) return
-								setDragRotate(info.offset.x > 0 ? 15 : -15)
+								setDragRotate(info.offset.x > 0 ? 8 : -8)
 							}}
 							onDragEnd={(_, info: PanInfo) => {
 								if (!isTop) return
-								if (Math.abs(info.offset.x) > 100) {
+								if (Math.abs(info.offset.x) > 150) {
 									setSwipeX(info.offset.x)
 									handleSwipe()
 								} else {
 									setDragRotate(0)
 								}
 							}}
-							initial={{ scale: 1 }}
-							animate={{ scale: 1 }}
+							animate={{ top: topOffset, rotateZ: isTop ? dragRotate : 0 }}
 							exit={
 								isTop
 									? {
-											opacity: 0.5,
+											opacity: 0,
 											scale: 0.5,
-											x: swipeX > 0 ? 200 : -200,
-											rotate: swipeX > 0 ? 15 : -15,
+											x: swipeX > 0 ? 100 : -100,
+											rotate: swipeX > 0 ? 8 : -8,
 									  }
 									: { opacity: 0 }
 							}
-							transition={{ duration: 0.3 }}
+							transition={{ duration: 0.5 }}
 						>
 							<FlipCard {...card} rotate={0} className={styles.card} />
 						</motion.div>

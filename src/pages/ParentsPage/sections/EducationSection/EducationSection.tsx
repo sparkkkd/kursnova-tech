@@ -73,7 +73,7 @@ export const EducationSection: FC<EducationSectionProps> = ({ className }) => {
 						initial={{ opacity: 0, y: 100 }}
 						whileInView={{ opacity: 1, y: 0 }}
 						transition={{ duration: 0.3 }}
-						viewport={{ once: true, amount: 0.3 }}
+						viewport={{ once: false, amount: 0.2 }}
 					>
 						Как проходит обучение?
 					</motion.h3>

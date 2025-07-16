@@ -25,11 +25,11 @@ interface DesktopScrollEducationProps {
 export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 	className,
 	activeStage,
-	isInView,
+	// isInView,
 }) => {
 	return (
 		<Container className={clsx(styles.wrapper, className)}>
-			<motion.h3
+			{/* <motion.h3
 				className={styles.title}
 				initial={{ opacity: 0, y: 100 }}
 				animate={{
@@ -39,7 +39,7 @@ export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 				transition={{ duration: 0.3 }}
 			>
 				Как проходит обучение?
-			</motion.h3>
+			</motion.h3> */}
 			<div className={styles.content}>
 				<div className={styles.left}>
 					{STAGES_LABEL.map(({ id, title, text }, i) => {
