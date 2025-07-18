@@ -1,11 +1,10 @@
-import type { FC } from 'react'
+import { useState, type FC } from 'react'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'
 
 import { Container } from '../../../../components/Container/Container'
 
 import IntroImg from '../../../../assets/parents/intro/intro-img.png'
-import IntroVideo from '../../../../assets/parents/intro/parents-intro-video.webm'
 
 import styles from './IntroSection.module.sass'
 
@@ -14,6 +13,8 @@ interface IntroSectionProps {
 }
 
 export const IntroSection: FC<IntroSectionProps> = ({ className }) => {
+	const [isVideoReady, setIsVideoReady] = useState<boolean>(false)
+
 	return (
 		<section className={clsx(styles.intro, className)}>
 			<Container className={styles.wrapper}>
@@ -31,9 +32,26 @@ export const IntroSection: FC<IntroSectionProps> = ({ className }) => {
 				<button className={styles.button}>Попробовать за 0 ₽</button>
 			</Container>
 
-			<video className={styles.video} autoPlay muted preload='auto' playsInline>
-				<source src={IntroVideo} />
-			</video>
+			<motion.video
+				className={styles.video}
+				autoPlay
+				muted
+				preload='auto'
+				playsInline
+				initial={{ opacity: 0, y: 100 }}
+				animate={isVideoReady ? { opacity: 1, y: 0 } : {}}
+				transition={{ duration: 0.6 }}
+				onCanPlay={() => setIsVideoReady(true)}
+			>
+				<source
+					className={styles.chrome}
+					src='https://storage.yandexcloud.net/test-backet-kursnova/parents-intro-video.webm'
+				/>
+				<source
+					className={styles.safari}
+					src='https://storage.yandexcloud.net/test-backet-kursnova/parents-intro-video.webm'
+				/>
+			</motion.video>
 
 			<div className={styles.imageWrapper}>
 				<img className={styles.mobileImg} src={IntroImg} alt='' />

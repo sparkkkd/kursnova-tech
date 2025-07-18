@@ -5,14 +5,14 @@ import { FeaturesSection } from './sections/FeaturesSection/FeaturesSection'
 import { HowSection } from './sections/HowSection/HowSection'
 import { TeachersSection } from './sections/TeachersSection/TeachersSection'
 import { SupportSection } from './sections/SupportSection/SupportSection'
-import { PriceSections } from './sections/PriceSections/PriceSections'
 import { FaqSection } from './sections/FaqSecton/FaqSection'
-
-import styles from './StudentsPage.module.sass'
+import { PlansSection } from './sections/PlansSection/PlansSection'
 
 import { useAppSelector } from '../../store/hooks'
 import { IntroAfterAnimation } from './sections/IntroAfterAnimation/IntroAfterAnimation'
 import { useWindowSize } from 'usehooks-ts'
+
+import styles from './StudentsPage.module.sass'
 
 interface StudentsPageProps {
 	className?: string
@@ -31,7 +31,7 @@ export const StudentsPage: FC<StudentsPageProps> = ({}) => {
 			<HowSection />
 			<TeachersSection />
 			<SupportSection />
-			<PriceSections />
+			<PlansSection />
 			<FaqSection />
 		</div>
 	)

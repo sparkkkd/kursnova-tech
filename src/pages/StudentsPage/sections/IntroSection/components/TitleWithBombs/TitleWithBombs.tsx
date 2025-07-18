@@ -25,6 +25,7 @@ export const TitleWithBombs: FC<TitleWithBombsProps> = ({ className }) => {
 					initial={{ opacity: 0, y: 100 }}
 					animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
 					viewport={{ once: true, amount: 0.3 }}
+					style={{ willChange: 'transform, opacity' }}
 				>
 					<div>{width > 530 ? 'Домашки' : 'Домашки и'}</div>
 					<div>{width > 530 ? 'и контрольные' : 'контрольные'}</div>
@@ -57,7 +58,14 @@ export const TitleWithBombs: FC<TitleWithBombsProps> = ({ className }) => {
 
 			{width > 815 && (
 				<video className={styles.video} autoPlay muted preload='auto'>
-					<source src='./bombs.webm' />
+					<source
+						className={styles.chrome}
+						src='https://storage.yandexcloud.net/test-backet-kursnova/bombs.webm'
+					/>
+					<source
+						className={styles.safari}
+						src='https://storage.yandexcloud.net/test-backet-kursnova/bombs-safari.mov'
+					/>
 				</video>
 			)}
 

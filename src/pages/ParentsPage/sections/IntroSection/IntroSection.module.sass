@@ -17,7 +17,11 @@
 	right: 0
 	top: 0
 	height: 100%
+	width: auto
 	object-fit: cover
+
+.safari, .chrome
+	display: none
 
 .mobileImg
 	display: none
@@ -37,10 +41,31 @@
 	backdrop-filter: blur(48px)
 	background: rgba(255, 255, 255, 0.1)
 
+// Support
+@supports (-webkit-backdrop-filter: none)
+	.safari
+		display: block
+
+@supports not (-webkit-backdrop-filter: none)
+	.chrome
+		display: block
+
 // Media
-@media screen and ( max-width: 1480px )
+@media screen and ( max-width: 1575px )
 	.video
-		right: mixins.rem(-300)
+		right: -10%
+
+@media screen and ( max-width: 1255px )
+	.video
+		right: -20%
+
+@media screen and ( max-width: 1122px )
+	.video
+		right: -25%
+
+@media screen and ( max-width: 1060px )
+	.video
+		right: -30%
 
 @media screen and ( max-width: 1000px )
 	.intro

@@ -19,27 +19,14 @@ import styles from './DesktopScrollEducation.module.sass'
 interface DesktopScrollEducationProps {
 	className?: string
 	activeStage: number
-	isInView: boolean
 }
 
 export const DesktopScrollEducation: FC<DesktopScrollEducationProps> = ({
 	className,
 	activeStage,
-	// isInView,
 }) => {
 	return (
 		<Container className={clsx(styles.wrapper, className)}>
-			{/* <motion.h3
-				className={styles.title}
-				initial={{ opacity: 0, y: 100 }}
-				animate={{
-					opacity: isInView ? 1 : 0,
-					y: isInView ? 0 : 100,
-				}}
-				transition={{ duration: 0.3 }}
-			>
-				Как проходит обучение?
-			</motion.h3> */}
 			<div className={styles.content}>
 				<div className={styles.left}>
 					{STAGES_LABEL.map(({ id, title, text }, i) => {

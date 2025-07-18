@@ -55,7 +55,6 @@ export const Header: FC<HeaderProps> = ({ className }) => {
 						<BurgerButton onClick={() => dispatch(setIsSiderbarOpen(true))} />
 					</div>
 				</header>
-				{/* <SwitchMode className={styles.mobileMode} /> */}
 			</Container>
 		</motion.div>
 	)

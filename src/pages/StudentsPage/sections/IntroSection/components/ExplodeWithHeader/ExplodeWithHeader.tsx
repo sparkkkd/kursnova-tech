@@ -7,8 +7,6 @@ import PizzaSvg from '../../../../../../assets/common/icons/pizza.svg?react'
 import HandsSvg from '../../../../../../assets/common/icons/hands.svg?react'
 import PhoneSvg from '../../../../../../assets/common/icons/phone.svg?react'
 
-import ExplodeVideo from '../../../../../../assets/explode.webm'
-
 import styles from './ExplodeWithHeader.module.sass'
 
 interface ExplodeWithHeaderProps {
@@ -27,7 +25,7 @@ export const ExplodeWithHeader: FC<ExplodeWithHeaderProps> = ({
 		<div className={clsx(styles.wrapper, className)} ref={containerRef}>
 			<motion.video
 				ref={videoRef}
-				src={ExplodeVideo}
+				src='https://storage.yandexcloud.net/test-backet-kursnova/explode.webm'
 				className={styles.explode}
 				muted
 				preload='auto'
