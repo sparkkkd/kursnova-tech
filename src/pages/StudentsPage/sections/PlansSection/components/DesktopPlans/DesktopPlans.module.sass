@@ -1,5 +1,5 @@
 .wrapper
-	padding-bottom: 150px
+	padding-bottom: 300px
 	position: relative
 	display: flex
 	justify-content: center
@@ -7,15 +7,20 @@
 
 .img
 	position: absolute
-	left: 0
-	bottom: 64px
+	left: -64px
+	bottom: 215px
 	width: clamp(9.375rem, 5.7095rem + 8.3784vw, 13.25rem)
 	height: auto
 	z-index: 2
 
 .arrow
 	position: absolute
-	left: clamp(7.8125rem, 1.0135rem + 15.5405vw, 15rem)
-	bottom: clamp(9.0625rem, 9.772rem + -1.6216vw, 8.3125rem)
-	width: clamp(8.4375rem, 5.5405rem + 6.6216vw, 11.5rem)
+	bottom: clamp(16.0625rem, 14.8768rem + 2.7064vw, 17.3125rem)
+	left: clamp(9.375rem, 4.6321rem + 10.8254vw, 14.375rem)
 	height: auto
+	transform: rotateZ(-15deg)
+
+// Media
+@media screen and ( max-width: 1420px )
+	.img
+		left: 0

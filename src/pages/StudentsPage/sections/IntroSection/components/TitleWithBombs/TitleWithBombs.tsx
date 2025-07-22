@@ -59,12 +59,12 @@ export const TitleWithBombs: FC<TitleWithBombsProps> = ({ className }) => {
 			{width > 815 && (
 				<video className={styles.video} autoPlay muted preload='auto'>
 					<source
-						className={styles.chrome}
-						src='https://storage.yandexcloud.net/test-backet-kursnova/bombs.webm'
+						src='https://storage.yandexcloud.net/test-backet-kursnova/bombs-safari.mov'
+						type='video/mp4; codecs=hvc1'
 					/>
 					<source
-						className={styles.safari}
-						src='https://storage.yandexcloud.net/test-backet-kursnova/bombs-safari.mov'
+						src='https://storage.yandexcloud.net/test-backet-kursnova/bombs.webm'
+						type='video/webm'
 					/>
 				</video>
 			)}

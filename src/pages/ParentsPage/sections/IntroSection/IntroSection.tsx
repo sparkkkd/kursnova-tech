@@ -44,12 +44,12 @@ export const IntroSection: FC<IntroSectionProps> = ({ className }) => {
 				onCanPlay={() => setIsVideoReady(true)}
 			>
 				<source
-					className={styles.chrome}
 					src='https://storage.yandexcloud.net/test-backet-kursnova/parents-intro-video.webm'
+					type='video/mp4; codecs=hvc1'
 				/>
 				<source
-					className={styles.safari}
 					src='https://storage.yandexcloud.net/test-backet-kursnova/parents-intro-video.webm'
+					type='video/webm'
 				/>
 			</motion.video>
 
